@@ -147,7 +147,7 @@ export default function VslPage() {
 
         {/* Footer */}
         <footer className="bg-navy py-6 px-4 text-center mt-auto">
-          <p className="font-[family-name:var(--font-inter)] text-white/30 text-xs">
+          <p className="font-[family-name:var(--font-inter)] text-white/60 text-xs">
             © {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
           </p>
         </footer>

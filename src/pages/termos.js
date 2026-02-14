@@ -135,7 +135,7 @@ export default function TermosPage() {
                 Política de Privacidade
               </Link>
             </div>
-            <p className="font-[family-name:var(--font-inter)] text-white/30 text-xs">
+            <p className="font-[family-name:var(--font-inter)] text-white/60 text-xs">
               © {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
             </p>
           </div>

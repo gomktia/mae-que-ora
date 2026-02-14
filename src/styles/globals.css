@@ -5,8 +5,8 @@
   --color-navy-light: #122044;
   --color-gold: #c9a84c;
   --color-gold-light: #e2c975;
-  --color-green-cta: #2ecc70;
-  --color-green-cta-hover: #27ae60;
+  --color-green-cta: #1a9d55;
+  --color-green-cta-hover: #158247;
   --color-snow: #fafbfd;
   --color-ice: #f0f2f5;
 
@@ -15,8 +15,8 @@
 }
 
 @keyframes pulse-gentle {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 112, 0.4); }
-  50% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(46, 204, 112, 0); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(26, 157, 85, 0.4); }
+  50% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(26, 157, 85, 0); }
 }
 
 @keyframes fade-in-up {

@@ -310,14 +310,14 @@ export default function QuizPage() {
                 {currentStep.cta}
               </button>
 
-              <p className="text-center font-[family-name:var(--font-inter)] text-white/30 text-xs mt-6">
+              <p className="text-center font-[family-name:var(--font-inter)] text-white/60 text-xs mt-6">
                 &#x1F512; Suas respostas são 100% confidenciais
               </p>
             </div>
           </section>
 
           <footer className="bg-navy py-6 px-4 text-center">
-            <p className="font-[family-name:var(--font-inter)] text-white/30 text-xs">
+            <p className="font-[family-name:var(--font-inter)] text-white/60 text-xs">
               &copy; {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
             </p>
           </footer>
@@ -382,7 +382,7 @@ export default function QuizPage() {
           </section>
 
           <footer className="bg-navy py-6 px-4 text-center">
-            <p className="font-[family-name:var(--font-inter)] text-white/30 text-xs">
+            <p className="font-[family-name:var(--font-inter)] text-white/60 text-xs">
               &copy; {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
             </p>
           </footer>
@@ -424,7 +424,7 @@ export default function QuizPage() {
               </p>
             </div>
 
-            <p className="font-[family-name:var(--font-inter)] text-white/30 text-xs mt-8">
+            <p className="font-[family-name:var(--font-inter)] text-white/60 text-xs mt-8">
               Por favor, não feche esta página...
             </p>
           </div>
@@ -483,7 +483,7 @@ export default function QuizPage() {
         </section>
 
         <footer className="bg-navy py-6 px-4 text-center">
-          <p className="font-[family-name:var(--font-inter)] text-white/30 text-xs">
+          <p className="font-[family-name:var(--font-inter)] text-white/60 text-xs">
             &copy; {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
           </p>
         </footer>
