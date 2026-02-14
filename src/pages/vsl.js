@@ -52,7 +52,7 @@ function GuaranteeSeal() {
 function TestimonialCard({ src, index }) {
   return (
     <div className="relative w-full max-w-md mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg border border-gold/20 flex flex-col h-full bg-white">
-      <div className="relative w-full aspect-square sm:aspect-[4/5]">
+      <div className="relative w-full aspect-[4/3] sm:aspect-square">
         <Image
           src={src}
           alt={`Depoimento ${index + 1}`}
@@ -349,7 +349,7 @@ export default function VslPage() {
                   TRANSFORMAÇÕES REAIS DE MÃES COMO VOCÊ
                 </h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="flex overflow-x-auto space-x-6 pb-8 snap-x snap-mandatory scrollbar-hide">
                   {[
                     "depoimento-marcia.jpg",
                     "depoimento-daniela.jpg",
@@ -358,7 +358,7 @@ export default function VslPage() {
                     "depoimento-fabiana.jpg",
                     "depoimento-suzana.jpg"
                   ].map((img, idx) => (
-                    <div key={idx} className="transition-all duration-300">
+                    <div key={idx} className="flex-none snap-center w-80 sm:w-96 transition-all duration-300 transform hover:scale-[1.02]">
                       <TestimonialCard src={`/assets/uploads/2026/01/${img}`} index={idx} />
                     </div>
                   ))}
