@@ -40,3 +40,12 @@
 @utility animate-shimmer {
   animation: shimmer 3s linear infinite;
 }
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@utility animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
