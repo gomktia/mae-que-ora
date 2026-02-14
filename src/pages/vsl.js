@@ -321,13 +321,13 @@ export default function VslPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                   <DeliverableCard
-                    image="/assets/mulher-orando.jpg"
+                    image="/assets/uploads/2026/01/Design-sem-nome.jpg"
                     icon="🎧"
                     title="Orações Diárias"
                     description="Em áudio (para você ouvir onde estiver) e em formato digital (para ler e meditar)."
                   />
                   <DeliverableCard
-                    image="/assets/depoimento-02.png"
+                    image="/assets/uploads/2026/01/Design-sem-nome-2.jpg"
                     icon="📖"
                     title="Versículos Diários"
                     description="Palavra de Deus direcionada para cada dia de oração e reflexão."
@@ -339,7 +339,7 @@ export default function VslPage() {
                     description="Fortaleça espiritualmente seu filho(a) e sua casa contra inimigos."
                   />
                   <DeliverableCard
-                    image="/assets/depoimento-03.png"
+                    image="/assets/uploads/2026/01/Design-sem-nome-1.jpg"
                     icon="👥"
                     title="Comunidade de Apoio"
                     description="Outras mães que relatam batalhas vencidas. Você não estará sozinha."
