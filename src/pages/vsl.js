@@ -49,25 +49,19 @@ function GuaranteeSeal() {
   );
 }
 
-function TestimonialCard({ src, index, name }) {
+function TestimonialCard({ src, index }) {
   return (
     <div className="relative w-full max-w-md mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg border border-gold/20 flex flex-col h-full bg-white">
-      <div className="relative w-full aspect-[4/5]">
+      <div className="relative w-full aspect-square sm:aspect-[4/5]">
         <Image
           src={src}
-          alt={name || `Depoimento ${index + 1}`}
+          alt={`Depoimento ${index + 1}`}
           layout="fill"
-          objectFit="cover"
+          objectFit="contain"
+          className="p-4"
           loading="lazy"
         />
       </div>
-      {name && (
-        <div className="p-4 text-center border-t border-gold/10">
-          <p className="font-[family-name:var(--font-playfair)] text-navy font-bold text-lg">
-            {name}
-          </p>
-        </div>
-      )}
     </div>
   );
 }
@@ -357,15 +351,15 @@ export default function VslPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    { img: "WhatsApp Image 2026-02-14 at 11.33.18.jpeg" },
-                    { img: "WhatsApp Image 2026-02-14 at 11.33.19.jpeg" },
-                    { img: "WhatsApp Image 2026-02-14 at 11.33.19 (1).jpeg" },
-                    { img: "WhatsApp Image 2026-02-14 at 11.33.19 (2).jpeg" },
-                    { img: "WhatsApp Image 2026-02-14 at 11.33.19 (3).jpeg" },
-                    { img: "01.png", name: "Maria S." }
-                  ].map((item, idx) => (
+                    "depoimento-marcia.jpg",
+                    "depoimento-daniela.jpg",
+                    "depoimento-cleonice.jpg",
+                    "depoimento-aline.jpg",
+                    "depoimento-fabiana.jpg",
+                    "depoimento-suzana.jpg"
+                  ].map((img, idx) => (
                     <div key={idx} className="transition-all duration-300">
-                      <TestimonialCard src={item.img.startsWith('01') ? `/assets/uploads/2026/01/${item.img}` : `/assets/${item.img}`} index={idx} name={item.name} />
+                      <TestimonialCard src={`/assets/uploads/2026/01/${img}`} index={idx} />
                     </div>
                   ))}
                 </div>
