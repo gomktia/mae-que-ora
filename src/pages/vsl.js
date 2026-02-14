@@ -319,7 +319,7 @@ export default function VslPage() {
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                   <DeliverableCard
                     image="/assets/mulher-orando.jpg"
                     icon="🎧"
@@ -327,16 +327,22 @@ export default function VslPage() {
                     description="Em áudio (para você ouvir onde estiver) e em formato digital (para ler e meditar)."
                   />
                   <DeliverableCard
-                    image="/assets/depoimento-01.png"
+                    image="/assets/depoimento-02.png"
                     icon="📖"
                     title="Versículos Diários"
                     description="Palavra de Deus direcionada para cada dia de oração e reflexão."
                   />
                   <DeliverableCard
                     image="/assets/uploads/2026/01/Design-sem-nome-5.jpg"
+                    icon="🛡️"
+                    title="Blindagem Materna"
+                    description="Fortaleça espiritualmente seu filho(a) e sua casa contra inimigos."
+                  />
+                  <DeliverableCard
+                    image="/assets/depoimento-03.png"
                     icon="👥"
-                    title="Blindagem & Comunidade"
-                    description="Fortaleça espiritualmente seu lar e conte com o apoio de outras mães."
+                    title="Comunidade de Apoio"
+                    description="Outras mães que relatam batalhas vencidas. Você não estará sozinha."
                   />
                 </div>
               </div>
