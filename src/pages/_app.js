@@ -3,21 +3,6 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { Playfair_Display, Inter } from 'next/font/google';
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
-  display: 'swap',
-  variable: '--font-playfair',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  display: 'swap',
-  variable: '--font-inter',
-});
 
 const FB_PIXEL_ID = '1341156997695690';
 
@@ -25,7 +10,6 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    // This pageview only triggers the first time (it's important for Pixel to have real first load event)
     const handleRouteChange = () => {
       if (typeof window.fbq !== 'undefined') {
         window.fbq('track', 'PageView');
@@ -64,7 +48,6 @@ export default function App({ Component, pageProps }) {
         }}
       />
 
-      {/* Facebook Pixel NoScript */}
       <noscript>
         <img
           height="1"
@@ -75,7 +58,7 @@ export default function App({ Component, pageProps }) {
         />
       </noscript>
 
-      <div className={`${playfair.variable} ${inter.variable}`}>
+      <div className="font-[family-name:var(--font-inter)]">
         <Component {...pageProps} />
       </div>
     </>
