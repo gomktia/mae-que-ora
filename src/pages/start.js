@@ -20,12 +20,12 @@ export default function StartPage() {
                 {/* Background Image Layer */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/assets/mulher-orando.jpg"
-                        alt="Mulher orando intercedendo pelo filho"
+                        src="/assets/fundo-oracao.jpg"
+                        alt="Mulher orando de perfil com luz dourada"
                         layout="fill"
                         objectFit="cover"
                         priority
-                        className="opacity-40" // Ajuste de opacidade para legibilidade
+                        className="opacity-50" // Aumentei um pouco a opacidade para destacar a imagem
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-navy/60 to-navy/90" />
                 </div>
