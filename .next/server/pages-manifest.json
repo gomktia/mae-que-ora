@@ -1,0 +1,12 @@
+{
+  "/": "pages/index.html",
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
+  "/obrigado": "pages/obrigado.html",
+  "/oferta": "pages/oferta.html",
+  "/privacidade": "pages/privacidade.html",
+  "/termos": "pages/termos.html",
+  "/vsl": "pages/vsl.html",
+  "/404": "pages/404.html"
+}

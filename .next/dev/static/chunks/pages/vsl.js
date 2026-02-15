@@ -1,0 +1,12 @@
+__turbopack_load_page_chunks__("/vsl", [
+  "static/chunks/1093b_next_dist_compiled_83a5299c._.js",
+  "static/chunks/1093b_next_dist_shared_lib_c55c2871._.js",
+  "static/chunks/1093b_next_dist_client_a65ef6e0._.js",
+  "static/chunks/1093b_next_dist_b6167f61._.js",
+  "static/chunks/1093b_next_2a42e9c0._.js",
+  "static/chunks/1093b_react-dom_06f3d76d._.js",
+  "static/chunks/1093b_a039a2b9._.js",
+  "static/chunks/[root-of-the-server]__64f2a303._.js",
+  "static/chunks/Downloads_Projeto-Mae-Que-Ora_app_src_pages_vsl_2da965e7._.js",
+  "static/chunks/turbopack-Downloads_Projeto-Mae-Que-Ora_app_src_pages_vsl_2787335e._.js"
+])
