@@ -270,7 +270,7 @@ export default function VslPage() {
         <header className="bg-navy-light py-5 shadow-md z-10">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <span className="font-[family-name:var(--font-playfair)] text-gold text-2xl font-bold tracking-wide">
-              Mãe que Ora
+              Mãe que ora, transforma!
             </span>
           </div>
         </header>

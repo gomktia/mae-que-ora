@@ -23,7 +23,7 @@ export default function ObrigadoPage() {
         <header className="bg-navy py-4">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <span className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
-              Mãe que Ora
+              Mãe que ora, transforma!
             </span>
           </div>
         </header>
