@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PLR Premium - Produtos Digitais Profissionais para Revenda</title>
+    <meta name="description" content="Descubra um método validado para faturar de 5k a 10k/mês com produtos PLR profissionais. Ebooks com ISBN, páginas de vendas e VSLs prontos para você revender." />
+    <meta name="author" content="PLR Premium" />
+    <link rel="icon" type="image/jpeg" href="/images/logo prl.jpg" />
+    <link rel="apple-touch-icon" href="/images/logo prl.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="PLR Premium - Produtos Digitais Profissionais" />
+    <meta property="og:description" content="Fature de 5k a 10k/mês com produtos digitais prontos para revenda. Estrutura completa e profissional." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/logo prl.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PLR Premium - Produtos Digitais Profissionais" />
+    <meta name="twitter:description" content="Fature de 5k a 10k/mês com produtos digitais prontos para revenda" />
+    <meta name="twitter:image" content="/images/logo prl.jpg" />
+    <script type="module" crossorigin src="/assets/index-CZjkK_aH.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CBNxvizb.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
