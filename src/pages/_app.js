@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { FontSizeProvider, FontSizeSelector } from '@/components/FontSizeSelector';
 
 const FB_PIXEL_ID = '1341156997695690';
 
@@ -23,7 +24,7 @@ export default function App({ Component, pageProps }) {
   }, [router.events]);
 
   return (
-    <>
+    <FontSizeProvider>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Mãe que Ora</title>
@@ -58,9 +59,14 @@ export default function App({ Component, pageProps }) {
         />
       </noscript>
 
+      {/* Seletor de tamanho de fonte (acessibilidade público sênior) - canto superior direito */}
+      <div className="fixed top-4 right-4 z-[100]">
+        <FontSizeSelector />
+      </div>
+
       <div className="font-[family-name:var(--font-inter)]">
         <Component {...pageProps} />
       </div>
-    </>
+    </FontSizeProvider>
   );
 }

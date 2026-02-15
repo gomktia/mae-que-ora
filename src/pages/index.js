@@ -13,7 +13,7 @@ const STEPS = [
   // 0 — sa (landing)
   {
     type: 'landing',
-    headline: 'Existe uma oração capaz de transformar a vida do seu filho hoje.',
+    headline: '',
     highlight: 'Descubra qual é!',
     subtitle:
       'Responda essas perguntas rápidas e receba um diagnóstico personalizado sobre a vida espiritual do seu filho(a) + as orações exatas que você precisa fazer hoje.',
@@ -260,7 +260,7 @@ export default function QuizPage() {
                 Diagnóstico Espiritual Personalizado
               </span>
               <h1 className="font-[family-name:var(--font-playfair)] text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-5">
-                {currentStep.headline}{' '}
+                {currentStep.headline}{currentStep.headline && ' '}
                 <span className="text-gold">{currentStep.highlight}</span>
               </h1>
               <p className="font-[family-name:var(--font-inter)] text-white/70 text-base sm:text-lg max-w-lg mx-auto leading-relaxed mb-6">

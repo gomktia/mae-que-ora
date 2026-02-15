@@ -70,15 +70,15 @@ function GuaranteeSeal() {
 
 function TestimonialCard({ src, index }) {
   return (
-    <div className="group rounded-2xl overflow-hidden shadow-lg border border-gold/20 bg-white
+    <div className="group w-full rounded-2xl overflow-hidden shadow-lg border border-gold/20 bg-white
                     transition-all duration-500 ease-out
                     hover:shadow-2xl hover:shadow-gold/30 hover:-translate-y-2 hover:border-gold/50">
-      <div className="relative w-full aspect-[4/3] overflow-hidden">
+      <div className="relative w-full aspect-[4/5] overflow-hidden bg-snow">
         <Image
           src={src}
           alt={`Depoimento ${index + 1}`}
           layout="fill"
-          objectFit="cover"
+          objectFit="contain"
           loading="lazy"
           className="transition-transform duration-700 ease-out group-hover:scale-105"
         />
@@ -112,7 +112,7 @@ function BonusCard({ title, items, subtitle }) {
           )}
           <ul className="flex flex-wrap gap-x-3 gap-y-1 mt-2">
             {items.map((item, i) => (
-              <li key={i} className="font-[family-name:var(--font-inter)] text-navy/70 text-sm leading-snug">
+              <li key={i} className="font-[family-name:var(--font-inter)] text-black text-sm leading-snug">
                 {i > 0 && <span className="text-gold mr-1">·</span>}{item}
               </li>
             ))}
@@ -150,7 +150,7 @@ function DeliverableCard({ title, description, image, icon }) {
                        transition-colors duration-300 group-hover:text-gold">
           {title}
         </h3>
-        <p className="font-[family-name:var(--font-inter)] text-navy/70 text-xs sm:text-sm lg:text-base leading-relaxed">
+        <p className="font-[family-name:var(--font-inter)] text-black text-xs sm:text-sm lg:text-base leading-relaxed">
           {description}
         </p>
       </div>
@@ -343,7 +343,7 @@ export default function VslPage() {
                   objectFit="cover"
                   className="opacity-30"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-gold/80 via-gold/70 to-gold/80"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/60 to-white/70"></div>
               </div>
 
               <div className="relative z-10 max-w-3xl mx-auto px-4 py-16 text-center">
@@ -351,7 +351,7 @@ export default function VslPage() {
                   O Que Você Está Prestes a Descobrir Pode Mudar Tudo — Se Você Se Posicionar
                 </h2>
 
-                <div className="space-y-4 text-navy/90 font-[family-name:var(--font-inter)] text-lg md:text-xl leading-relaxed">
+                <div className="space-y-4 text-black font-[family-name:var(--font-inter)] text-lg md:text-xl leading-relaxed">
                   <p>Existe um poder espiritual que Deus confiou somente às mães.</p>
                   <p>Um poder que nenhum psicólogo, nenhum remédio, nenhum conselho humano pode substituir.</p>
                   <p className="font-bold text-navy">Esse poder está na oração que só uma mãe consegue fazer.</p>
@@ -374,13 +374,13 @@ export default function VslPage() {
                     <h3 className="font-[family-name:var(--font-playfair)] text-navy text-2xl sm:text-3xl font-bold leading-tight">
                       O Único Devocional de 14 Dias Criado Para Mães Que Querem Ver Seus Filhos Vivendo o Extraordinário
                     </h3>
-                    <p className="font-[family-name:var(--font-inter)] text-navy/80 text-lg leading-relaxed">
+                    <p className="font-[family-name:var(--font-inter)] text-black text-lg leading-relaxed">
                       Não é mais um livro que você vai comprar e deixar na estante.
                     </p>
-                    <p className="font-[family-name:var(--font-inter)] text-navy/80 text-lg leading-relaxed">
+                    <p className="font-[family-name:var(--font-inter)] text-black text-lg leading-relaxed">
                       Não é mais uma promessa vazia.
                     </p>
-                    <p className="font-[family-name:var(--font-inter)] text-navy/90 text-lg leading-relaxed font-semibold">
+                    <p className="font-[family-name:var(--font-inter)] text-black text-lg leading-relaxed font-semibold">
                       É um caminho espiritual completo, com começo, meio e fim, que vai te guiar passo a passo em orações poderosas que já transformaram centenas de famílias.
                     </p>
                   </div>
@@ -415,7 +415,7 @@ export default function VslPage() {
                       {/* Fase Infância */}
                       <div className="group/fase bg-white rounded-xl p-5 border border-gold/20 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-gold/40 hover:-translate-y-1">
                         <h4 className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold mb-3">Fase da Infância:</h4>
-                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-navy/80 text-sm">
+                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-black text-sm">
                           <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que não dorme bem, vive agitado(a) e irritado(a)</li>
                           <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que vive fases intensas da infância, exigindo cuidado e oração constante</li>
                           <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que você quer cercar de proteção e direção divina desde cedo</li>
@@ -425,7 +425,7 @@ export default function VslPage() {
                       {/* Fase Adolescência */}
                       <div className="group/fase bg-white rounded-xl p-5 border border-gold/20 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-gold/40 hover:-translate-y-1">
                         <h4 className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold mb-3">Fase da Adolescência:</h4>
-                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-navy/80 text-sm">
+                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-black text-sm">
                           <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que está passando por fases desafiadoras que te deixam sem chão</li>
                           <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que anda com más companhias ou está se afastando de casa</li>
                           <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que enfrenta ansiedade, fobias, medos intensos ou tristeza constante</li>
@@ -435,7 +435,7 @@ export default function VslPage() {
                       {/* Fase Adulta */}
                       <div className="group/fase bg-white rounded-xl p-5 border border-gold/20 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-gold/40 hover:-translate-y-1">
                         <h4 className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold mb-3">Fase Adulta:</h4>
-                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-navy/80 text-sm">
+                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-black text-sm">
                           <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que enfrenta prisões emocionais e espirituais</li>
                           <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que passa por dificuldades financeiras ou conflitos familiares</li>
                           <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que precisa de fortalecimento emocional e espiritual</li>
@@ -535,24 +535,15 @@ export default function VslPage() {
                   TRANSFORMAÇÕES REAIS DE MÃES COMO VOCÊ
                 </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {[
-                    "depoimento-novo-1.jpeg",
-                    "depoimento-novo-2.jpeg",
-                    "depoimento-novo-3.jpeg",
-                    "depoimento-novo-4.jpeg",
-                    "depoimento-novo-5.jpeg",
-                    "depoimento-novo-6.jpeg",
-                    "depoimento-novo-7.jpeg",
-                    "depoimento-novo-8.jpeg"
-                  ].map((img, idx) => (
-                    <div key={idx}>
-                      <TestimonialCard src={`/assets/uploads/2026/01/${img}`} index={idx} />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+                    <div key={n}>
+                      <TestimonialCard src={`/depoimentos/0${n}.jpeg`} index={n - 1} />
                     </div>
                   ))}
                 </div>
 
-                <p className="text-center text-navy/60 text-sm mt-8 font-medium">
+                <p className="text-center text-black text-sm mt-8 font-medium">
                   * Resultados podem variar, mas a fé é o fundamento de tudo.
                 </p>
 
