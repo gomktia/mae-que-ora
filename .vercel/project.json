@@ -1,1 +1,16 @@
-{"orgId":"team_DrpKoVeHykbH1ctCrAs1709u","projectId":"prj_EUDVCvmhNjh9q2a3iO20PIhVcLFs","settings":{}}
+{
+  "projectId": "prj_k8zUTyLQ7jnqkH4HzHfDnn6vYyg7",
+  "orgId": "team_DrpKoVeHykbH1ctCrAs1709u",
+  "projectName": "mae-que-ora",
+  "settings": {
+    "createdAt": 1771127041251,
+    "framework": "nextjs",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

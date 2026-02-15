@@ -20,5 +20,12 @@
     "@tailwindcss/postcss": "^4.1.18",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions",
+    "last 2 Safari versions",
+    "not dead"
+  ]
 }

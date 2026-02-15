@@ -255,8 +255,8 @@ export default function QuizPage() {
           </header>
 
           <section className="bg-gradient-to-b from-navy to-navy-light py-16 px-4 text-center flex-1 flex items-center">
-            <div className="max-w-2xl mx-auto animate-fade-in-up">
-              <span className="inline-block font-[family-name:var(--font-inter)] text-gold/80 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            <div className="max-w-2xl mx-auto">
+              <span className="inline-block font-[family-name:var(--font-inter)] text-gold/80 text-xs font-semibold tracking-[0.2em] uppercase mb-4 animate-fade-in-up">
                 Diagnóstico Espiritual Personalizado
               </span>
               <h1 className="font-[family-name:var(--font-playfair)] text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-5">
