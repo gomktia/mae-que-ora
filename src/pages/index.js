@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Script from 'next/script';
+import Image from 'next/image';
 
 /* ───────────────────────────────────────────
    Quiz de 15 etapas (sa + s1→s13 + loader s14)
@@ -10,35 +11,24 @@ import Script from 'next/script';
    ─────────────────────────────────────────── */
 
 const STEPS = [
-  // 0 — sa (landing)
-  {
-    type: 'landing',
-    headline: '',
-    highlight: 'Descubra qual é!',
-    subtitle:
-      'Responda essas perguntas rápidas e receba um diagnóstico personalizado sobre a vida espiritual do seu filho(a) + as orações exatas que você precisa fazer hoje.',
-    socialProof:
-      'Mais de 3.247 mães já descobriram o caminho certo para transformar a vida de seus filhos através da oração direcionada',
-    cta: 'COMEÇAR MEU DIAGNÓSTICO AGORA',
-  },
-  // 1 — s1
+  // 1 — s1 (Agora é o primeiro passo)
   {
     question: 'O que tem pesado no seu coração em relação à vida do seu filho(a)?',
     options: [
-      { emoji: '😔', text: 'Ele(a) não parece viver com a paz que deveria' },
-      { emoji: '😟', text: 'Algo nele(a) me deixa inquieta, mesmo quando tudo parece normal' },
-      { emoji: '😰', text: 'Sinto que ele(a) carrega um peso que não sei tirar' },
-      { emoji: '💔', text: 'Meu coração sente que algo não está certo' },
+      { emoji: '😔', text: 'Ele(a) não parece viver com a paz que deveria.' },
+      { emoji: '😟', text: 'Algo nele(a) me deixa inquieta, mesmo quando tudo parece normal.' },
+      { emoji: '😰', text: 'Sinto que ele(a) carrega um peso que não sei tirar.' },
+      { emoji: '💔', text: 'Meu coração sente que algo não está certo.' },
     ],
   },
   // 2 — s2
   {
     question: 'Há quanto tempo isso te preocupa?',
     options: [
-      { text: 'Menos de 1 mês' },
-      { text: '1-6 meses' },
-      { text: '6 meses - 1 ano' },
-      { text: 'Mais de 1 ano' },
+      { text: 'Menos de 1 mês.' },
+      { text: '1-6 meses.' },
+      { text: '6 meses - 1 ano.' },
+      { text: 'Mais de 1 ano.' },
     ],
   },
   // 3 — s3
@@ -47,52 +37,32 @@ const STEPS = [
     options: [
       { emoji: '😔', text: 'Será que ele(a) está no caminho certo?' },
       { emoji: '😟', text: 'E se eu não estiver fazendo o suficiente?' },
-      { emoji: '😰', text: 'Tenho medo de perdê-lo(a) para o mundo' },
-      { emoji: '💔', text: 'Sinto que algo precisa mudar, mas não sei como' },
+      { emoji: '😰', text: 'Tenho medo de perdê-lo(a) para o mundo.' },
+      { emoji: '💔', text: 'Sinto que algo precisa mudar, mas não sei como.' },
     ],
   },
   // 4 — s4
   {
     question: 'Quando você tenta entender o que está acontecendo, o que mais sente?',
     options: [
-      { text: 'Confusão por não saber a causa' },
-      { text: 'Angústia por não conseguir ajudar' },
-      { text: 'Medo de estar falhando como mãe' },
-      { text: 'Um aperto no coração difícil de explicar' },
+      { text: 'Confusão por não saber a causa.' },
+      { text: 'Angústia por não conseguir ajudar.' },
+      { text: 'Medo de estar falhando como mãe.' },
+      { text: 'Um aperto no coração difícil de explicar.' },
     ],
   },
   // 5 — s14 (Conclusion / Capture Replacement)
   {
-    type: 'capture', // Using capture type to render the conclusion screen logic
+    type: 'capture',
     headline: 'Seu diagnóstico está pronto.',
     cta: 'VER MEU DIAGNÓSTICO AGORA',
-    isConclusion: true, // Flag to identify this modified capture step
+    isConclusion: true,
   },
-  // 6 — Loader (Transição 5 Barras)
+  // 6 — Loader
   {
     type: 'loader',
     headline: 'Gerando seu Diagnóstico Personalizado...',
   },
-  /* 
-  // PRESERVED STEPS (s5 - s13 + Bridge)
-  // 5 — Capture (Old)
-  {
-    type: 'capture',
-    headline: 'Para receber seu diagnóstico detalhado e as orações, preencha abaixo:',
-    cta: 'CONTINUAR',
-  },
-  // 6 — s5
-  {
-    question: 'Se você pudesse mudar UMA coisa na vida do seu filho(a), seria:',
-    options: [
-      { text: 'Mais paz e leveza' },
-      { text: 'Mais proteção espiritual' },
-      { text: 'Relacionamento mais próximo comigo' },
-      { text: 'Propósito e direção de vida' },
-    ],
-  },
-  // ... (Other steps preserved in comments)
-  */
 ];
 
 const TOTAL_QUESTIONS = STEPS.length;
@@ -101,10 +71,10 @@ const TOTAL_QUESTIONS = STEPS.length;
 
 function GoldDivider() {
   return (
-    <div className="flex items-center justify-center gap-3 my-6">
-      <span className="h-px w-12 bg-gradient-to-r from-transparent to-gold opacity-60" />
-      <span className="text-gold text-lg">✦</span>
-      <span className="h-px w-12 bg-gradient-to-l from-transparent to-gold opacity-60" />
+    <div className="flex items-center justify-center gap-3 my-10">
+      <span className="h-px w-20 bg-gradient-to-r from-transparent to-bronze opacity-40" />
+      <span className="text-bronze text-2xl filter drop-shadow-[0_0_8px_rgba(163,120,56,0.3)]">✦</span>
+      <span className="h-px w-20 bg-gradient-to-l from-transparent to-bronze opacity-40" />
     </div>
   );
 }
@@ -113,17 +83,17 @@ function ProgressBar({ current, total }) {
   const pct = Math.round((current / total) * 100);
   return (
     <div className="w-full max-w-md mx-auto">
-      <div className="flex justify-between items-center mb-1">
-        <span className="font-[family-name:var(--font-inter)] text-white/50 text-xs">
-          Pergunta {current} de {total - 2}
+      <div className="flex justify-between items-center mb-3">
+        <span className="font-[family-name:var(--font-inter)] text-[#3E2C22]/60 text-xs font-bold uppercase tracking-widest">
+          Progresso do Diagnóstico
         </span>
-        <span className="font-[family-name:var(--font-inter)] text-gold text-xs font-semibold">
+        <span className="font-[family-name:var(--font-inter)] text-bronze text-sm font-black">
           {pct}%
         </span>
       </div>
-      <div className="w-full h-2 bg-navy-light/50 rounded-full overflow-hidden border border-white/5">
+      <div className="w-full h-2.5 bg-[#3E2C22]/5 rounded-full overflow-hidden border border-[#3E2C22]/5 shadow-inner">
         <div
-          className="h-full bg-gradient-to-r from-gold to-yellow-400 rounded-full transition-all duration-500 ease-out shadow-[0_0_8px_rgba(255,215,0,0.4)]"
+          className="h-full bg-gradient-to-r from-bronze to-amber-500 rounded-full transition-all duration-700 ease-out shadow-[0_0_12px_rgba(163,120,56,0.4)]"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -135,24 +105,21 @@ function OptionCard({ option, index, onSelect }) {
   return (
     <button
       onClick={() => onSelect(index)}
-      className="group w-full text-left bg-white border-2 border-gold/50 rounded-xl p-5
-                 shadow-md
-                 hover:bg-snow hover:border-gold hover:shadow-[0_0_15px_rgba(212,175,55,0.3)]
-                 transition-all duration-300 ease-out cursor-pointer
-                 animate-fade-in-up"
-      style={{ animationDelay: `${0.1 + index * 0.08}s` }}
+      className="group w-full text-left bg-white/60 hover:bg-white backdrop-blur-sm border border-bronze/10 rounded-2xl p-5
+                 shadow-sm hover:shadow-xl hover:shadow-bronze/10 hover:-translate-y-1
+                 transition-all duration-400 ease-out cursor-pointer relative overflow-hidden"
     >
-      <div className="flex items-center gap-4">
-        {option.emoji && (
-          <span className="text-2xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300 filter drop-shadow-sm">
-            {option.emoji}
-          </span>
-        )}
-        <span className="font-[family-name:var(--font-inter)] text-navy text-sm sm:text-base leading-snug font-medium">
+      <div className="flex items-center gap-5 relative z-10">
+        <div className="w-10 h-10 rounded-full bg-sand flex items-center justify-center text-lg shadow-sm group-hover:bg-bronze group-hover:text-white transition-colors duration-400">
+          {option.emoji || (index + 1)}
+        </div>
+        <span className="font-[family-name:var(--font-inter)] text-[#3E2C22] text-base sm:text-lg leading-snug font-bold">
           {option.text}
         </span>
-        <span className="ml-auto flex-shrink-0 text-gold font-bold group-hover:translate-x-1 transition-all duration-300">
-          &rarr;
+        <span className="ml-auto flex-shrink-0 text-bronze/40 group-hover:text-bronze group-hover:translate-x-1 transition-all duration-400">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
         </span>
       </div>
     </button>
@@ -170,7 +137,6 @@ export default function QuizPage() {
   const [formData, setFormData] = useState({ name: '', email: '', childName: '' });
 
   const currentStep = STEPS[step];
-  const displaySonName = formData.childName || 'seu filho(a)';
 
   useEffect(() => {
     const savedChildName = localStorage.getItem('filhonome');
@@ -193,25 +159,15 @@ export default function QuizPage() {
         setStep((s) => s + 1);
       }
       setTransitioning(false);
-    }, 300);
+    }, 400);
   }, [step]);
 
-  const handleCaptureSubmit = (e) => {
-    e.preventDefault();
-    if (formData.childName) {
-      localStorage.setItem('filhonome', formData.childName);
-    }
-    advance();
-  };
-
-  // Loader auto-redirect
-  // Loader auto-redirect
   // Loader auto-redirect
   useEffect(() => {
     if (currentStep.type !== 'loader') return;
 
-    const numberOfSteps = 5; // Updated to 5 steps
-    const durationPerStep = 1500; // 1.5s per step
+    const numberOfSteps = 5;
+    const durationPerStep = 1800; // 1.8s per step
     const intervalTime = 50;
 
     const id = setInterval(() => {
@@ -220,9 +176,6 @@ export default function QuizPage() {
         const next = prev + increment;
         if (next >= numberOfSteps * 100) {
           clearInterval(id);
-
-          // Redirect to VSL
-          // Using s10 (Relacionamento) by default as requested
           router.push(`/vsl?video=s10&dor=diagnostico`);
           return numberOfSteps * 100;
         }
@@ -231,303 +184,52 @@ export default function QuizPage() {
     }, intervalTime);
 
     return () => clearInterval(id);
-  }, [currentStep, router, answers]);
+  }, [currentStep, router]);
 
-  // ── LANDING (sa) ──
-  if (currentStep.type === 'landing') {
-    return (
-      <>
-        <Head>
-          <title>Mãe que Ora — Diagnóstico Espiritual</title>
-          <meta
-            name="description"
-            content="Descubra qual oração pode transformar a vida do seu filho. Diagnóstico espiritual personalizado para mães."
-          />
-        </Head>
-
-        <main className="min-h-screen bg-snow flex flex-col">
-          <header className="bg-navy py-4">
-            <div className="max-w-2xl mx-auto px-4 text-center">
-              <span className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
-                Mãe que ora, transforma!
-              </span>
-            </div>
-          </header>
-
-          <section className="bg-gradient-to-b from-navy to-navy-light py-16 px-4 text-center flex-1 flex items-center">
-            <div className="max-w-2xl mx-auto">
-              <span className="inline-block font-[family-name:var(--font-inter)] text-gold/80 text-xs font-semibold tracking-[0.2em] uppercase mb-4 animate-fade-in-up">
-                Diagnóstico Espiritual Personalizado
-              </span>
-              <h1 className="font-[family-name:var(--font-playfair)] text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-5">
-                {currentStep.headline}{currentStep.headline && ' '}
-                <span className="text-gold">{currentStep.highlight}</span>
-              </h1>
-              <p className="font-[family-name:var(--font-inter)] text-white/70 text-base sm:text-lg max-w-lg mx-auto leading-relaxed mb-6">
-                {currentStep.subtitle}
-              </p>
-
-              <p className="font-[family-name:var(--font-inter)] text-gold/80 text-sm mb-8">
-                &#x2705; {currentStep.socialProof}
-              </p>
-
-              <button
-                onClick={advance}
-                className="inline-block w-full max-w-md mx-auto bg-green-cta text-white text-center
-                          font-[family-name:var(--font-inter)] font-bold text-lg tracking-wide
-                          py-4 px-8 rounded-full shadow-lg
-                          hover:bg-green-cta-hover hover:scale-105
-                          transition-all duration-300 ease-out
-                          animate-pulse-gentle cursor-pointer"
-              >
-                {currentStep.cta}
-              </button>
-
-              <p className="text-center font-[family-name:var(--font-inter)] text-white/60 text-xs mt-6">
-                &#x1F512; Suas respostas são 100% confidenciais
-              </p>
-            </div>
-          </section>
-
-          <footer className="bg-navy py-6 px-4 text-center">
-            <p className="font-[family-name:var(--font-inter)] text-white/60 text-xs">
-              &copy; {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
-            </p>
-          </footer>
-        </main>
-      </>
-    );
-  }
-
-  // ── SOCIAL PROOF (s9) ──
-  if (currentStep.type === 'social_proof') {
-    return (
-      <>
-        <Head>
-          <title>Mãe que Ora — Diagnóstico</title>
-        </Head>
-
-        <main className="min-h-screen bg-navy flex flex-col">
-          <header className="bg-navy-light/50 py-4 shadow-sm">
-            <div className="max-w-2xl mx-auto px-4 text-center">
-              <span className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
-                Mãe que ora, transforma!
-              </span>
-            </div>
-          </header>
-
-          <section className="flex-1 px-4 py-10 bg-navy">
-            <div className="max-w-xl mx-auto">
-              <ProgressBar current={step} total={TOTAL_QUESTIONS} />
-
-              <div className="mt-8 animate-fade-in-up text-center">
-                <h2 className="font-[family-name:var(--font-playfair)] text-white text-2xl sm:text-3xl font-bold leading-tight mb-2">
-                  {currentStep.headline}
-                </h2>
-                <p className="font-[family-name:var(--font-inter)] text-gold text-base font-semibold mb-8">
-                  {currentStep.highlight}
-                </p>
-
-                {/* Carrossel de Depoimentos com Setas */}
-                <div className="relative group">
-                  {/* Botão Esquerda */}
-                  <button
-                    onClick={() => document.getElementById('testimonials-scroll').scrollBy({ left: -300, behavior: 'smooth' })}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-10 bg-navy-light/80 text-gold p-2 rounded-full shadow-lg border border-gold/20 hover:bg-navy hover:scale-110 transition-all hidden md:block"
-                    aria-label="Anterior"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg>
-                  </button>
-
-                  {/* Container Scrollavel */}
-                  <div
-                    id="testimonials-scroll"
-                    className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 mb-8 px-2 scrollbar-hide"
-                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                  >
-                    {[1, 2, 3, 4].map((n) => (
-                      <div key={n} className="snap-center shrink-0 w-[85%] sm:w-[45%] md:w-[40%] first:pl-2 last:pr-2 transform transition-transform duration-300 hover:scale-[1.02]">
-                        <img
-                          src={`/assets/prova-social-${n}.jpg`}
-                          alt={`Depoimento ${n}`}
-                          className="rounded-xl shadow-lg border border-gold/20 w-full h-auto object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Botão Direita */}
-                  <button
-                    onClick={() => document.getElementById('testimonials-scroll').scrollBy({ left: 300, behavior: 'smooth' })}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-10 bg-navy-light/80 text-gold p-2 rounded-full shadow-lg border border-gold/20 hover:bg-navy hover:scale-110 transition-all hidden md:block"
-                    aria-label="Próximo"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                  </button>
-                </div>
-
-                <div className="flex justify-center gap-1 mb-6">
-                  {[1, 2, 3, 4].map((n) => (
-                    <div key={n} className="w-2 h-2 rounded-full bg-gold/30" />
-                  ))}
-                </div>
-
-                <button
-                  onClick={advance}
-                  className="inline-block w-full max-w-sm mx-auto bg-green-cta text-white text-center
-                            font-[family-name:var(--font-inter)] font-bold text-base tracking-wide
-                            py-4 px-8 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)]
-                            hover:bg-green-cta-hover hover:scale-105
-                            transition-all duration-300 ease-out
-                            animate-pulse-gentle cursor-pointer"
-                >
-                  {currentStep.cta}
-                </button>
-              </div>
-            </div>
-          </section>
-
-          <footer className="bg-navy py-6 px-4 text-center">
-            <p className="font-[family-name:var(--font-inter)] text-white/40 text-xs">
-              &copy; {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
-            </p>
-          </footer>
-        </main>
-      </>
-    );
-  }
-
-  // ── LOADER (s14) ──
-  // ── BRIDGE STEP (s15) ──
-  // ── BRIDGE STEP (s15) ──
-  if (currentStep.type === 'bridge') {
-    const answerS5 = answers[6] || '';
-    const isRelacionamento = answerS5.includes('Relacionamento');
-    const isProtecao = answerS5.includes('Proteção');
-
-    // Default to Relacionamento if neither (fallback)
-    const showVideo = isRelacionamento || (!isRelacionamento && !isProtecao);
-
-    return (
-      <main className="min-h-screen bg-navy flex flex-col">
-        <header className="bg-navy-light/50 py-4 shadow-sm">
-          <div className="max-w-2xl mx-auto px-4 text-center">
-            <span className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
-              Mãe que ora, transforma!
-            </span>
-          </div>
-        </header>
-
-        <section className="flex-1 px-4 py-8 bg-navy flex items-center justify-center">
-          <div className="max-w-xl mx-auto text-center animate-fade-in-up">
-            {showVideo ? (
-              /* Bridge Social Proof (Video Ana - S10) */
-              <>
-                <h2 className="font-[family-name:var(--font-playfair)] text-white text-2xl sm:text-3xl font-bold mb-6">
-                  Veja o que aconteceu com a Ana...
-                </h2>
-
-                {/* Vturb Player S10 */}
-                <div className="mb-8">
-                  <Script
-                    src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js"
-                    strategy="afterInteractive"
-                  />
-                  <div id="ifr_697687b1ac47f102b3690c41_wrapper" style={{ margin: '0 auto', width: '100%', maxWidth: '400px' }}>
-                    <div style={{ position: 'relative', padding: '177.77777777777777% 0 0 0' }} id="ifr_697687b1ac47f102b3690c41_aspect">
-                      <iframe
-                        frameBorder="0"
-                        allowFullScreen
-                        src="about:blank"
-                        id="ifr_697687b1ac47f102b3690c41"
-                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                        referrerPolicy="origin"
-                        onLoad={(e) => {
-                          const t = e.target;
-                          if (!t.dataset.loaded) {
-                            t.dataset.loaded = "true";
-                            t.src = 'https://scripts.converteai.net/994289b0-78e5-4109-9d11-0ad683baa8d0/players/697687b1ac47f102b3690c41/v4/embed.html' + (window.location.search || '?') + '&vl=' + encodeURIComponent(window.location.href);
-                          }
-                        }}
-                      ></iframe>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="font-[family-name:var(--font-inter)] text-white/90 text-lg sm:text-xl mb-8 px-2 font-medium">
-                  Ela passou exatamente pelo que você está passando com <span className="text-gold font-bold">{displaySonName}</span>.
-                </p>
-              </>
-            ) : (
-              /* Bridge Statistic */
-              <>
-                <div className="border-2 border-gold/50 rounded-2xl overflow-hidden shadow-2xl shadow-gold/10 mb-8 max-w-sm mx-auto">
-                  <img
-                    src="/assets/estatistica-mae.jpg"
-                    alt="87% das mães relataram mudanças"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-                <p className="font-[family-name:var(--font-inter)] text-white/90 text-lg sm:text-xl mb-8 font-medium">
-                  O diagnóstico de <span className="text-gold font-bold">{displaySonName}</span> vai te mostrar o caminho.
-                </p>
-              </>
-            )}
-
-            <button
-              onClick={advance}
-              className="inline-block w-full max-w-md mx-auto bg-green-cta text-white text-center
-                          font-[family-name:var(--font-inter)] font-bold text-lg tracking-wide
-                          py-4 px-8 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)]
-                          hover:bg-green-cta-hover hover:scale-105
-                          transition-all duration-300 ease-out
-                          animate-pulse-gentle cursor-pointer"
-            >
-              Quero ver o diagnóstico de {displaySonName}
-            </button>
-          </div>
-        </section>
-      </main>
-    );
-  }
-
-  // ── CAPTURE STEP──
-  // ── CAPTURE STEP (Modified for Conclusion) ──
+  // ── CAPTURE STEP (Conclusion Screen) ──
   if (currentStep.type === 'capture') {
     return (
-      <main className="min-h-screen bg-navy flex flex-col items-center justify-center px-4">
-        <div className="max-w-md w-full mx-auto bg-navy-light/30 border border-gold/10 p-6 rounded-2xl shadow-2xl animate-fade-in-up backdrop-blur-sm">
-          <div className="text-center mb-8">
-            <span className="text-5xl block mb-4">✨</span>
-            <h2 className="font-[family-name:var(--font-playfair)] text-white text-2xl sm:text-3xl font-bold leading-tight mb-4">
+      <main className="min-h-screen bg-sand relative flex flex-col items-center justify-center p-4">
+        {/* Background Overlay Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/landingpage/01.jpeg"
+            alt="Background"
+            layout="fill"
+            objectFit="cover"
+            className="opacity-15 grayscale-[30%]"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-sand/80 via-transparent to-sand/80" />
+        </div>
+
+        <div className="max-w-lg w-full z-10 bg-white/90 backdrop-blur-md p-8 sm:p-12 rounded-[2.5rem] border border-bronze/20 shadow-2xl animate-fade-in text-center">
+          <div className="mb-8">
+            <span className="text-6xl block mb-6 animate-bounce-slow">✨</span>
+            <h2 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-3xl sm:text-4xl font-black leading-tight mb-4">
               {currentStep.headline}
             </h2>
-            <p className="font-[family-name:var(--font-inter)] text-white/80 text-base leading-relaxed">
+            <p className="font-[family-name:var(--font-inter)] text-[#3E2C22]/80 text-lg leading-relaxed">
               Analisamos suas respostas e encontramos um caminho de oração específico para o seu caso.
             </p>
           </div>
 
-          {/* Botão de Conclusão */}
           <button
             onClick={advance}
-            className="w-full bg-gold text-navy font-[family-name:var(--font-inter)] font-bold text-lg sm:text-xl tracking-wide py-5 rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:bg-gold-light hover:scale-105 transition-all animate-pulse-gentle"
+            className="w-full bg-bronze text-white font-[family-name:var(--font-inter)] font-black text-xl tracking-wide py-6 rounded-2xl shadow-[0_10px_25px_-5px_rgba(163,120,56,0.4)] hover:bg-[#8e682f] hover:scale-[1.02] active:scale-95 transition-all animate-pulse-gentle cursor-pointer"
           >
             {currentStep.cta}
           </button>
 
-          <p className="text-center text-white/30 text-xs mt-6">
-            🔒 Diagnóstico confidencial e seguro.
+          <p className="text-[#3E2C22]/40 text-xs mt-8 flex items-center justify-center gap-2">
+            <span>🔒</span> Diagnóstico confidencial e seguro.
           </p>
         </div>
       </main>
     );
   }
 
-  // ── FILTERED LOADER (s16) ──
+  // ── LOADER ──
   if (currentStep.type === 'loader') {
     const loadingSteps = [
       'Analisando Perfil Espiritual...',
@@ -538,111 +240,123 @@ export default function QuizPage() {
     ];
 
     return (
-      <>
-        <Head>
-          <title>Mãe que Ora — Preparando Diagnóstico...</title>
-        </Head>
+      <main className="min-h-screen bg-sand relative flex flex-col items-center justify-center p-4">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/landingpage/01.jpeg"
+            alt="Background"
+            layout="fill"
+            objectFit="cover"
+            className="opacity-15 grayscale-[30%]"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-sand/80 via-transparent to-sand/80" />
+        </div>
 
-        {/* Fundo Navy (Azul Escuro) com Dourado */}
-        <main className="min-h-screen bg-navy flex flex-col items-center justify-center px-4">
-          <div className="max-w-md mx-auto text-center animate-fade-in-up">
-            <div className="mb-8">
-              <span className="text-5xl block mb-4">🙏</span>
-              <h1 className="font-[family-name:var(--font-playfair)] text-white text-2xl sm:text-3xl font-bold leading-tight mb-3">
-                {currentStep.headline}
-              </h1>
-            </div>
-
-            <div className="w-full max-w-md mx-auto space-y-4">
-              {loadingSteps.map((text, idx) => {
-                const currentStepIndex = Math.floor(totalProgress / 100);
-                let pct = 0;
-                if (idx < currentStepIndex) pct = 100;
-                else if (idx === currentStepIndex) pct = Math.min(100, totalProgress % 100);
-
-                const isActive = idx === currentStepIndex;
-                const isCompleted = idx < currentStepIndex;
-
-                return (
-                  <div
-                    key={idx}
-                    className={`transition-opacity duration-500 ${isActive || isCompleted ? 'opacity-100' : 'opacity-40'
-                      }`}
-                  >
-                    <div className="flex justify-between items-end mb-1">
-                      <span className="font-[family-name:var(--font-inter)] text-white text-sm text-left font-medium">
-                        {text}
-                      </span>
-                      <span className="text-gold text-xs font-bold">{Math.round(pct)}%</span>
-                    </div>
-                    {/* Barra Dourada sobre fundo escuro */}
-                    <div className="h-2 bg-navy-light rounded-full overflow-hidden border border-white/5">
-                      <div
-                        className="h-full bg-gradient-to-r from-gold to-yellow-400 transition-all duration-100 ease-linear shadow-[0_0_10px_rgba(255,215,0,0.5)]"
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+        <div className="max-w-lg w-full z-10 bg-white/90 backdrop-blur-md p-8 sm:p-12 rounded-[2.5rem] border border-bronze/20 shadow-2xl animate-fade-in text-center">
+          <div className="mb-10">
+            <span className="text-6xl block mb-6 animate-pulse-gentle">🙏</span>
+            <h1 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-3xl sm:text-4xl font-black leading-tight tracking-tight">
+              {currentStep.headline}
+            </h1>
           </div>
-        </main>
-      </>
+
+          <div className="w-full space-y-6">
+            {loadingSteps.map((text, idx) => {
+              const currentStepIndex = Math.floor(totalProgress / 100);
+              const isActive = idx === currentStepIndex;
+              const isCompleted = idx < currentStepIndex;
+
+              return (
+                <div
+                  key={idx}
+                  className={`transition-all duration-500 ${isActive || isCompleted ? 'opacity-100 translate-x-0' : 'opacity-30 translate-x-2'
+                    }`}
+                >
+                  <div className="flex justify-between items-end mb-2">
+                    <span className={`font-[family-name:var(--font-inter)] text-base sm:text-lg font-bold text-[#3E2C22] ${isActive || isCompleted ? 'opacity-100' : 'opacity-40'}`}>
+                      {text}
+                    </span>
+                    <span className={`font-[family-name:var(--font-inter)] text-sm sm:text-base font-black ${isCompleted ? 'text-[#3E2C22]' : isActive ? 'text-bronze' : 'text-[#3E2C22]/40'}`}>
+                      {isCompleted ? '100%' : isActive ? `${Math.round(totalProgress % 100)}%` : '0%'}
+                    </span>
+                  </div>
+                  <div className="h-2 w-full bg-[#3E2C22]/10 rounded-full overflow-hidden">
+                    <div
+                      className={`h-full rounded-full transition-all duration-300 ${isCompleted ? 'bg-bronze w-full' : isActive ? 'bg-gradient-to-r from-bronze to-amber-500' : 'w-0'
+                        }`}
+                      style={{ width: isActive ? `${Math.round(totalProgress % 100)}%` : isCompleted ? '100%' : '0%' }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </main>
     );
   }
 
-  // ── QUESTION (padrão: s1→s13) ──
+  // ── QUESTION STEP ──
   return (
     <>
       <Head>
         <title>Mãe que Ora — Diagnóstico</title>
-        <meta
-          name="description"
-          content="Diagnóstico espiritual personalizado para mães que querem transformar a vida dos seus filhos."
-        />
       </Head>
 
-      <main className="min-h-screen bg-navy flex flex-col">
-        <header className="bg-navy-light/50 py-4 shadow-sm">
+      <main className="min-h-screen bg-sand relative flex flex-col">
+        {/* Background Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/landingpage/02.jpeg"
+            alt="Fundo Devocional"
+            layout="fill"
+            objectFit="cover"
+            className="opacity-15 grayscale-[20%]"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-sand/50 via-transparent to-sand/50" />
+        </div>
+
+        <header className="relative z-10 py-6 sm:py-8">
           <div className="max-w-2xl mx-auto px-4 text-center">
-            <span className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
+            <span className="font-[family-name:var(--font-playfair)] text-bronze text-2xl sm:text-3xl font-black tracking-tight drop-shadow-sm">
               Mãe que ora, transforma!
             </span>
+            <div className="w-16 h-1 bg-bronze/30 mx-auto mt-2 rounded-full" />
           </div>
         </header>
 
-        <section className="flex-1 px-4 py-10 bg-navy">
-          <div className="max-w-xl mx-auto">
-            <ProgressBar current={step} total={TOTAL_QUESTIONS} />
+        <section className="relative z-10 flex-1 px-4 py-8 sm:py-12 flex items-center justify-center">
+          <div className="w-full max-w-xl">
+            {/* Main Quiz Card */}
+            <div className="bg-white/90 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-bronze/20 shadow-2xl animate-fade-in">
+              <ProgressBar current={step + 1} total={TOTAL_QUESTIONS} />
 
-            <GoldDivider />
+              <div
+                className={`transition-opacity duration-300 mt-8 ${transitioning ? 'opacity-0' : 'opacity-100'}`}
+              >
+                <h2 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-2xl sm:text-3xl font-bold leading-tight text-center mb-10 animate-fade-in-up">
+                  {currentStep.question}
+                </h2>
 
-            <div
-              className={`transition-opacity duration-300 ${transitioning ? 'opacity-0' : 'opacity-100'}`}
-            >
-              <h2 className="font-[family-name:var(--font-playfair)] text-white text-xl sm:text-2xl font-bold leading-tight text-center mb-8 animate-fade-in-up">
-                {currentStep.question}
-              </h2>
+                <div className="space-y-4">
+                  {currentStep.options.map((opt, i) => (
+                    <OptionCard key={i} option={opt} index={i} onSelect={handleOptionSelect} />
+                  ))}
+                </div>
+              </div>
 
-              <div className="space-y-3">
-                {currentStep.options.map((opt, i) => (
-                  <OptionCard key={i} option={opt} index={i} onSelect={handleOptionSelect} />
-                ))}
+              <div className="mt-10 flex items-center justify-center gap-2 text-[#3E2C22]/40 text-xs sm:text-sm font-[family-name:var(--font-inter)]">
+                <span>🔒</span>
+                <span>Suas respostas são confidenciais e seguras.</span>
               </div>
             </div>
-
-            <GoldDivider />
-
-            <p className="text-center font-[family-name:var(--font-inter)] text-white/30 text-xs">
-              &#x1F512; Suas respostas são confidenciais e servem apenas para personalizar sua
-              experiência.
-            </p>
           </div>
         </section>
 
-        <footer className="bg-navy py-6 px-4 text-center">
-          <p className="font-[family-name:var(--font-inter)] text-white/40 text-xs">
+        <footer className="relative z-10 py-10 px-4 text-center">
+          <p className="font-[family-name:var(--font-inter)] text-[#3E2C22]/40 text-xs font-medium tracking-wide">
             &copy; {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
           </p>
         </footer>
