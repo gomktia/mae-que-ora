@@ -251,23 +251,48 @@ export default function VslPage() {
         </header>
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-white to-sand pt-12 pb-16 px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="font-[family-name:var(--font-playfair)] text-brown text-4xl sm:text-5xl md:text-6xl font-black leading-[1.1] mb-8 tracking-tight">
-              {headlineText}
-            </h1>
-            <p className="font-[family-name:var(--font-inter)] text-brown/70 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto mb-12">
-              Assista a este vídeo curto para entender como começar a sua transformação hoje.
-            </p>
+        {/* Hero Section */}
+        <section className="relative pt-12 pb-24 px-4 text-center overflow-hidden flex flex-col items-center">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/assets/landingpage/03.jpeg"
+              alt="Mãe com filho"
+              layout="fill"
+              objectFit="cover"
+              priority
+              className="opacity-60"
+            />
+            <div className="absolute inset-0 bg-black/70" />
           </div>
 
-          <div className="max-w-[400px] mx-auto bg-black rounded-[2rem] overflow-hidden shadow-3xl border-4 border-white mb-10 ring-1 ring-bronze/20">
-            <Script id="vturb-script" src={`https://scripts.converteai.net/994289b0-78e5-4109-9d11-0ad683baa8d0/players/${videoId}/v4/player.js`} strategy="afterInteractive" />
-            <vturb-smartplayer id={`vid-${videoId}`} style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }} referrerPolicy="origin"></vturb-smartplayer>
-          </div>
+          <div className="relative z-10 w-full max-w-[400px] flex flex-col items-center">
+            {/* Headline Card */}
+            <div className="bg-white/50 backdrop-blur-lg p-8 rounded-[2.5rem] shadow-xl border border-white/40 ring-1 ring-white/60 mb-10 w-full animate-fade-in-up">
+              <span className="inline-block font-[family-name:var(--font-inter)] text-[#A37838] text-[10px] font-black tracking-[0.3em] uppercase mb-6 bg-white/40 px-4 py-1.5 rounded-full border border-[#A37838]/20">
+                Diagnóstico Concluído
+              </span>
 
-          <div className="flex items-center justify-center gap-3 text-brown/40 text-sm font-bold animate-pulse-gentle">
-            <span className="text-xl">🔊</span> Por favor, certifique-se de que seu som está ligado.
+              <h1 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-3xl sm:text-4xl font-black leading-[1.2] mb-6 tracking-tight drop-shadow-sm">
+                {headlineText.split('...').map((part, i) => (
+                  <span key={i} className={i === 1 ? 'text-[#A37838] italic' : ''}>
+                    {part}{i === 0 && '...'}
+                  </span>
+                ))}
+              </h1>
+
+              <p className="font-[family-name:var(--font-inter)] text-[#3E2C22]/80 text-sm sm:text-base leading-relaxed font-bold">
+                Assista a este vídeo curto para entender como começar a sua transformação hoje.
+              </p>
+            </div>
+            <div className="max-w-[400px] mx-auto bg-black rounded-[2rem] overflow-hidden shadow-3xl border-4 border-white mb-10 ring-1 ring-bronze/20">
+              <Script id="vturb-script" src={`https://scripts.converteai.net/994289b0-78e5-4109-9d11-0ad683baa8d0/players/${videoId}/v4/player.js`} strategy="afterInteractive" />
+              <vturb-smartplayer id={`vid-${videoId}`} style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }} referrerPolicy="origin"></vturb-smartplayer>
+            </div>
+
+            <div className="flex items-center justify-center gap-3 text-sand/60 text-sm font-bold animate-pulse-gentle">
+              <span className="text-xl">🔊</span> Por favor, certifique-se de que seu som está ligado.
+            </div>
           </div>
         </section>
 
@@ -375,7 +400,7 @@ export default function VslPage() {
             © {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
           </p>
         </footer>
-      </main>
+      </main >
     </>
   );
 }

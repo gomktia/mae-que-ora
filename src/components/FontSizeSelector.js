@@ -20,7 +20,7 @@ export function FontSizeProvider({ children }) {
     root.style.fontSize = `${px}px`;
     try {
       localStorage.setItem(STORAGE_KEY, String(px));
-    } catch (e) {}
+    } catch (e) { }
   }, []);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export function FontSizeProvider({ children }) {
         const n = parseInt(v, 10);
         if (!Number.isNaN(n) && n >= MIN_PX && n <= MAX_PX) saved = n;
       }
-    } catch (e) {}
+    } catch (e) { }
     setFontSizePx(saved);
     applyFontSize(saved);
   }, [mounted, applyFontSize]);
@@ -76,11 +76,11 @@ export function FontSizeSelector({ className = '' }) {
 
   return (
     <div
-      className={`flex flex-col items-center gap-1.5 rounded-xl border-2 border-gold/40 bg-navy/95 shadow-lg px-3 py-2 ${className}`}
+      className={`flex flex-col items-center gap-1.5 rounded-xl border border-bronze/20 bg-white/80 backdrop-blur-sm shadow-sm px-3 py-2 ${className}`}
       role="group"
       aria-label="Ajustar tamanho da fonte"
     >
-      <span className="text-white text-xs font-semibold uppercase tracking-wide text-center whitespace-nowrap">
+      <span className="text-brown text-[10px] font-black uppercase tracking-[0.2em] text-center whitespace-nowrap">
         Tamanho do texto
       </span>
       <div className="flex items-center gap-1">
@@ -90,7 +90,7 @@ export function FontSizeSelector({ className = '' }) {
           disabled={fontSizePx <= min}
           aria-label="Diminuir tamanho da fonte (A-)"
           title="Diminuir o tamanho das letras da página"
-          className="min-w-[2.25rem] h-9 flex items-center justify-center rounded-lg font-bold text-white bg-navy-light border border-gold/30 hover:bg-gold/20 hover:border-gold/50 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-navy-light disabled:hover:border-gold/30 transition-colors text-lg focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy"
+          className="min-w-[2rem] h-8 flex items-center justify-center rounded-lg font-bold text-brown bg-sand border border-bronze/10 hover:bg-bronze hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all text-xs focus:outline-none"
         >
           A-
         </button>
@@ -100,13 +100,13 @@ export function FontSizeSelector({ className = '' }) {
           disabled={fontSizePx >= max}
           aria-label="Aumentar tamanho da fonte (A+)"
           title="Aumentar o tamanho das letras da página"
-          className="min-w-[2.25rem] h-9 flex items-center justify-center rounded-lg font-bold text-white bg-navy-light border border-gold/30 hover:bg-gold/20 hover:border-gold/50 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-navy-light disabled:hover:border-gold/30 transition-colors text-lg focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy"
+          className="min-w-[2rem] h-8 flex items-center justify-center rounded-lg font-bold text-brown bg-sand border border-bronze/10 hover:bg-bronze hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all text-xs focus:outline-none"
         >
           A+
         </button>
       </div>
-      <span className="text-gold/90 text-[10px] leading-tight text-center max-w-[90px]">
-        Aumentar ou diminuir as letras
+      <span className="text-bronze/60 text-[9px] font-bold leading-tight text-center max-w-[80px]">
+        Aumentar ou diminuir
       </span>
     </div>
   );
