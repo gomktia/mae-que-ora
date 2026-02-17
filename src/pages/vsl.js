@@ -335,15 +335,17 @@ export default function VslPage() {
               </p>
             </div>
 
-            <div className="w-full max-w-[400px] mx-auto bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-bronze/20 mb-8">
-              <Script
-                id="vturb-script"
-                src={`https://scripts.converteai.net/994289b0-78e5-4109-9d11-0ad683baa8d0/players/${videoId}/v4/player.js`}
-                strategy="afterInteractive"
-              />
+            <Script
+              id="vturb-script"
+              src={`https://scripts.converteai.net/994289b0-78e5-4109-9d11-0ad683baa8d0/players/${videoId}/v4/player.js`}
+              strategy="afterInteractive"
+            />
+
+            <div className="w-full max-w-[400px] mx-auto bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-bronze/20 mb-8 aspect-[9/16]">
               <vturb-smartplayer
+                key={`player-${videoId}`}
                 id={`vid-${videoId}`}
-                style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }}
+                style={{ display: 'block', margin: '0 auto', width: '100%', height: '100%' }}
                 referrerPolicy="origin"
               ></vturb-smartplayer>
             </div>
