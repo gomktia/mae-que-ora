@@ -13,7 +13,7 @@ const STEPS = [
   // 0 — sa (landing)
   {
     type: 'landing',
-    headline: 'Existe uma oração capaz de transformar a vida do seu filho hoje.',
+    headline: '',
     highlight: 'Descubra qual é!',
     subtitle:
       'Responda essas perguntas rápidas e receba um diagnóstico personalizado sobre a vida espiritual do seu filho(a) + as orações exatas que você precisa fazer hoje.',
@@ -249,18 +249,18 @@ export default function QuizPage() {
           <header className="bg-navy py-4">
             <div className="max-w-2xl mx-auto px-4 text-center">
               <span className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
-                Mãe que Ora
+                Mãe que ora, transforma!
               </span>
             </div>
           </header>
 
           <section className="bg-gradient-to-b from-navy to-navy-light py-16 px-4 text-center flex-1 flex items-center">
-            <div className="max-w-2xl mx-auto animate-fade-in-up">
-              <span className="inline-block font-[family-name:var(--font-inter)] text-gold/80 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            <div className="max-w-2xl mx-auto">
+              <span className="inline-block font-[family-name:var(--font-inter)] text-gold/80 text-xs font-semibold tracking-[0.2em] uppercase mb-4 animate-fade-in-up">
                 Diagnóstico Espiritual Personalizado
               </span>
               <h1 className="font-[family-name:var(--font-playfair)] text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-5">
-                {currentStep.headline}{' '}
+                {currentStep.headline}{currentStep.headline && ' '}
                 <span className="text-gold">{currentStep.highlight}</span>
               </h1>
               <p className="font-[family-name:var(--font-inter)] text-white/70 text-base sm:text-lg max-w-lg mx-auto leading-relaxed mb-6">
@@ -311,7 +311,7 @@ export default function QuizPage() {
           <header className="bg-navy-light/50 py-4 shadow-sm">
             <div className="max-w-2xl mx-auto px-4 text-center">
               <span className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
-                Mãe que Ora
+                Mãe que ora, transforma!
               </span>
             </div>
           </header>
@@ -417,7 +417,7 @@ export default function QuizPage() {
         <header className="bg-navy-light/50 py-4 shadow-sm">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <span className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
-              Mãe que Ora
+              Mãe que ora, transforma!
             </span>
           </div>
         </header>
@@ -607,7 +607,7 @@ export default function QuizPage() {
         <header className="bg-navy-light/50 py-4 shadow-sm">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <span className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
-              Mãe que Ora
+              Mãe que ora, transforma!
             </span>
           </div>
         </header>

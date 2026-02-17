@@ -20,6 +20,25 @@ const HEADLINES = {
 
 const DELAY_SECONDS = 130;
 
+function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
+  return (
+    <div className={`text-center py-8 px-4 ${className}`}>
+      <a
+        href="https://pay.kiwify.com.br/C10XqRz"
+        target="_blank"
+        className="inline-block bg-gradient-to-r from-green-500 to-green-600 text-white
+                   font-[family-name:var(--font-inter)] font-bold text-lg sm:text-xl md:text-2xl
+                   py-4 px-8 sm:px-12 md:px-14 rounded-full
+                   shadow-[0_0_20px_rgba(37,211,102,0.5)]
+                   animate-pulse-gentle hover:scale-105 hover:shadow-[0_0_40px_rgba(37,211,102,0.6)]
+                   transition-all duration-300 cursor-pointer"
+      >
+        {text}
+      </a>
+    </div>
+  );
+}
+
 function GoldDivider() {
   return (
     <div className="flex items-center justify-center gap-3 my-8">
@@ -51,15 +70,17 @@ function GuaranteeSeal() {
 
 function TestimonialCard({ src, index }) {
   return (
-    <div className="relative w-full max-w-md mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg border border-gold/20 flex flex-col h-full bg-white">
-      <div className="relative w-full aspect-square sm:aspect-[4/5]">
+    <div className="group w-full rounded-2xl overflow-hidden shadow-lg border border-gold/20 bg-white
+                    transition-all duration-500 ease-out
+                    hover:shadow-2xl hover:shadow-gold/30 hover:-translate-y-2 hover:border-gold/50">
+      <div className="relative w-full aspect-[4/5] overflow-hidden bg-snow">
         <Image
           src={src}
           alt={`Depoimento ${index + 1}`}
           layout="fill"
           objectFit="contain"
-          className="p-4"
           loading="lazy"
+          className="transition-transform duration-700 ease-out group-hover:scale-105"
         />
       </div>
     </div>
@@ -68,22 +89,31 @@ function TestimonialCard({ src, index }) {
 
 function BonusCard({ title, items, subtitle }) {
   return (
-    <div className="bg-white border-2 border-gold/50 rounded-2xl p-6 shadow-md transition-all duration-300">
-      <div className="flex items-start gap-4">
-        <div className="text-4xl filter drop-shadow-sm animate-bounce-slow">🎁</div>
-        <div>
-          <h3 className="font-[family-name:var(--font-playfair)] text-navy text-xl sm:text-2xl font-bold mb-1 leading-tight">
+    <div className="group bg-white border-2 border-gold/50 rounded-2xl px-6 py-4 shadow-md
+                    transition-all duration-500 ease-out cursor-pointer
+                    hover:shadow-2xl hover:shadow-gold/20 hover:border-gold hover:-translate-y-1 hover:scale-[1.02]">
+      <div className="flex items-center gap-4">
+        <div className="relative flex-shrink-0 w-12 h-12 flex items-center justify-center">
+          <span className="text-4xl transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">
+            🎁
+          </span>
+          <span className="absolute inset-0 rounded-full bg-gold/20 scale-0 group-hover:scale-150 transition-transform duration-700 opacity-0 group-hover:opacity-100"></span>
+          <span className="absolute inset-0 rounded-full bg-gold/10 scale-0 group-hover:scale-[2] transition-transform duration-1000 delay-100 opacity-0 group-hover:opacity-100"></span>
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-[family-name:var(--font-playfair)] text-navy text-lg sm:text-xl font-bold leading-tight
+                         transition-colors duration-300 group-hover:text-gold">
             {title}
           </h3>
           {subtitle && (
-            <p className="font-[family-name:var(--font-inter)] text-gold font-bold text-sm uppercase tracking-wider mb-3">
+            <p className="font-[family-name:var(--font-inter)] text-gold font-bold text-xs uppercase tracking-wider mt-1">
               {subtitle}
             </p>
           )}
-          <ul className="space-y-2 mt-2">
+          <ul className="flex flex-wrap gap-x-3 gap-y-1 mt-2">
             {items.map((item, i) => (
-              <li key={i} className="font-[family-name:var(--font-inter)] text-navy/80 text-base leading-[1.6]">
-                {item}
+              <li key={i} className="font-[family-name:var(--font-inter)] text-black text-sm leading-snug">
+                {i > 0 && <span className="text-gold mr-1">·</span>}{item}
               </li>
             ))}
           </ul>
@@ -95,26 +125,32 @@ function BonusCard({ title, items, subtitle }) {
 
 function DeliverableCard({ title, description, image, icon }) {
   return (
-    <div className="bg-white border border-gold/20 rounded-3xl overflow-hidden shadow-lg transition-all duration-300 h-full flex flex-col">
+    <div className="group bg-white border border-gold/20 rounded-3xl overflow-hidden shadow-lg
+                    transition-all duration-500 ease-out h-full flex flex-col
+                    hover:shadow-2xl hover:shadow-gold/20 hover:-translate-y-2 hover:border-gold/40">
       {image ? (
-        <div className="relative w-full aspect-square sm:aspect-video overflow-hidden">
+        <div className="relative w-full aspect-[3/4] sm:aspect-video overflow-hidden">
           <Image
             src={image}
             alt={title}
             layout="fill"
             objectFit="cover"
+            className="transition-transform duration-700 ease-out group-hover:scale-110"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
       ) : (
-        <div className="w-full aspect-square sm:aspect-video bg-navy/5 flex items-center justify-center text-4xl">
-          {icon}
+        <div className="w-full aspect-[3/4] sm:aspect-video bg-navy/5 flex items-center justify-center text-4xl
+                        transition-colors duration-500 group-hover:bg-gold/10">
+          <span className="transition-transform duration-500 group-hover:scale-125">{icon}</span>
         </div>
       )}
-      <div className="p-6 text-center flex-grow flex flex-col justify-center">
-        <h3 className="font-[family-name:var(--font-playfair)] text-navy text-xl sm:text-2xl font-bold mb-3 leading-tight">
+      <div className="p-3 sm:p-6 text-center flex-grow flex flex-col justify-center">
+        <h3 className="font-[family-name:var(--font-playfair)] text-navy text-base sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-3 leading-tight
+                       transition-colors duration-300 group-hover:text-gold">
           {title}
         </h3>
-        <p className="font-[family-name:var(--font-inter)] text-navy/70 text-sm sm:text-base leading-relaxed">
+        <p className="font-[family-name:var(--font-inter)] text-black text-xs sm:text-sm lg:text-base leading-relaxed">
           {description}
         </p>
       </div>
@@ -234,7 +270,7 @@ export default function VslPage() {
         <header className="bg-navy-light py-5 shadow-md z-10">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <span className="font-[family-name:var(--font-playfair)] text-gold text-2xl font-bold tracking-wide">
-              Mãe que Ora
+              Mãe que ora, transforma!
             </span>
           </div>
         </header>
@@ -279,15 +315,7 @@ export default function VslPage() {
 
             {/* 1. PURPOSE SECTION */}
             <section className="bg-navy px-4 py-8 text-center scroll-animate transition-all duration-1000">
-              <div className="max-w-2xl md:max-w-4xl mx-auto mb-8">
-                <a
-                  href="https://pay.kiwify.com.br/C10XqRz"
-                  target="_blank"
-                  className="inline-block bg-green-cta text-white font-bold text-xl md:text-2xl py-4 px-10 md:px-14 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.6)] animate-pulse-gentle hover:scale-105 transition-transform"
-                >
-                  QUERO ACESSAR O DEVOCIONAL
-                </a>
-              </div>
+              <CtaButton />
 
               <div className="max-w-3xl md:max-w-5xl mx-auto">
                 <h2 className="font-[family-name:var(--font-playfair)] text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
@@ -304,6 +332,127 @@ export default function VslPage() {
               </div>
             </section>
 
+            {/* NEW SECTION A - O QUE VOCÊ ESTÁ PRESTES A DESCOBRIR */}
+            <section className="relative overflow-hidden scroll-animate transition-all duration-1000">
+              {/* Background image with overlay */}
+              <div className="absolute inset-0">
+                <Image
+                  src="/assets/uploads/2026/01/mae-orando.jpg"
+                  alt="Mãe orando"
+                  layout="fill"
+                  objectFit="cover"
+                  className="opacity-30"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/60 to-white/70"></div>
+              </div>
+
+              <div className="relative z-10 max-w-3xl mx-auto px-4 py-16 text-center">
+                <h2 className="font-[family-name:var(--font-playfair)] text-navy text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-8">
+                  O Que Você Está Prestes a Descobrir Pode Mudar Tudo — Se Você Se Posicionar
+                </h2>
+
+                <div className="space-y-4 text-black font-[family-name:var(--font-inter)] text-lg md:text-xl leading-relaxed">
+                  <p>Existe um poder espiritual que Deus confiou somente às mães.</p>
+                  <p>Um poder que nenhum psicólogo, nenhum remédio, nenhum conselho humano pode substituir.</p>
+                  <p className="font-bold text-navy">Esse poder está na oração que só uma mãe consegue fazer.</p>
+                  <p>Deus entregou à você a autoridade e a responsabilidade espiritual pela vida do seu filho(a).</p>
+                  <p>Nos próximos 14 dias, você receberá um direcionamento diário de oração profunda para interceder e despertar o propósito de Deus na vida do seu filho(a).</p>
+                </div>
+              </div>
+            </section>
+
+            {/* NEW SECTION B - MÃE QUE ORA TRANSFORMA */}
+            <section className="bg-snow px-4 py-16 scroll-animate transition-all duration-1000">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="font-[family-name:var(--font-playfair)] text-gold text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-14 leading-tight">
+                  MÃE QUE ORA TRANSFORMA
+                </h2>
+
+                {/* Block 1 - Devocional description + images */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+                  <div className="space-y-5">
+                    <h3 className="font-[family-name:var(--font-playfair)] text-navy text-2xl sm:text-3xl font-bold leading-tight">
+                      O Único Devocional de 14 Dias Criado Para Mães Que Querem Ver Seus Filhos Vivendo o Extraordinário
+                    </h3>
+                    <p className="font-[family-name:var(--font-inter)] text-black text-lg leading-relaxed">
+                      Não é mais um livro que você vai comprar e deixar na estante.
+                    </p>
+                    <p className="font-[family-name:var(--font-inter)] text-black text-lg leading-relaxed">
+                      Não é mais uma promessa vazia.
+                    </p>
+                    <p className="font-[family-name:var(--font-inter)] text-black text-lg leading-relaxed font-semibold">
+                      É um caminho espiritual completo, com começo, meio e fim, que vai te guiar passo a passo em orações poderosas que já transformaram centenas de famílias.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="group rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold/20">
+                      <div className="relative w-full aspect-[3/4]">
+                        <Image src="/assets/uploads/2026/01/Design-sem-nome.jpg" alt="Mãe orando com filho" layout="fill" objectFit="cover" className="transition-transform duration-700 group-hover:scale-105" />
+                      </div>
+                    </div>
+                    <div className="group rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold/20">
+                      <div className="relative w-full aspect-[3/4]">
+                        <Image src="/assets/uploads/2026/01/Design-sem-nome-2.jpg" alt="Criança em oração" layout="fill" objectFit="cover" className="transition-transform duration-700 group-hover:scale-105" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Block 2 - Para quem é (Fases) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+                  <div className="group rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold/20 order-2 md:order-1">
+                    <div className="relative w-full aspect-[4/3]">
+                      <Image src="/assets/uploads/2026/01/Design-sem-nome-1.jpg" alt="Família unida em oração" layout="fill" objectFit="cover" className="transition-transform duration-700 group-hover:scale-105" />
+                    </div>
+                  </div>
+
+                  <div className="order-1 md:order-2">
+                    <h3 className="font-[family-name:var(--font-playfair)] text-navy text-2xl sm:text-3xl font-bold leading-tight mb-6">
+                      Este Devocional Foi Criado Para Você Que Tem Um Filho(a)
+                    </h3>
+
+                    <div className="space-y-6">
+                      {/* Fase Infância */}
+                      <div className="group/fase bg-white rounded-xl p-5 border border-gold/20 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-gold/40 hover:-translate-y-1">
+                        <h4 className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold mb-3">Fase da Infância:</h4>
+                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-black text-sm">
+                          <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que não dorme bem, vive agitado(a) e irritado(a)</li>
+                          <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que vive fases intensas da infância, exigindo cuidado e oração constante</li>
+                          <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que você quer cercar de proteção e direção divina desde cedo</li>
+                        </ul>
+                      </div>
+
+                      {/* Fase Adolescência */}
+                      <div className="group/fase bg-white rounded-xl p-5 border border-gold/20 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-gold/40 hover:-translate-y-1">
+                        <h4 className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold mb-3">Fase da Adolescência:</h4>
+                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-black text-sm">
+                          <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que está passando por fases desafiadoras que te deixam sem chão</li>
+                          <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que anda com más companhias ou está se afastando de casa</li>
+                          <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que enfrenta ansiedade, fobias, medos intensos ou tristeza constante</li>
+                        </ul>
+                      </div>
+
+                      {/* Fase Adulta */}
+                      <div className="group/fase bg-white rounded-xl p-5 border border-gold/20 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-gold/40 hover:-translate-y-1">
+                        <h4 className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold mb-3">Fase Adulta:</h4>
+                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-black text-sm">
+                          <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que enfrenta prisões emocionais e espirituais</li>
+                          <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que passa por dificuldades financeiras ou conflitos familiares</li>
+                          <li className="flex items-start gap-2"><span className="text-gold mt-0.5">&#10045;</span> Que precisa de fortalecimento emocional e espiritual</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <p className="font-[family-name:var(--font-inter)] text-navy text-lg font-bold mt-6 text-center md:text-left">
+                      Seja qual for a fase, chegou a hora de colocar seu filho(a) nos braços de Deus.
+                    </p>
+                  </div>
+                </div>
+
+                <CtaButton text="QUERO COMEÇAR A ORAR PELO MEU FILHO" />
+              </div>
+            </section>
+
             {/* 2. DELIVERABLES SECTION */}
             <section className="bg-navy-light/30 px-4 py-12 scroll-animate transition-all duration-1000 delay-200">
               <div className="max-w-4xl md:max-w-6xl mx-auto">
@@ -313,7 +462,7 @@ export default function VslPage() {
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
                   <DeliverableCard
                     image="/assets/uploads/2026/01/Design-sem-nome.jpg"
                     icon="🎧"
@@ -342,42 +491,14 @@ export default function VslPage() {
               </div>
             </section>
 
-            {/* 3. TESTIMONIALS (TRANSFORMATIONS) */}
-            <section className="bg-white px-4 py-16 scroll-animate transition-all duration-1000">
-              <div className="max-w-4xl mx-auto">
-                <h3 className="font-[family-name:var(--font-playfair)] text-navy text-3xl sm:text-4xl font-bold text-center mb-12">
-                  TRANSFORMAÇÕES REAIS DE MÃES COMO VOCÊ
-                </h3>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[
-                    "depoimento-marcia.jpg",
-                    "depoimento-daniela.jpg",
-                    "depoimento-cleonice.jpg",
-                    "depoimento-aline.jpg",
-                    "depoimento-fabiana.jpg",
-                    "depoimento-suzana.jpg"
-                  ].map((img, idx) => (
-                    <div key={idx} className="transition-all duration-300">
-                      <TestimonialCard src={`/assets/uploads/2026/01/${img}`} index={idx} />
-                    </div>
-                  ))}
-                </div>
-
-                <p className="text-center text-navy/60 text-sm mt-6 font-medium">
-                  * Resultados podem variar, mas a fé é o fundamento de tudo.
-                </p>
-              </div>
-            </section>
-
-            {/* 4. BONUSES SECTION */}
+            {/* 3. BONUSES SECTION */}
             <section className="bg-navy px-4 py-16 scroll-animate transition-all duration-1000 delay-200">
-              <div className="max-w-3xl mx-auto">
+              <div className="max-w-5xl mx-auto">
                 <h2 className="font-[family-name:var(--font-playfair)] text-gold text-3xl sm:text-4xl font-bold text-center mb-10 leading-tight">
                   BÔNUS EXCLUSIVOS <br /> <span className="text-white text-2xl">(Áudios Guiados de Oração)</span>
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <BonusCard
                     title="BÔNUS 1 – Oração pela Força Emocional da Mãe"
                     subtitle="Porque você também precisa estar forte"
@@ -407,6 +528,29 @@ export default function VslPage() {
               </div>
             </section>
 
+            {/* 4. TESTIMONIALS (TRANSFORMATIONS) - Social proof before pricing */}
+            <section className="bg-white px-4 py-16 scroll-animate transition-all duration-1000">
+              <div className="max-w-6xl mx-auto">
+                <h3 className="font-[family-name:var(--font-playfair)] text-navy text-3xl sm:text-4xl font-bold text-center mb-12">
+                  TRANSFORMAÇÕES REAIS DE MÃES COMO VOCÊ
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+                    <div key={n}>
+                      <TestimonialCard src={`/depoimentos/0${n}.jpeg`} index={n - 1} />
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-center text-black text-sm mt-8 font-medium">
+                  * Resultados podem variar, mas a fé é o fundamento de tudo.
+                </p>
+
+                <CtaButton text="EU TAMBÉM QUERO ESSA TRANSFORMAÇÃO" />
+              </div>
+            </section>
+
             {/* 5. PRICING & CLOSING SECTION */}
             <section className="bg-navy-light/20 px-4 py-16 pb-24 scroll-animate transition-all duration-1000">
               <div className="max-w-2xl mx-auto text-center">
@@ -415,23 +559,33 @@ export default function VslPage() {
                 </h2>
 
                 <div className="grid grid-cols-1 gap-4 mb-12 text-left">
-                  <div className="bg-navy border border-white/10 p-5 rounded-xl flex items-center gap-4 transform hover:scale-[1.02] transition-transform duration-300">
-                    <span className="text-gold text-3xl font-bold">?</span>
-                    <p className="text-white/90">Quantas noites sem paz a preocupação já te custou?</p>
+                  <div className="group bg-navy border border-white/10 p-5 rounded-xl flex items-center gap-4
+                                  transition-all duration-500 ease-out cursor-default
+                                  hover:border-gold/40 hover:bg-navy-light/50 hover:-translate-x-1">
+                    <span className="text-gold text-3xl font-bold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
+                    <p className="text-white/90 transition-colors duration-300 group-hover:text-white">Quantas noites sem paz a preocupação já te custou?</p>
                   </div>
-                  <div className="bg-navy border border-white/10 p-5 rounded-xl flex items-center gap-4 transform hover:scale-[1.02] transition-transform duration-300">
-                    <span className="text-gold text-3xl font-bold">?</span>
-                    <p className="text-white/90">Quanto você já gastou tentando resolver sozinha?</p>
+                  <div className="group bg-navy border border-white/10 p-5 rounded-xl flex items-center gap-4
+                                  transition-all duration-500 ease-out cursor-default
+                                  hover:border-gold/40 hover:bg-navy-light/50 hover:translate-x-1">
+                    <span className="text-gold text-3xl font-bold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
+                    <p className="text-white/90 transition-colors duration-300 group-hover:text-white">Quanto você já gastou tentando resolver sozinha?</p>
                   </div>
-                  <div className="bg-navy border border-white/10 p-5 rounded-xl flex items-center gap-4 transform hover:scale-[1.02] transition-transform duration-300">
-                    <span className="text-gold text-3xl font-bold">?</span>
-                    <p className="text-white/90">Quanto vale ver seu filho(a) livre, feliz e vivendo o propósito de Deus?</p>
+                  <div className="group bg-navy border border-white/10 p-5 rounded-xl flex items-center gap-4
+                                  transition-all duration-500 ease-out cursor-default
+                                  hover:border-gold/40 hover:bg-navy-light/50 hover:-translate-x-1">
+                    <span className="text-gold text-3xl font-bold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
+                    <p className="text-white/90 transition-colors duration-300 group-hover:text-white">Quanto vale ver seu filho(a) livre, feliz e vivendo o propósito de Deus?</p>
                   </div>
                 </div>
 
                 {/* PRICING BOX */}
-                <div className="bg-navy-light/40 backdrop-blur-md p-8 rounded-3xl border border-gold/40 shadow-2xl relative overflow-hidden transform hover:scale-[1.01] transition-transform duration-500">
+                <div className="group bg-navy-light/40 backdrop-blur-md p-8 rounded-3xl border border-gold/40 shadow-2xl relative overflow-hidden
+                                transition-all duration-700 ease-out animate-glow-pulse
+                                hover:border-gold/70 hover:shadow-[0_0_40px_rgba(201,168,76,0.2)]">
                   <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gold to-yellow-500"></div>
+                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/10 transition-colors duration-700"></div>
+                  <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/10 transition-colors duration-700"></div>
 
                   <p className="font-[family-name:var(--font-inter)] text-white/60 text-lg mb-2 uppercase tracking-widest font-bold">
                     De <span className="line-through text-red-400">R$ 197,00</span> por apenas
@@ -452,7 +606,7 @@ export default function VslPage() {
                   <a
                     href="https://pay.kiwify.com.br/C10XqRz"
                     target="_blank"
-                    className="group relative flex items-center justify-center w-full bg-gradient-to-r from-green-500 to-green-600 text-white 
+                    className="group/btn relative flex items-center justify-center w-full bg-gradient-to-r from-green-500 to-green-600 text-white
                                  font-[family-name:var(--font-inter)] font-bold text-[20px] sm:text-[24px] tracking-wide uppercase
                                  py-6 rounded-full shadow-[0_0_30px_rgba(37,211,102,0.4)]
                                  hover:scale-105 hover:shadow-[0_0_50px_rgba(37,211,102,0.6)]
@@ -462,7 +616,9 @@ export default function VslPage() {
                   </a>
                 </div>
 
-                <GuaranteeSeal />
+                <div className="animate-float">
+                  <GuaranteeSeal />
+                </div>
 
                 <p className="mt-8 text-white/50 text-sm max-w-lg mx-auto leading-relaxed italic">
                   "Seja o exemplo que seu filho(a) vai seguir. Dê esse passo de fé agora."
