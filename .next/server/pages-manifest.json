@@ -6,6 +6,7 @@
   "/obrigado": "pages/obrigado.html",
   "/oferta": "pages/oferta.html",
   "/privacidade": "pages/privacidade.html",
+  "/start": "pages/start.html",
   "/termos": "pages/termos.html",
   "/vsl": "pages/vsl.html",
   "/404": "pages/404.html"

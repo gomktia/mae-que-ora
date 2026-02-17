@@ -9,134 +9,96 @@ export default function TermosPage() {
         <meta name="description" content="Termos de uso do devocional Mãe que Ora." />
       </Head>
 
-      <main className="min-h-screen bg-snow flex flex-col">
+      <main className="min-h-screen bg-sand flex flex-col text-brown">
         {/* Header */}
-        <header className="bg-navy py-4">
-          <div className="max-w-2xl mx-auto px-4 text-center">
-            <Link href="/" className="font-[family-name:var(--font-playfair)] text-gold text-xl font-bold tracking-wide">
+        <header className="bg-white/80 backdrop-blur-md py-6 border-b border-bronze/10 sticky top-0 z-50">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <Link href="/" className="font-[family-name:var(--font-playfair)] text-bronze text-3xl font-black tracking-tighter hover:scale-105 transition-transform inline-block">
               Mãe que ora, transforma!
             </Link>
           </div>
         </header>
 
-        <section className="flex-1 py-12 px-4">
-          <div className="max-w-2xl mx-auto">
-            <h1 className="font-[family-name:var(--font-playfair)] text-navy text-3xl font-bold mb-8">
+        <section className="flex-1 py-20 px-4">
+          <div className="max-w-3xl mx-auto bg-white/60 backdrop-blur-sm p-8 sm:p-12 rounded-[2.5rem] border border-bronze/10 shadow-xl">
+            <h1 className="font-[family-name:var(--font-playfair)] text-brown text-4xl font-black mb-10 tracking-tighter">
               Termos de Uso
             </h1>
 
-            <div className="font-[family-name:var(--font-inter)] text-navy/70 text-sm leading-relaxed space-y-6">
-              <p>
-                <strong className="text-navy">Última atualização:</strong> Janeiro de 2026
+            <div className="font-[family-name:var(--font-inter)] text-brown/80 text-base leading-relaxed space-y-8 font-medium">
+              <p className="bg-sand/40 p-4 rounded-xl border-l-4 border-bronze italic">
+                <strong className="text-brown">Última atualização:</strong> Janeiro de 2026
               </p>
 
-              <h2 className="font-[family-name:var(--font-playfair)] text-navy text-xl font-bold mt-8">
-                1. Aceitação dos Termos
-              </h2>
-              <p>
-                Ao acessar e utilizar o site maequeora.com.br e adquirir o
-                devocional &ldquo;Mãe que Ora&rdquo;, você concorda com estes
-                Termos de Uso. Caso não concorde, por favor, não utilize nossos
-                serviços.
-              </p>
+              <div className="space-y-6">
+                <h2 className="font-[family-name:var(--font-playfair)] text-brown text-2xl font-black mt-12 mb-4">
+                  1. Aceitação dos Termos
+                </h2>
+                <p>
+                  Ao acessar e utilizar o site maequeora.com.br e adquirir o
+                  devocional &ldquo;Mãe que Ora&rdquo;, você concorda com estes
+                  Termos de Uso. Caso não concorde, por favor, não utilize nossos
+                  serviços.
+                </p>
+              </div>
 
-              <h2 className="font-[family-name:var(--font-playfair)] text-navy text-xl font-bold mt-8">
-                2. Descrição do Produto
-              </h2>
-              <p>
-                O &ldquo;Mãe que Ora&rdquo; é um devocional digital de 14 dias
-                composto por orações guiadas, versículos bíblicos, exercícios
-                espirituais e bônus exclusivos em formato de áudio e texto
-                digital. O acesso é concedido imediatamente após a confirmação do
-                pagamento.
-              </p>
+              <div className="space-y-6">
+                <h2 className="font-[family-name:var(--font-playfair)] text-brown text-2xl font-black mt-12 mb-4">
+                  2. Descrição do Produto
+                </h2>
+                <p>
+                  O &ldquo;Mãe que Ora&rdquo; é um devocional digital de 14 dias
+                  composto por orações guiadas, versículos bíblicos, exercícios
+                  espirituais e bônus exclusivos. O acesso é concedido imediatamente após a confirmação do
+                  pagamento.
+                </p>
+              </div>
 
-              <h2 className="font-[family-name:var(--font-playfair)] text-navy text-xl font-bold mt-8">
-                3. Pagamento e Acesso
-              </h2>
-              <p>
-                O pagamento é processado pela plataforma Kiwify. Após a
-                confirmação do pagamento, o acesso ao conteúdo será enviado
-                automaticamente para o e-mail cadastrado no momento da compra.
-                Aceitamos cartão de crédito, PIX e boleto bancário.
-              </p>
+              <div className="space-y-6">
+                <h2 className="font-[family-name:var(--font-playfair)] text-brown text-2xl font-black mt-12 mb-4">
+                  3. Pagamento e Acesso
+                </h2>
+                <p>
+                  O pagamento é processado pela plataforma Kiwify. O acesso será enviado
+                  automaticamente para o e-mail cadastrado.
+                </p>
+              </div>
 
-              <h2 className="font-[family-name:var(--font-playfair)] text-navy text-xl font-bold mt-8">
-                4. Política de Reembolso
-              </h2>
-              <p>
-                Oferecemos garantia incondicional de 7 (sete) dias corridos a
-                partir da data da compra, conforme o Código de Defesa do
-                Consumidor. Para solicitar o reembolso, basta entrar em contato
-                pelo e-mail de suporte ou diretamente pela plataforma Kiwify. O
-                valor será devolvido integralmente, sem necessidade de
-                justificativa.
-              </p>
+              <div className="space-y-6">
+                <h2 className="font-[family-name:var(--font-playfair)] text-brown text-2xl font-black mt-12 mb-4">
+                  4. Política de Reembolso
+                </h2>
+                <p>
+                  Oferecemos garantia incondicional de 7 dias. O valor será devolvido integralmente caso solicitado dentro deste prazo.
+                </p>
+              </div>
 
-              <h2 className="font-[family-name:var(--font-playfair)] text-navy text-xl font-bold mt-8">
-                5. Propriedade Intelectual
-              </h2>
-              <p>
-                Todo o conteúdo do devocional — incluindo textos, orações,
-                áudios, imagens e materiais de apoio — é protegido por direitos
-                autorais. É proibida a reprodução, distribuição, modificação ou
-                compartilhamento do conteúdo sem autorização prévia por escrito.
-              </p>
+              <div className="space-y-6">
+                <h2 className="font-[family-name:var(--font-playfair)] text-brown text-2xl font-black mt-12 mb-4">
+                  5. Direitos Autorais
+                </h2>
+                <p>
+                  Todo o conteúdo é protegido por direitos autorais. É proibida a reprodução ou compartilhamento sem autorização prévia por escrito.
+                </p>
+              </div>
 
-              <h2 className="font-[family-name:var(--font-playfair)] text-navy text-xl font-bold mt-8">
-                6. Uso Pessoal
-              </h2>
-              <p>
-                O acesso ao devocional é individual e intransferível. O conteúdo
-                é licenciado para uso pessoal e privado. O compartilhamento de
-                credenciais de acesso ou do material com terceiros constitui
-                violação destes termos.
-              </p>
-
-              <h2 className="font-[family-name:var(--font-playfair)] text-navy text-xl font-bold mt-8">
-                7. Isenção de Responsabilidade
-              </h2>
-              <p>
-                O devocional &ldquo;Mãe que Ora&rdquo; é um recurso espiritual e
-                devocional. Não substitui aconselhamento profissional
-                psicológico, médico ou terapêutico. Os resultados podem variar de
-                acordo com a dedicação e as circunstâncias individuais de cada
-                usuária.
-              </p>
-
-              <h2 className="font-[family-name:var(--font-playfair)] text-navy text-xl font-bold mt-8">
-                8. Modificações
-              </h2>
-              <p>
-                Reservamo-nos o direito de alterar estes Termos de Uso a qualquer
-                momento. Alterações significativas serão comunicadas por e-mail ou
-                através do site.
-              </p>
-
-              <h2 className="font-[family-name:var(--font-playfair)] text-navy text-xl font-bold mt-8">
-                9. Contato
-              </h2>
-              <p>
-                Para dúvidas sobre estes termos, entre em contato através do
-                e-mail de suporte disponível na plataforma Kiwify.
-              </p>
+              <div className="bg-brown p-8 rounded-[2rem] text-white/90 text-sm mt-12">
+                <p className="font-bold mb-4 text-bronze uppercase tracking-[0.2em]">Isenção de Responsabilidade</p>
+                O devocional é um recurso espiritual e não substitui aconselhamento médico ou psicológico profissional. Os resultados variam de acordo com as circunstâncias individuais.
+              </div>
             </div>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="bg-navy py-6 px-4 text-center">
-          <div className="max-w-2xl mx-auto">
-            <div className="flex justify-center gap-4 mb-3">
-              <Link
-                href="/privacidade"
-                className="font-[family-name:var(--font-inter)] text-white/40 text-xs hover:text-gold transition-colors"
-              >
-                Política de Privacidade
-              </Link>
+        <footer className="bg-white py-14 px-4 text-center border-t border-bronze/10">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex justify-center gap-8 mb-6 font-black text-xs uppercase tracking-widest text-brown/30">
+              <Link href="/privacidade" className="hover:text-bronze transition-colors">Privacidade</Link>
+              <Link href="/" className="hover:text-bronze transition-colors">Voltar ao Início</Link>
             </div>
-            <p className="font-[family-name:var(--font-inter)] text-white/60 text-xs">
-              © {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
+            <p className="font-[family-name:var(--font-inter)] text-brown/20 text-xs font-black tracking-widest">
+              © {new Date().getFullYear()} MÃE QUE ORA — TODOS OS DIREITOS RESERVADOS.
             </p>
           </div>
         </footer>

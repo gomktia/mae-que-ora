@@ -346,6 +346,8 @@ export default function VslPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <BonusCard title="BÔNUS 1 – Força Emocional" items={['Renovação das forças', 'Equilíbrio emocional']} subtitle="CUIDANDO DA MÃE" />
                   <BonusCard title="BÔNUS 2 – Noite de Paz" items={['Proteção noturna', 'Sono reparador']} subtitle="FILHOS DORMINDO" />
+                  <BonusCard title="BÔNUS 3 – Batalha Espiritual" items={['Autoridade espiritual', 'Corte de laços']} subtitle="LIBERTAÇÃO" />
+                  <BonusCard title="BÔNUS 4 – Consagração 2026" items={['Entrega do futuro', 'Bênção profética']} subtitle="PREPARANDO O CAMINHO" />
                 </div>
               </div>
             </section>

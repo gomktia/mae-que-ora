@@ -47,6 +47,12 @@
       "namedRegex": "^/privacidade(?:/)?$"
     },
     {
+      "page": "/start",
+      "regex": "^/start(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/start(?:/)?$"
+    },
+    {
       "page": "/termos",
       "regex": "^/termos(?:/)?$",
       "routeKeys": {},

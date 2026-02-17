@@ -11,7 +11,7 @@ import Image from 'next/image';
    ─────────────────────────────────────────── */
 
 const STEPS = [
-  // 1 — s1 (Agora é o primeiro passo)
+  // 1 — s1
   {
     question: 'O que tem pesado no seu coração em relação à vida do seu filho(a)?',
     options: [

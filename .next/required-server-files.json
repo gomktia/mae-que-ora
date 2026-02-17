@@ -20,7 +20,7 @@
       "jsx",
       "js"
     ],
-    "poweredByHeader": true,
+    "poweredByHeader": false,
     "compress": true,
     "images": {
       "deviceSizes": [
@@ -63,7 +63,16 @@
           "search": ""
         }
       ],
-      "remotePatterns": [],
+      "remotePatterns": [
+        {
+          "protocol": "https",
+          "hostname": "images.converteai.net"
+        },
+        {
+          "protocol": "https",
+          "hostname": "cdn.converteai.net"
+        }
+      ],
       "qualities": [
         75
       ],
@@ -297,8 +306,8 @@
     },
     "distDirRoot": ".next"
   },
-  "appDir": "C:\\Users\\Yoda\\Downloads\\Projeto-Mae-Que-Ora\\app",
-  "relativeAppDir": "Downloads\\Projeto-Mae-Que-Ora\\app",
+  "appDir": "C:\\Users\\Yoda\\Downloads\\Projeto-Mae-Que-Ora",
+  "relativeAppDir": "Downloads\\Projeto-Mae-Que-Ora",
   "files": [
     ".next\\routes-manifest.json",
     ".next\\server\\pages-manifest.json",
