@@ -21,8 +21,9 @@ export default function HomePage() {
           <Image
             src="/assets/landingpage/02.jpeg"
             alt="Mulher orando sob feixe de luz divino"
-            layout="fill"
-            objectFit="cover"
+            fill
+            sizes="100vw"
+            style={{ objectFit: 'cover' }}
             priority
             className="opacity-80"
           />
@@ -31,12 +32,12 @@ export default function HomePage() {
         </div>
 
         {/* Top Card Section */}
-        <div className="relative z-10 w-full max-w-[380px] bg-gradient-to-b from-white/60 to-white/30 backdrop-blur-xl rounded-[2.5rem] p-8 sm:p-10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.2)] animate-fade-in-up border-t border-t-white/80 border-b border-b-white/20 ring-1 ring-white/40">
+        <div className="relative z-10 w-full max-w-[380px] md:max-w-2xl bg-gradient-to-b from-white/60 to-white/30 backdrop-blur-xl rounded-[2.5rem] p-8 sm:p-12 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.2)] animate-fade-in-up border-t border-t-white/80 border-b border-b-white/20 ring-1 ring-white/40">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent opacity-70"></div>
-          <h1 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-3xl sm:text-4xl font-black leading-[1.2] mb-6 text-center tracking-tight drop-shadow-sm">
+          <h1 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-3xl sm:text-4xl md:text-5xl font-black leading-[1.2] mb-6 md:mb-8 text-center tracking-tight drop-shadow-sm">
             Existe uma oração capaz de transformar a vida do seu filho hoje.
           </h1>
-          <p className="font-[family-name:var(--font-inter)] text-[#3E2C22] text-lg sm:text-xl leading-snug text-center font-bold drop-shadow-sm">
+          <p className="font-[family-name:var(--font-inter)] text-[#3E2C22] text-lg sm:text-xl md:text-2xl leading-snug text-center font-bold drop-shadow-sm">
             Você sente que algo precisa mudar, mas não sabe por onde começar? Faça este diagnóstico gratuito e descubra o caminho.
           </p>
         </div>
@@ -47,7 +48,7 @@ export default function HomePage() {
         </div>
 
         {/* Bottom Action Area */}
-        <div className="relative z-10 w-full max-w-[380px] flex flex-col items-center animate-fade-in-up">
+        <div className="relative z-10 w-full max-w-[380px] md:max-w-md flex flex-col items-center animate-fade-in-up mt-8 md:mt-12">
           <button
             onClick={() => router.push('/quiz')}
             className="group relative w-full bg-gradient-to-r from-[#A37838] to-[#C89B55] text-white font-[family-name:var(--font-inter)] font-black text-lg py-6 px-4 rounded-full shadow-[0_15px_40px_-5px_rgba(163,120,56,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-4 border border-white/20 overflow-hidden"

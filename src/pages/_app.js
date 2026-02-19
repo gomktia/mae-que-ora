@@ -3,7 +3,20 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { Inter, Playfair_Display } from 'next/font/google';
 import { FontSizeProvider } from '@/components/FontSizeSelector';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
 
 const FB_PIXEL_ID = '1341156997695690';
 
@@ -61,7 +74,7 @@ export default function App({ Component, pageProps }) {
 
 
 
-      <div className="font-[family-name:var(--font-inter)]">
+      <div className={`${inter.variable} ${playfair.variable} font-sans`}>
         <Component {...pageProps} />
       </div>
     </FontSizeProvider>

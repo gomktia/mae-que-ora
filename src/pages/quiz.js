@@ -51,13 +51,8 @@ const STEPS = [
       { text: 'Um aperto no coração difícil de explicar.' },
     ],
   },
-  // 5 — s14 (Conclusion / Capture Replacement)
-  {
-    type: 'capture',
-    headline: 'Seu diagnóstico está pronto.',
-    cta: 'VER MEU DIAGNÓSTICO AGORA',
-    isConclusion: true,
-  },
+  // 5 — s14 (Conclusion / Capture Replacement) -- REMOVED BY REQUEST
+  // The flow now goes directly from the last question to the loader.
   // 6 — Loader
   {
     type: 'loader',
@@ -109,15 +104,15 @@ function OptionCard({ option, index, onSelect }) {
                  shadow-sm hover:shadow-md hover:border-bronze/30 hover:-translate-y-0.5
                  transition-all duration-300 ease-out cursor-pointer relative overflow-hidden"
     >
-      <div className="flex items-center gap-4 relative z-10">
-        <div className="w-8 h-8 rounded-full bg-sand flex items-center justify-center text-base shadow-inner group-hover:bg-bronze group-hover:text-white transition-colors duration-300">
+      <div className="flex items-center gap-4 sm:gap-6 relative z-10">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 rounded-full bg-sand flex items-center justify-center text-lg sm:text-xl shadow-inner group-hover:bg-bronze group-hover:text-white transition-colors duration-300">
           {option.emoji || (index + 1)}
         </div>
         <span className="font-[family-name:var(--font-inter)] text-[#3E2C22] text-lg sm:text-xl leading-snug font-bold">
           {option.text}
         </span>
         <span className="ml-auto flex-shrink-0 text-bronze/30 group-hover:text-bronze group-hover:translate-x-1 transition-all duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
           </svg>
         </span>
@@ -204,12 +199,12 @@ export default function QuizPage() {
         </div>
 
         {/* Top Card Section */}
-        <div className="relative z-10 w-full max-w-[380px] bg-white/50 backdrop-blur-lg rounded-[2.5rem] p-8 sm:p-10 shadow-xl animate-fade-in-up border border-white/40 ring-1 ring-white/60">
+        <div className="relative z-10 w-full max-w-[380px] md:max-w-2xl bg-white/50 backdrop-blur-lg rounded-[2.5rem] p-8 sm:p-12 shadow-xl animate-fade-in-up border border-white/40 ring-1 ring-white/60">
           <div className="mb-8">
-            <h2 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-3xl sm:text-4xl font-black leading-tight mb-4 text-center drop-shadow-sm">
+            <h2 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-6 text-center drop-shadow-sm">
               {currentStep.headline}
             </h2>
-            <p className="font-[family-name:var(--font-inter)] text-[#3E2C22] text-lg sm:text-xl leading-relaxed font-bold text-center drop-shadow-sm">
+            <p className="font-[family-name:var(--font-inter)] text-[#3E2C22] text-lg sm:text-xl md:text-2xl leading-relaxed font-bold text-center drop-shadow-sm">
               Analisamos suas respostas e encontramos um caminho de oração específico para o seu caso.
             </p>
           </div>
@@ -219,7 +214,7 @@ export default function QuizPage() {
         <div className="flex-grow"></div>
 
         {/* Bottom Action Area */}
-        <div className="relative z-10 w-full max-w-[380px] flex flex-col items-center animate-fade-in-up">
+        <div className="relative z-10 w-full max-w-[380px] md:max-w-md flex flex-col items-center animate-fade-in-up">
           <button
             onClick={advance}
             className="group w-full bg-[#A37838] text-white font-[family-name:var(--font-inter)] font-black text-lg py-6 px-4 rounded-full shadow-[0_15px_40px_-5px_rgba(163,120,56,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-4 border border-white/10"
@@ -267,18 +262,18 @@ export default function QuizPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-white/10 to-black/40" />
         </div>
 
-        <div className="max-w-[380px] w-full z-10 bg-white/60 backdrop-blur-lg rounded-[2.5rem] p-8 sm:p-10 shadow-2xl animate-fade-in text-center border border-white/50 ring-1 ring-white/60 relative overflow-hidden">
+        <div className="max-w-[380px] md:max-w-2xl w-full z-10 bg-white/60 backdrop-blur-lg rounded-[2.5rem] p-8 sm:p-12 shadow-2xl animate-fade-in text-center border border-white/50 ring-1 ring-white/60 relative overflow-hidden">
           {/* Decorative shine effect */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/80 to-transparent opacity-50"></div>
 
           <div className="mb-12">
-            <h1 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-3xl sm:text-4xl font-black leading-tight tracking-tight drop-shadow-sm mb-2">
+            <h1 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight drop-shadow-sm mb-4">
               {currentStep.headline}
             </h1>
             <div className="w-16 h-1 bg-[#A37838]/30 mx-auto rounded-full mt-6"></div>
           </div>
 
-          <div className="w-full space-y-6">
+          <div className="w-full space-y-6 md:space-y-8">
             {loadingSteps.map((text, idx) => {
               const currentStepIndex = Math.floor(totalProgress / 100);
               const isActive = idx === currentStepIndex;
@@ -340,7 +335,7 @@ export default function QuizPage() {
           </span>
         </div>
 
-        <section className="relative z-10 w-full max-w-[380px]">
+        <section className="relative z-10 w-full max-w-[380px] md:max-w-3xl">
           {/* Main Quiz Card */}
           <div className="bg-white/50 backdrop-blur-lg p-6 sm:p-8 rounded-[2rem] shadow-xl animate-fade-in border border-white/40 ring-1 ring-white/60">
             <ProgressBar current={step + 1} total={TOTAL_QUESTIONS} />
@@ -348,11 +343,11 @@ export default function QuizPage() {
             <div
               className={`transition-opacity duration-300 mt-6 ${transitioning ? 'opacity-0' : 'opacity-100'}`}
             >
-              <h2 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-2xl sm:text-3xl font-black leading-tight text-center mb-8 animate-fade-in-up drop-shadow-sm">
+              <h2 className="font-[family-name:var(--font-playfair)] text-[#3E2C22] text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-center mb-8 md:mb-12 animate-fade-in-up drop-shadow-sm">
                 {currentStep.question}
               </h2>
 
-              <div className="space-y-3">
+              <div className="space-y-3 md:space-y-4">
                 {currentStep.options.map((opt, i) => (
                   <OptionCard key={i} option={opt} index={i} onSelect={handleOptionSelect} />
                 ))}
