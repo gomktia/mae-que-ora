@@ -511,8 +511,8 @@ export default function VslPage() {
             {/* NEW SECTION C - APP / DIGITAL EXPERIENCE */}
             <section className="bg-white px-4 py-16 scroll-animate transition-all duration-1000">
               <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
-                <div className="md:w-1/2 order-2 md:order-1">
-                  <div className="relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-bronze/20 transform hover:scale-[1.02] transition-transform duration-500">
+                <div className="md:w-1/2">
+                  <div className="relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-bronze/20 transform hover:scale-[1.02] transition-transform duration-500 mb-8 md:mb-0">
                     <Image
                       src="/assets/uploads/mockup-app.jpg"
                       alt="Aplicativo Mãe Que Ora"
@@ -522,7 +522,7 @@ export default function VslPage() {
                     />
                   </div>
                 </div>
-                <div className="md:w-1/2 order-1 md:order-2 text-left">
+                <div className="md:w-1/2 text-left">
                   <div className="inline-block bg-bronze/10 text-bronze px-4 py-2 rounded-full font-bold text-xs uppercase tracking-widest mb-6">
                     MUITO MAIS QUE UM LIVRO DIGITAL
                   </div>
