@@ -508,6 +508,57 @@ export default function VslPage() {
               </div>
             </section>
 
+            {/* NEW SECTION C - APP / DIGITAL EXPERIENCE */}
+            <section className="bg-white px-4 py-16 scroll-animate transition-all duration-1000">
+              <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+                <div className="md:w-1/2 order-2 md:order-1">
+                  <div className="relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-bronze/20 transform hover:scale-[1.02] transition-transform duration-500">
+                    <Image
+                      src="/assets/uploads/mockup-app.jpg"
+                      alt="Aplicativo Mãe Que Ora"
+                      layout="fill"
+                      objectFit="cover"
+                      className="transition-transform duration-700 hover:scale-105"
+                    />
+                  </div>
+                </div>
+                <div className="md:w-1/2 order-1 md:order-2 text-left">
+                  <div className="inline-block bg-bronze/10 text-bronze px-4 py-2 rounded-full font-bold text-xs uppercase tracking-widest mb-6">
+                    MUITO MAIS QUE UM LIVRO DIGITAL
+                  </div>
+                  <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-6">
+                    Tenha o Controle Espiritual da Sua Casa <span className="text-bronze">Na Palma da Sua Mão</span>
+                  </h2>
+                  <p className="font-[family-name:var(--font-inter)] text-brown/80 text-lg leading-relaxed mb-6">
+                    Esqueça materiais complicados. Você terá acesso imediato a uma <strong>Área de Membros Exclusiva</strong>, que funciona como um aplicativo no seu celular.
+                  </p>
+                  <ul className="space-y-4 mb-8">
+                    <li className="flex items-start gap-4">
+                      <div className="bg-sand p-2 rounded-full text-xl mt-1">🎧</div>
+                      <div>
+                        <h4 className="font-bold text-brown text-lg">Ouça Onde Estiver</h4>
+                        <p className="text-sm text-brown/70">No carro, lavando louça ou antes de dormir. Basta dar o play e deixar a oração guiar seu coração.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <div className="bg-sand p-2 rounded-full text-xl mt-1">📖</div>
+                      <div>
+                        <h4 className="font-bold text-brown text-lg">Leia e Medite</h4>
+                        <p className="text-sm text-brown/70">Acesse os materiais em PDF com alta qualidade para leitura profunda e reflexão bíblica.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <div className="bg-sand p-2 rounded-full text-xl mt-1">👥</div>
+                      <div>
+                        <h4 className="font-bold text-brown text-lg">Acesso à Comunidade Mãe que Ora, Transforma!</h4>
+                        <p className="text-sm text-brown/70">Caminhe junto com outras mães que, assim como você, estão lutando pela vida dos seus filhos.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
             {/* 2. DELIVERABLES SECTION */}
             <section className="bg-sand/30 px-4 py-16 scroll-animate transition-all duration-1000 delay-200">
               <div className="max-w-4xl md:max-w-6xl mx-auto">
