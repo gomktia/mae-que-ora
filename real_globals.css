@@ -1,0 +1,98 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0a1628;
+  --color-navy-light: #122044;
+  --color-gold: #c9a84c;
+  --color-gold-light: #e2c975;
+  --color-green-cta: #1a9d55;
+  --color-green-cta-hover: #158247;
+  --color-snow: #fafbfd;
+  --color-ice: #f0f2f5;
+
+  --font-playfair: 'Playfair Display', serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(26, 157, 85, 0.4); }
+  50% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(26, 157, 85, 0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(201, 168, 76, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.4), 0 0 40px rgba(201, 168, 76, 0.1); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@utility animate-pulse-gentle {
+  animation: pulse-gentle 2.5s ease-in-out infinite;
+}
+
+@utility animate-fade-in-up {
+  animation: fade-in-up 0.7s ease-out both;
+}
+
+@utility animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
+
+@utility animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+@utility animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@utility animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@utility animate-scale-in {
+  animation: scale-in 0.6s ease-out both;
+}
+
+@utility animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}

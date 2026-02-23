@@ -1,0 +1,172 @@
+[    2068ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0
+[    2305ms] Error: ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js
+
+
+    at <unknown> (Error: ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8)
+    at Object.getCompilationErrors (file://C:\Users\Yoda\Downloads\Projeto-Mae-Que-Ora\app\node_modules\next\dist\server\dev\hot-reloader-turbopack.js:1008:59)
+    at DevBundlerService.getCompilationError (file://C:\Users\Yoda\Downloads\Projeto-Mae-Que-Ora\app\node_modules\next\dist\server\lib\dev-bundler-service.js:44:55)
+    at DevServer.getCompilationError (file://C:\Users\Yoda\Downloads\Projeto-Mae-Que-Ora\app\node_modules\next\dist\server\dev\next-dev-server.js:706:42)
+    at DevServer.findPageComponents (file://C:\Users\Yoda\Downloads\Projeto-Mae-Que-Ora\app\node_modules\next\dist\server\dev\next-dev-server.js:676:43)
+    at async DevServer.renderErrorToResponseImpl (file://C:\Users\Yoda\Downloads\Projeto-Mae-Que-Ora\app\node_modules\next\dist\server\base-server.js:1733:26)
+[    2329ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon.ico:0
+[    2369ms] [ERROR] ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1920
+[    2411ms] [ERROR] ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1920
+[    2471ms] [ERROR] ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1920
+[    2669ms] [ERROR] ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1920
+[    3035ms] [ERROR] ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1920
+[    9542ms] [ERROR] ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1920
+[   14598ms] [ERROR] ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1920
+[   18864ms] [ERROR] ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1920
+[   21538ms] [ERROR] ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css:568:8
+Parsing CSS source code failed
+  566 |   }
+  567 | }
+> 568 | @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+      |        ^
+  569 | @keyframes pulse-gentle {
+  570 |   0%, 100% {
+  571 |     transform: scale(1);
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/styles/globals.css
+    ./Downloads/Projeto-Mae-Que-Ora/app/src/pages/_app.js @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1920
+[   26073ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1206
+[   26079ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/1093b_next_dist_b6167f61._.js:1206

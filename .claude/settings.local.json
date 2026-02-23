@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(tr:*)",
+      "Bash(python3:*)",
+      "Bash(head:*)",
+      "Bash(python:*)",
+      "Bash(/tmp/parse_dump.py:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm install:*)",
+      "Bash(vercel:*)",
+      "Bash(VERCEL_ORG_ID=team_DrpKoVeHykbH1ctCrAs1709u vercel:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npx vercel:*)",
+      "WebFetch(domain:pixabay.com)",
+      "Bash(git status:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)"
+    ]
+  }
+}
