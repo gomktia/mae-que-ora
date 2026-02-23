@@ -1,0 +1,27 @@
+node_modules
+.vercel
+.next
+.claude/
+.playwright-mcp/
+
+# Temp/backup files
+*.mht
+temp_*.js
+real_*.js
+da_*.js
+mqo1_content.txt
+PROJETO_ESTRUTURA.md
+
+# Screenshots
+mobile-*.png
+desktop-*.png
+
+# Loose images in root (copies already in public/assets)
+/*.jpg
+/*.jpeg
+
+# Backup folders in root
+/depoimentos/
+/secao nova/
+/assets*/
+/documentos*/

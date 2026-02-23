@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maequeora.com.br/sitemap.xml
