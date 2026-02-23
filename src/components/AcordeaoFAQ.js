@@ -12,19 +12,24 @@ const FAQ_ITEMS = [
       'Não! O devocional foi feito para todas as mães — desde as que já oram diariamente até as que estão começando agora. Cada dia traz uma orientação clara e simples de seguir.',
   },
   {
-    pergunta: 'Como vou receber o material?',
+    pergunta: 'Como vou receber o acesso?',
     resposta:
-      'Imediatamente após a confirmação do pagamento, você receberá o acesso completo por e-mail. Todo o conteúdo é digital e pode ser acessado pelo celular ou computador.',
+      'Imediatamente após a confirmação do pagamento, você recebe acesso à nossa área de membros exclusiva em app.maequeora.com.br. Funciona como um aplicativo no seu celular — basta abrir no navegador e começar. Você terá acesso aos áudios, PDFs, orações e à comunidade, tudo num só lugar.',
+  },
+  {
+    pergunta: 'Funciona no celular?',
+    resposta:
+      'Sim! A área de membros em app.maequeora.com.br funciona direto no navegador do seu celular, como se fosse um aplicativo. Você pode ouvir os áudios, ler as orações e acessar a comunidade de qualquer lugar.',
   },
   {
     pergunta: 'Funciona para filhos de qualquer idade?',
     resposta:
-      'Sim. O devocional contempla orações para filhos na infância, adolescência e fase adulta. Você pode adaptar cada oração à realidade do seu filho.',
+      'Sim. O devocional contempla orações para filhos na infância, adolescência e fase adulta. Se você é avó, também funciona para interceder pelos seus netos.',
   },
   {
     pergunta: 'E se eu não gostar do conteúdo?',
     resposta:
-      'Você tem 7 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeita, basta solicitar o reembolso e devolvemos 100% do seu investimento.',
+      'Você tem 7 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeita, basta solicitar o reembolso e devolvemos 100% do seu investimento. Sem perguntas.',
   },
   {
     pergunta: 'O pagamento é seguro?',
@@ -45,18 +50,18 @@ export default function AcordeaoFAQ() {
       {FAQ_ITEMS.map((item, i) => (
         <div
           key={i}
-          className="border border-ice rounded-xl overflow-hidden bg-white"
+          className="border border-bronze/20 rounded-xl overflow-hidden bg-white"
         >
           <button
             onClick={() => toggle(i)}
             className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left cursor-pointer
-                       hover:bg-snow transition-colors duration-200"
+                       hover:bg-sand/50 transition-colors duration-200"
           >
-            <span className="font-[family-name:var(--font-inter)] text-navy font-semibold text-sm sm:text-base">
+            <span className="font-[family-name:var(--font-inter)] text-brown font-semibold text-sm sm:text-base">
               {item.pergunta}
             </span>
             <span
-              className={`text-gold text-xl flex-shrink-0 transition-transform duration-300
+              className={`text-bronze text-xl flex-shrink-0 transition-transform duration-300
                           ${aberto === i ? 'rotate-180' : 'rotate-0'}`}
             >
               ▾
@@ -67,7 +72,7 @@ export default function AcordeaoFAQ() {
             className={`overflow-hidden transition-all duration-300 ease-in-out
                         ${aberto === i ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}
           >
-            <p className="font-[family-name:var(--font-inter)] text-navy/70 text-sm leading-relaxed px-6 pb-4">
+            <p className="font-[family-name:var(--font-inter)] text-brown/70 text-sm leading-relaxed px-6 pb-4">
               {item.resposta}
             </p>
           </div>

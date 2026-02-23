@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import Image from 'next/image';
+import AcordeaoFAQ from '../components/AcordeaoFAQ';
 
 const VIDEO_IDS = {
   s10: '6976875aa19ff9c17f8fb644', // Main VSL (Relacionamento)
@@ -687,6 +688,19 @@ export default function HomePage() {
                     items={['União familiar', 'Legado de fé', 'Intimidade com Deus']}
                   />
                 </div>
+              </div>
+            </section>
+
+            {/* FAQ SECTION */}
+            <section className="bg-white px-4 py-16 scroll-animate transition-all duration-1000">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl font-black text-center mb-4 leading-tight">
+                  PERGUNTAS FREQUENTES
+                </h2>
+                <p className="font-[family-name:var(--font-inter)] text-brown/60 text-center mb-10 text-sm">
+                  Tire suas dúvidas antes de começar sua jornada de oração
+                </p>
+                <AcordeaoFAQ />
               </div>
             </section>
           </div>
