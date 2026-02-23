@@ -44,8 +44,8 @@ function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
         {text}
       </a>
       <div className="mt-4 flex flex-col items-center animate-bounce-slow">
-        <span className="font-[family-name:var(--font-inter)] text-brown/50 text-xs font-bold uppercase tracking-widest mb-1">Veja mais abaixo</span>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-bronze/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <span className="font-[family-name:var(--font-inter)] text-brown/90 text-xs font-bold uppercase tracking-widest mb-1">Veja mais abaixo</span>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </div>
@@ -161,7 +161,7 @@ function BonusCard({ title, items, subtitle }) {
           )}
           <ul className="flex flex-wrap gap-x-3 gap-y-1 mt-2">
             {items.map((item, i) => (
-              <li key={i} className="font-[family-name:var(--font-inter)] text-brown/80 text-sm leading-snug">
+              <li key={i} className="font-[family-name:var(--font-inter)] text-brown text-sm leading-snug">
                 {i > 0 && <span className="text-bronze mr-1">•</span>}{item}
               </li>
             ))}
@@ -199,7 +199,7 @@ function DeliverableCard({ title, description, image, icon }) {
                        transition-colors duration-300 group-hover:text-bronze">
           {title}
         </h3>
-        <p className="font-[family-name:var(--font-inter)] text-brown/70 text-xs sm:text-sm lg:text-base leading-relaxed">
+        <p className="font-[family-name:var(--font-inter)] text-brown/90 text-xs sm:text-sm lg:text-base leading-relaxed">
           {description}
         </p>
       </div>
@@ -243,6 +243,17 @@ export default function HomePage() {
 
   const videoId = '6976875aa19ff9c17f8fb644';
   const headlineText = HEADLINES[dor] || HEADLINES.diagnostico;
+
+  // Clear vturb player cache so video always starts fresh
+  useEffect(() => {
+    try {
+      Object.keys(localStorage).forEach((key) => {
+        if (key.startsWith('vturb') || key.startsWith('smartplayer') || key.startsWith('converte')) {
+          localStorage.removeItem(key);
+        }
+      });
+    } catch (e) { /* ignore */ }
+  }, []);
 
   useEffect(() => {
     const alreadyRevealed = localStorage.getItem('vsl_offer_revealed');
@@ -337,7 +348,7 @@ export default function HomePage() {
               <h1 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-tight mb-4 tracking-tight">
                 Você sente que está perdendo o seu filho(a)... para caminhos que você nunca imaginou?
               </h1>
-              <p className="font-[family-name:var(--font-inter)] text-brown/80 text-lg sm:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+              <p className="font-[family-name:var(--font-inter)] text-brown text-lg sm:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
                 Existe uma batalha silenciosa acontecendo pela mente dele(a).<br />
                 <strong className="text-brown">Assista com atenção aos próximos minutos.</strong><br />
                 O que você pode fazer hoje está logo abaixo.
@@ -359,7 +370,7 @@ export default function HomePage() {
               ></vturb-smartplayer>
             </div>
 
-            <div className="flex items-center justify-center gap-2 text-brown/60 text-sm font-[family-name:var(--font-inter)] animate-pulse font-bold bg-white/50 px-4 py-2 rounded-full backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-2 text-brown/90 text-sm font-[family-name:var(--font-inter)] animate-pulse font-bold bg-white/50 px-4 py-2 rounded-full backdrop-blur-sm">
               🔊 Por favor, certifique-se de que seu som está ligado.
             </div>
           </div>
@@ -375,7 +386,7 @@ export default function HomePage() {
                 <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-6">
                   Deus tem um propósito lindo para a vida do seu filho(a)
                 </h2>
-                <p className="font-[family-name:var(--font-inter)] text-brown/80 text-lg md:text-xl leading-relaxed mb-6">
+                <p className="font-[family-name:var(--font-inter)] text-brown text-lg md:text-xl leading-relaxed mb-6">
                   Mas esse propósito precisa ser regado com oração, clamor, confiança e entrega. <br /><br />
                   <span className="text-bronze font-black">Quando uma mãe ora, o céu se abre.</span> <br /><br />
                   Não deixe para amanhã o que pode mudar a vida do seu filho(a) HOJE.<br />
@@ -447,7 +458,7 @@ export default function HomePage() {
                       <p className="font-[family-name:var(--font-playfair)] text-bronze text-xl sm:text-2xl font-black mb-6 italic">
                         Se você é avó, você é mãe duas vezes.
                       </p>
-                      <p className="font-[family-name:var(--font-inter)] text-brown/80 text-lg leading-relaxed mb-4">
+                      <p className="font-[family-name:var(--font-inter)] text-brown text-lg leading-relaxed mb-4">
                         Deus também confiou a você a responsabilidade de interceder por seus netos.
                       </p>
                       <p className="font-[family-name:var(--font-inter)] text-brown text-lg leading-relaxed font-bold">
@@ -472,10 +483,10 @@ export default function HomePage() {
                     <h3 className="font-[family-name:var(--font-playfair)] text-sand text-2xl sm:text-3xl font-bold leading-tight">
                       O Único Devocional de 14 Dias Criado Para Mães Que Querem Ver Seus Filhos Vivendo o Extraordinário
                     </h3>
-                    <p className="font-[family-name:var(--font-inter)] text-sand/80 text-lg leading-relaxed">
+                    <p className="font-[family-name:var(--font-inter)] text-sand text-lg leading-relaxed">
                       Não é mais um livro que você vai comprar e deixar na estante.
                     </p>
-                    <p className="font-[family-name:var(--font-inter)] text-sand/80 text-lg leading-relaxed">
+                    <p className="font-[family-name:var(--font-inter)] text-sand text-lg leading-relaxed">
                       Não é mais uma promessa vazia.
                     </p>
                     <p className="font-[family-name:var(--font-inter)] text-sand text-lg leading-relaxed font-bold bg-black/20 p-4 rounded-xl border-l-4 border-bronze">
@@ -513,7 +524,7 @@ export default function HomePage() {
                       {/* Fase Infância */}
                       <div className="group/fase bg-white/5 rounded-xl p-5 border border-white/10 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-bronze/40 hover:-translate-y-1 hover:bg-white/10">
                         <h4 className="font-[family-name:var(--font-playfair)] text-bronze text-xl font-bold mb-3">Fase da Infância:</h4>
-                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand/80 text-sm">
+                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand text-sm">
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que não dorme bem, vive agitado(a) e irritado(a)</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que vive fases intensas da infância, exigindo cuidado e oração constante</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que você quer cercar de proteção e direção divina desde cedo</li>
@@ -523,7 +534,7 @@ export default function HomePage() {
                       {/* Fase Adolescência */}
                       <div className="group/fase bg-white/5 rounded-xl p-5 border border-white/10 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-bronze/40 hover:-translate-y-1 hover:bg-white/10">
                         <h4 className="font-[family-name:var(--font-playfair)] text-bronze text-xl font-bold mb-3">Fase da Adolescência:</h4>
-                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand/80 text-sm">
+                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand text-sm">
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que está passando por fases desafiadoras que te deixam sem chão</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que anda com más companhias ou está se afastando de casa</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que enfrenta ansiedade, fobias, medos intensos ou tristeza constante</li>
@@ -533,7 +544,7 @@ export default function HomePage() {
                       {/* Fase Adulta */}
                       <div className="group/fase bg-white/5 rounded-xl p-5 border border-white/10 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-bronze/40 hover:-translate-y-1 hover:bg-white/10">
                         <h4 className="font-[family-name:var(--font-playfair)] text-bronze text-xl font-bold mb-3">Fase Adulta:</h4>
-                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand/80 text-sm">
+                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand text-sm">
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que enfrenta prisões emocionais e espirituais</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que passa por dificuldades financeiras ou conflitos familiares</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que precisa de fortalecimento emocional e espiritual</li>
@@ -575,7 +586,7 @@ export default function HomePage() {
                   <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-6">
                     Tenha o Controle Espiritual da Sua Casa <span className="text-bronze">Na Palma da Sua Mão</span>
                   </h2>
-                  <p className="font-[family-name:var(--font-inter)] text-brown/80 text-lg leading-relaxed mb-6">
+                  <p className="font-[family-name:var(--font-inter)] text-brown text-lg leading-relaxed mb-6">
                     Esqueça materiais complicados. Você terá acesso imediato a uma <strong>Área de Membros Exclusiva</strong>, que funciona como um aplicativo no seu celular.
                   </p>
                   <ul className="space-y-4 mb-8">
@@ -583,21 +594,21 @@ export default function HomePage() {
                       <div className="bg-sand p-2 rounded-full text-xl mt-1">🎧</div>
                       <div>
                         <h4 className="font-bold text-brown text-lg">Ouça Onde Estiver</h4>
-                        <p className="text-sm text-brown/70">No carro, lavando louça ou antes de dormir. Basta dar o play e deixar a oração guiar seu coração.</p>
+                        <p className="text-sm text-brown/90">No carro, lavando louça ou antes de dormir. Basta dar o play e deixar a oração guiar seu coração.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-4">
                       <div className="bg-sand p-2 rounded-full text-xl mt-1">📖</div>
                       <div>
                         <h4 className="font-bold text-brown text-lg">Leia e Medite</h4>
-                        <p className="text-sm text-brown/70">Acesse os materiais em PDF com alta qualidade para leitura profunda e reflexão bíblica.</p>
+                        <p className="text-sm text-brown/90">Acesse os materiais em PDF com alta qualidade para leitura profunda e reflexão bíblica.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-4">
                       <div className="bg-sand p-2 rounded-full text-xl mt-1">👥</div>
                       <div>
                         <h4 className="font-bold text-brown text-lg">Acesso à Comunidade Mãe que Ora, Transforma!</h4>
-                        <p className="text-sm text-brown/70">Caminhe junto com outras mães que, assim como você, estão lutando pela vida dos seus filhos.</p>
+                        <p className="text-sm text-brown/90">Caminhe junto com outras mães que, assim como você, estão lutando pela vida dos seus filhos.</p>
                       </div>
                     </li>
                   </ul>
@@ -697,7 +708,7 @@ export default function HomePage() {
                 <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl font-black text-center mb-4 leading-tight">
                   PERGUNTAS FREQUENTES
                 </h2>
-                <p className="font-[family-name:var(--font-inter)] text-brown/60 text-center mb-10 text-sm">
+                <p className="font-[family-name:var(--font-inter)] text-brown/90 text-center mb-10 text-sm">
                   Tire suas dúvidas antes de começar sua jornada de oração
                 </p>
                 <AcordeaoFAQ />
@@ -728,7 +739,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            <p className="text-center text-brown/60 text-sm mt-12 font-medium italic">
+            <p className="text-center text-brown/90 text-sm mt-12 font-medium italic">
               * Resultados reais compartilhados em nossa comunidade exclusiva.
             </p>
 
@@ -750,20 +761,20 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 gap-4 mb-12 text-left">
                   <div className="group bg-white border border-bronze/10 p-5 rounded-2xl flex items-center gap-4 transition-all duration-500 ease-out cursor-default shadow-sm hover:border-bronze/40 hover:bg-white hover:-translate-x-1 hover:shadow-md">
                     <span className="text-bronze text-3xl font-black transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
-                    <p className="text-brown/80 transition-colors duration-300 group-hover:text-brown font-medium">Quantas noites sem paz a preocupação já te custou?</p>
+                    <p className="text-brown transition-colors duration-300 group-hover:text-brown font-medium">Quantas noites sem paz a preocupação já te custou?</p>
                   </div>
                   <div className="group bg-white border border-bronze/10 p-5 rounded-2xl flex items-center gap-4 transition-all duration-500 ease-out cursor-default shadow-sm hover:border-bronze/40 hover:bg-white hover:translate-x-1 hover:shadow-md">
                     <span className="text-bronze text-3xl font-black transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
-                    <p className="text-brown/80 transition-colors duration-300 group-hover:text-brown font-medium">Quanto você já gastou tentando resolver sozinha?</p>
+                    <p className="text-brown transition-colors duration-300 group-hover:text-brown font-medium">Quanto você já gastou tentando resolver sozinha?</p>
                   </div>
                   <div className="group bg-white border border-bronze/10 p-5 rounded-2xl flex items-center gap-4 transition-all duration-500 ease-out cursor-default shadow-sm hover:border-bronze/40 hover:bg-white hover:-translate-x-1 hover:shadow-md">
                     <span className="text-bronze text-3xl font-black transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
-                    <p className="text-brown/80 transition-colors duration-300 group-hover:text-brown font-medium">Quanto vale ver seu filho(a) livre, feliz e vivendo o propósito de Deus?</p>
+                    <p className="text-brown transition-colors duration-300 group-hover:text-brown font-medium">Quanto vale ver seu filho(a) livre, feliz e vivendo o propósito de Deus?</p>
                   </div>
                 </div>
                 <div className="group bg-white/80 backdrop-blur-md p-8 rounded-[3rem] border border-bronze/20 shadow-[0_20px_50px_-12px_rgba(163,120,56,0.15)] relative overflow-hidden transition-all duration-700 ease-out animate-glow-pulse hover:border-bronze/50 hover:shadow-[0_20px_60px_-12px_rgba(163,120,56,0.25)]">
                   <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-bronze to-yellow-500"></div>
-                  <p className="font-[family-name:var(--font-inter)] text-brown/50 text-lg mb-2 uppercase tracking-widest font-bold mt-4">
+                  <p className="font-[family-name:var(--font-inter)] text-brown/90 text-lg mb-2 uppercase tracking-widest font-bold mt-4">
                     De <span className="line-through text-red-400">R$ 197,00</span> por apenas
                   </p>
                   <div className="flex flex-col items-center justify-center">
@@ -773,7 +784,7 @@ export default function HomePage() {
                     <span className="text-bronze text-sm font-black uppercase tracking-[0.2em] mb-4">à vista</span>
                   </div>
                   <div className="w-16 h-1 bg-bronze/20 mx-auto mb-6 rounded-full"></div>
-                  <p className="font-[family-name:var(--font-inter)] text-brown/80 text-xl font-medium mb-10">
+                  <p className="font-[family-name:var(--font-inter)] text-brown text-xl font-medium mb-10">
                     Ou parcele em até <strong className="text-green-600 font-bold">8x de R$ 9,83</strong>
                   </p>
                   <a href="https://pay.kiwify.com.br/C10XqRz" target="_blank" className="group/btn relative flex items-center justify-center w-full bg-gradient-to-r from-[#A37838] to-[#C89B55] hover:from-[#3E2C22] hover:to-[#5A4033] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(163,120,56,0.4)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(163,120,56,0.5)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
@@ -783,7 +794,7 @@ export default function HomePage() {
                 <div className="mt-8 animate-float">
                   <GuaranteeSeal />
                 </div>
-                <p className="mt-8 text-brown/40 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed italic font-medium">
+                <p className="mt-8 text-brown/80 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed italic font-medium">
                   "Seja o exemplo que seu filho(a) vai seguir. Dê esse passo de fé agora."
                 </p>
               </div>
@@ -792,10 +803,10 @@ export default function HomePage() {
         )}
 
         <footer className="bg-white py-10 px-4 text-center border-t border-bronze/10 mt-auto">
-          <p className="font-[family-name:var(--font-inter)] text-brown/40 text-sm font-medium">
+          <p className="font-[family-name:var(--font-inter)] text-brown/80 text-sm font-medium">
             © {new Date().getFullYear()} Mãe que Ora — Todos os direitos reservados.
             <br />
-            <span className="text-[10px] mt-2 block opacity-60 uppercase tracking-widest">
+            <span className="text-[10px] mt-2 block opacity-80 uppercase tracking-widest">
               Os resultados podem variar de pessoa para pessoa. Este site não é afiliado ao Facebook ou Google.
             </span>
           </p>

@@ -72,7 +72,7 @@ export default function AcordeaoFAQ() {
             className={`overflow-hidden transition-all duration-300 ease-in-out
                         ${aberto === i ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}
           >
-            <p className="font-[family-name:var(--font-inter)] text-brown/70 text-sm leading-relaxed px-6 pb-4">
+            <p className="font-[family-name:var(--font-inter)] text-brown text-sm leading-relaxed px-6 pb-4">
               {item.resposta}
             </p>
           </div>
