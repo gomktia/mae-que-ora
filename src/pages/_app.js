@@ -23,9 +23,12 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     const handleRouteChange = () => {
-      if (typeof window.fbq !== 'undefined') {
-        window.fbq('track', 'PageView');
-      }
+      // Small timeout to ensure the external script has parsed
+      setTimeout(() => {
+        if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+          window.fbq('track', 'PageView');
+        }
+      }, 100);
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
