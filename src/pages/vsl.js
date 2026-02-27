@@ -778,15 +778,14 @@ export default function HomePage() {
                     De <span className="line-through text-red-400">R$ 197,00</span> por apenas
                   </p>
                   <div className="flex flex-col items-center justify-center">
-                    <p className="font-[family-name:var(--font-playfair)] text-brown text-7xl sm:text-8xl font-black mb-2 tracking-tighter drop-shadow-sm">
-                      R$ 67,00
+                    <p className="font-[family-name:var(--font-inter)] text-brown text-6xl sm:text-7xl font-black mb-2 tracking-tight drop-shadow-sm">
+                      12x R$ 6,93
                     </p>
-                    <span className="text-bronze text-sm font-black uppercase tracking-[0.2em] mb-4">à vista</span>
+                    <p className="font-[family-name:var(--font-inter)] text-brown/70 text-lg font-medium mb-4">
+                      ou <strong className="text-brown">R$ 67,00</strong> à vista
+                    </p>
                   </div>
                   <div className="w-16 h-1 bg-bronze/20 mx-auto mb-6 rounded-full"></div>
-                  <p className="font-[family-name:var(--font-inter)] text-brown text-xl font-medium mb-10">
-                    Ou parcele em até <strong className="text-green-600 font-bold">8x de R$ 9,83</strong>
-                  </p>
                   <a href="https://pay.kiwify.com.br/C10XqRz" target="_blank" className="group/btn relative flex items-center justify-center w-full bg-gradient-to-r from-[#A37838] to-[#C89B55] hover:from-[#3E2C22] hover:to-[#5A4033] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(163,120,56,0.4)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(163,120,56,0.5)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
                     QUERO QUE MEU FILHO VIVA O EXTRAORDINÁRIO
                   </a>
