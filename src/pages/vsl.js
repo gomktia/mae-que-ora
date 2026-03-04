@@ -344,17 +344,6 @@ export default function HomePage() {
           </div>
 
           <div className="relative z-10 w-full max-w-[800px] flex flex-col items-center">
-            <div className="max-w-3xl md:max-w-5xl mx-auto mb-8 bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-white/50">
-              <h1 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-tight mb-4 tracking-tight">
-                Você sente que está perdendo o seu filho(a)... para caminhos que você nunca imaginou?
-              </h1>
-              <p className="font-[family-name:var(--font-inter)] text-brown text-lg sm:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
-                Existe uma batalha silenciosa acontecendo pela mente dele(a).<br />
-                <strong className="text-brown">Assista com atenção aos próximos minutos.</strong><br />
-                O que você pode fazer hoje está logo abaixo.
-              </p>
-            </div>
-
             <Script
               id="vturb-script"
               src={`https://scripts.converteai.net/994289b0-78e5-4109-9d11-0ad683baa8d0/players/${videoId}/v4/player.js`}
@@ -370,8 +359,19 @@ export default function HomePage() {
               ></vturb-smartplayer>
             </div>
 
-            <div className="flex items-center justify-center gap-2 text-brown/90 text-sm font-[family-name:var(--font-inter)] animate-pulse font-bold bg-white/50 px-4 py-2 rounded-full backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-2 text-brown/90 text-sm font-[family-name:var(--font-inter)] animate-pulse font-bold bg-white/50 px-4 py-2 rounded-full backdrop-blur-sm mb-8">
               🔊 Por favor, certifique-se de que seu som está ligado.
+            </div>
+
+            <div className="max-w-3xl md:max-w-5xl mx-auto bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-white/50">
+              <h1 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-tight mb-4 tracking-tight">
+                Você sente que está perdendo o seu filho(a)... para caminhos que você nunca imaginou?
+              </h1>
+              <p className="font-[family-name:var(--font-inter)] text-brown text-lg sm:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+                Existe uma batalha silenciosa acontecendo pela mente dele(a).<br />
+                <strong className="text-brown">Assista com atenção aos próximos minutos.</strong><br />
+                O que você pode fazer hoje está logo abaixo.
+              </p>
             </div>
           </div>
         </section>
@@ -407,6 +407,26 @@ export default function HomePage() {
                 />
               </div>
             </div>
+
+            {/* LEÃO - DEUS ESTÁ NO COMANDO */}
+            <section className="relative overflow-hidden scroll-animate transition-all duration-1000 py-16 bg-brown">
+              <div className="max-w-4xl mx-auto px-4 flex flex-col items-center text-center">
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-2 border-bronze/30 mb-10 max-w-md w-full">
+                  <img
+                    src="/assets/landingpage/leao.jpeg"
+                    alt="Leão protegendo leoa e filhote — Deus está no comando"
+                    className="w-full h-auto"
+                  />
+                </div>
+                <h2 className="font-[family-name:var(--font-playfair)] text-bronze text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-6">
+                  Deus está no comando.
+                </h2>
+                <p className="font-[family-name:var(--font-inter)] text-sand text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl">
+                  E a mãe que se posiciona debaixo dessa autoridade <strong className="text-bronze">nunca luta sozinha.</strong>
+                </p>
+                <GoldDivider />
+              </div>
+            </section>
 
             {/* NEW SECTION A */}
             <section className="relative overflow-hidden scroll-animate transition-all duration-1000 py-16 bg-sand">
