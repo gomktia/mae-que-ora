@@ -1,7 +1,7 @@
 export default function BotaoCheckout({ texto = 'QUERO GARANTIR MINHA VAGA', className = '' }) {
   return (
     <a
-      href="https://pay.kiwify.com.br/C10XqRz"
+      href="https://pay.kiwify.com.br/sUIZLfz"
       target="_blank"
       rel="noopener noreferrer"
       className={`inline-block w-full max-w-md mx-auto bg-green-cta text-white text-center

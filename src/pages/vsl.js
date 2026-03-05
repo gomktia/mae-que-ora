@@ -806,7 +806,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="w-16 h-1 bg-bronze/20 mx-auto mb-6 rounded-full"></div>
-                  <a href="https://pay.kiwify.com.br/C10XqRz" target="_blank" className="group/btn relative flex items-center justify-center w-full bg-gradient-to-r from-[#A37838] to-[#C89B55] hover:from-[#3E2C22] hover:to-[#5A4033] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(163,120,56,0.4)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(163,120,56,0.5)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
+                  <a href="https://pay.kiwify.com.br/sUIZLfz" target="_blank" className="group/btn relative flex items-center justify-center w-full bg-gradient-to-r from-[#A37838] to-[#C89B55] hover:from-[#3E2C22] hover:to-[#5A4033] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(163,120,56,0.4)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(163,120,56,0.5)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
                     QUERO QUE MEU FILHO VIVA O EXTRAORDINÁRIO
                   </a>
                 </div>
