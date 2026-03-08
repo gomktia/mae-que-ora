@@ -33,12 +33,11 @@ function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
       <a
         href="#secao-preco"
         onClick={scrollToPreco}
-        className="inline-block bg-gradient-to-r from-[#A37838] to-[#C89B55] text-white
+        className="inline-block bg-[#1a9d55] hover:bg-[#158247] text-white
                    font-[family-name:var(--font-inter)] font-black text-lg sm:text-xl md:text-2xl
                    py-4 px-8 sm:px-12 md:px-14 rounded-full
-                   shadow-[0_0_20px_rgba(163,120,56,0.5)]
-                   animate-pulse-gentle hover:scale-105 hover:shadow-[0_0_40px_rgba(163,120,56,0.6)]
-                   hover:from-[#3E2C22] hover:to-[#5A4033]
+                   shadow-[0_10px_30px_rgba(26,157,85,0.5)]
+                   animate-pulse-gentle hover:scale-105 hover:shadow-[0_15px_40px_rgba(26,157,85,0.6)]
                    transition-all duration-300 cursor-pointer uppercase tracking-tight"
       >
         {text}
@@ -406,7 +405,7 @@ export default function HomePage() {
           <div className="animate-fade-in-up">
             {/* 1. PURPOSE SECTION */}
             <section className="bg-white px-4 py-8 text-center scroll-animate transition-all duration-1000">
-              <CtaButton />
+              <CtaButton text="QUERO TRANSFORMAR A VIDA DO MEU FILHO" />
               <div className="max-w-3xl md:max-w-5xl mx-auto mt-10">
                 <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-6">
                   Deus tem um propósito lindo para a vida do seu filho(a)
@@ -663,7 +662,7 @@ export default function HomePage() {
 
             {/* GREEN CTA AFTER CONTROLE ESPIRITUAL */}
             <div className="bg-white scroll-animate transition-all duration-1000">
-              <GreenCtaButton />
+              <GreenCtaButton text="Começar Hoje o Devocional" />
             </div>
 
             {/* 2. DELIVERABLES SECTION */}
@@ -705,7 +704,7 @@ export default function HomePage() {
 
             {/* GREEN CTA AFTER DELIVERABLES */}
             <div className="bg-sand/30 scroll-animate transition-all duration-1000">
-              <GreenCtaButton />
+              <GreenCtaButton text="Quero Orar Pelo Meu Filho Agora" />
             </div>
 
             {/* 3. BONUSES SECTION */}
@@ -759,7 +758,7 @@ export default function HomePage() {
 
             {/* GREEN CTA AFTER BONUSES */}
             <div className="bg-sand/30 scroll-animate transition-all duration-1000">
-              <GreenCtaButton />
+              <GreenCtaButton text="Garantir Meu Acesso com Todos os Bônus" />
             </div>
 
             {/* FAQ SECTION */}
@@ -846,7 +845,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="w-16 h-1 bg-bronze/20 mx-auto mb-6 rounded-full"></div>
-                  <a href="https://pay.kiwify.com.br/sUIZLfz" target="_blank" className="group/btn relative flex items-center justify-center w-full bg-gradient-to-r from-[#A37838] to-[#C89B55] hover:from-[#3E2C22] hover:to-[#5A4033] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(163,120,56,0.4)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(163,120,56,0.5)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
+                  <a href="https://pay.kiwify.com.br/sUIZLfz" target="_blank" className="group/btn relative flex items-center justify-center w-full bg-[#1a9d55] hover:bg-[#158247] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(26,157,85,0.5)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(26,157,85,0.6)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
                     QUERO QUE MEU FILHO VIVA O EXTRAORDINÁRIO
                   </a>
                 </div>

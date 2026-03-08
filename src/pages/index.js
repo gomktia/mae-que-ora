@@ -168,7 +168,7 @@ export default function QuizPage() {
 
               <button
                 onClick={advance}
-                className="group w-full bg-[#A37838] text-white font-[family-name:var(--font-inter)] font-black text-lg sm:text-xl py-5 sm:py-6 px-6 rounded-full shadow-[0_15px_40px_-5px_rgba(163,120,56,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 border border-white/10 cursor-pointer"
+                className="group w-full bg-[#1a9d55] hover:bg-[#158247] text-white font-[family-name:var(--font-inter)] font-black text-lg sm:text-xl py-5 sm:py-6 px-6 rounded-full shadow-[0_15px_40px_-5px_rgba(26,157,85,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 border border-white/10 cursor-pointer animate-pulse-gentle"
               >
                 <span>{currentStep.cta}</span>
                 <span className="text-2xl leading-none group-hover:translate-x-1 transition-transform">
@@ -176,10 +176,6 @@ export default function QuizPage() {
                 </span>
               </button>
 
-              <div className="mt-6 flex items-center justify-center gap-1.5 text-[#3E2C22]/40 text-[10px] sm:text-xs font-[family-name:var(--font-inter)] font-bold uppercase tracking-widest">
-                <span>🔒</span>
-                <span>Diagnóstico confidencial</span>
-              </div>
             </div>
           </section>
 
@@ -269,15 +265,10 @@ export default function QuizPage() {
                 {/* Botão CTA único */}
                 <button
                   onClick={advance}
-                  className="group w-full bg-[#A37838] text-white font-[family-name:var(--font-inter)] font-black text-base sm:text-lg md:text-xl py-4 sm:py-5 md:py-6 px-4 sm:px-6 rounded-full shadow-[0_15px_40px_-5px_rgba(163,120,56,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 border border-white/10 cursor-pointer animate-bounce-slow"
+                  className="group w-full bg-[#1a9d55] hover:bg-[#158247] text-white font-[family-name:var(--font-inter)] font-black text-base sm:text-lg md:text-xl py-4 sm:py-5 md:py-6 px-4 sm:px-6 rounded-full shadow-[0_15px_40px_-5px_rgba(26,157,85,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 border border-white/10 cursor-pointer animate-pulse-gentle"
                 >
                   <span className="text-center leading-tight">{currentStep.cta}</span>
                 </button>
-              </div>
-
-              <div className="mt-4 sm:mt-6 flex items-center justify-center gap-1.5 text-[#3E2C22]/40 text-[10px] sm:text-xs font-[family-name:var(--font-inter)] font-bold uppercase tracking-widest">
-                <span>🔒</span>
-                <span>Resposta confidencial</span>
               </div>
             </div>
           </section>
