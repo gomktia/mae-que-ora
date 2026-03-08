@@ -238,13 +238,14 @@ export default function QuizPage() {
                   {currentStep.question}
                 </h2>
 
-                {/* Lista de situações (somente exibição) */}
+                {/* Lista de situações (clicáveis — avançam para próxima etapa) */}
                 {hasItems && (
                   <div className="space-y-2.5 sm:space-y-3 md:space-y-4 mb-6 sm:mb-8">
                     {currentStep.items.map((item, i) => (
-                      <div
+                      <button
                         key={i}
-                        className="w-full text-left bg-white/90 border border-bronze/10 rounded-xl p-3 sm:p-4 shadow-sm animate-fade-in-up"
+                        onClick={advance}
+                        className="w-full text-left bg-white/90 hover:bg-white border border-bronze/10 hover:border-bronze/30 rounded-xl p-3 sm:p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 animate-fade-in-up transition-all duration-300 cursor-pointer"
                         style={{ animationDelay: `${i * 100}ms` }}
                       >
                         <div className="flex items-center gap-3 sm:gap-4">
@@ -254,8 +255,13 @@ export default function QuizPage() {
                           <span className="font-[family-name:var(--font-inter)] text-[#3E2C22] text-sm sm:text-base md:text-lg leading-snug font-bold">
                             {item.text}
                           </span>
+                          <span className="ml-auto flex-shrink-0 text-bronze/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                          </span>
                         </div>
-                      </div>
+                      </button>
                     ))}
                   </div>
                 )}
@@ -416,10 +422,6 @@ export default function QuizPage() {
               </span>
             </button>
 
-            <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2 text-white/50 text-[10px] sm:text-xs font-bold uppercase tracking-widest bg-black/20 backdrop-blur-sm py-2 px-4 rounded-full border border-white/5">
-              <span className="text-sm">🔒</span>
-              <span>Diagnóstico confidencial</span>
-            </div>
           </section>
 
           <footer className="absolute bottom-4 left-0 right-0 z-10 text-center pointer-events-none">

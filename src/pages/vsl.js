@@ -53,6 +53,31 @@ function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
   );
 }
 
+function GreenCtaButton({ text = "Começar hoje o Devocional" }) {
+  const scrollToPreco = (e) => {
+    e.preventDefault();
+    const el = document.getElementById('secao-preco');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div className="text-center py-6 sm:py-8 px-4">
+      <a
+        href="#secao-preco"
+        onClick={scrollToPreco}
+        className="inline-block w-full max-w-md sm:max-w-lg bg-[#1a9d55] hover:bg-[#158247] text-white
+                   font-[family-name:var(--font-inter)] font-black text-base sm:text-lg md:text-xl
+                   py-4 sm:py-5 px-6 sm:px-10 rounded-full
+                   shadow-[0_10px_30px_rgba(26,157,85,0.5)]
+                   animate-pulse-gentle hover:scale-105 hover:shadow-[0_15px_40px_rgba(26,157,85,0.6)]
+                   transition-all duration-300 cursor-pointer uppercase tracking-tight"
+      >
+        {text}
+      </a>
+    </div>
+  );
+}
+
 function GoldDivider() {
   return (
     <div className="flex items-center justify-center gap-3 my-8">
@@ -636,6 +661,11 @@ export default function HomePage() {
               </div>
             </section>
 
+            {/* GREEN CTA AFTER CONTROLE ESPIRITUAL */}
+            <div className="bg-white scroll-animate transition-all duration-1000">
+              <GreenCtaButton />
+            </div>
+
             {/* 2. DELIVERABLES SECTION */}
             <section className="bg-sand/30 px-4 py-16 scroll-animate transition-all duration-1000 delay-200">
               <div className="max-w-4xl md:max-w-6xl mx-auto">
@@ -672,6 +702,11 @@ export default function HomePage() {
                 </div>
               </div>
             </section>
+
+            {/* GREEN CTA AFTER DELIVERABLES */}
+            <div className="bg-sand/30 scroll-animate transition-all duration-1000">
+              <GreenCtaButton />
+            </div>
 
             {/* 3. BONUSES SECTION */}
             <section className="relative px-4 py-16 scroll-animate transition-all duration-1000 delay-200">
@@ -721,6 +756,11 @@ export default function HomePage() {
                 </div>
               </div>
             </section>
+
+            {/* GREEN CTA AFTER BONUSES */}
+            <div className="bg-sand/30 scroll-animate transition-all duration-1000">
+              <GreenCtaButton />
+            </div>
 
             {/* FAQ SECTION */}
             <section className="bg-white px-4 py-16 scroll-animate transition-all duration-1000">
