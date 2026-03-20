@@ -115,6 +115,7 @@ export default function QuizPage() {
     const durationPerStep = 1800;
     const intervalTime = 50;
     let done = false;
+    const redirectHref = '/vsl?video=s10&dor=diagnostico';
 
     const id = setInterval(() => {
       setTotalProgress((prev) => {
@@ -123,7 +124,9 @@ export default function QuizPage() {
         if (next >= numberOfSteps * 100 && !done) {
           clearInterval(id);
           done = true;
-          setTimeout(() => setStep((s) => s + 1), 600);
+          // Oculta a etapa "Seu diagnóstico está pronto" e o botão CTA
+          // redirecionando direto para a VSL.
+          setTimeout(() => router.replace(redirectHref), 600);
           return numberOfSteps * 100;
         }
         return next;
@@ -131,7 +134,7 @@ export default function QuizPage() {
     }, intervalTime);
 
     return () => clearInterval(id);
-  }, [currentStep]);
+  }, [currentStep, router]);
 
   /* ── INTRO ── */
   if (currentStep.type === 'intro') {
