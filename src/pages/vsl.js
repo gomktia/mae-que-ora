@@ -19,6 +19,9 @@ const HEADLINES = {
   diagnostico: 'Seu diagnóstico está pronto. O que descobrimos vai te surpreender...',
 };
 
+// Segundos antes de exibir a oferta / botões abaixo do player (nossa página).
+// O script remoto do VTurb (player.js na CDN) também traz pitchTime (ex.: 180s) —
+// isso controla elementos DENTRO do player; altere no painel ConverteAI/VTurb se precisar.
 const DELAY_SECONDS = 30;
 
 function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
@@ -281,41 +284,47 @@ export default function HomePage() {
 
   useEffect(() => {
     const alreadyRevealed = localStorage.getItem('vsl_offer_revealed');
-    if (alreadyRevealed) {
+    if (alreadyRevealed === 'true') {
       setMostrarOferta(true);
+      return undefined;
     }
 
     const TEMPO_ALVO = DELAY_SECONDS;
-    let revelado = alreadyRevealed === 'true';
+    let revelado = false;
 
     function executarRevelacao() {
       if (revelado) return;
+      revelado = true;
       setMostrarOferta(true);
       localStorage.setItem('vsl_offer_revealed', 'true');
-      revelado = true;
     }
 
+    function finalizarTimers() {
+      clearInterval(monitor);
+      clearTimeout(wallClockReveal);
+    }
+
+    // 1) Quando o player reportar tempo assistido >= DELAY_SECONDS
     const monitor = setInterval(() => {
-      const player = document.querySelector("vturb-smartplayer");
+      const player = document.querySelector('vturb-smartplayer');
       if (player && typeof player.getPlayedTime === 'function') {
         player.getPlayedTime((seconds) => {
           if (seconds >= TEMPO_ALVO) {
+            finalizarTimers();
             executarRevelacao();
-            clearInterval(monitor);
           }
         });
       }
-    }, 1000);
+    }, 500);
 
-    const safetyTimeout = setTimeout(() => {
-      if (!revelado) {
-        executarRevelacao();
-      }
-    }, (TEMPO_ALVO + 15) * 1000);
+    // 2) Relógio de parede: garante ~30s mesmo se getPlayedTime falhar ou ficar em 0
+    const wallClockReveal = setTimeout(() => {
+      finalizarTimers();
+      executarRevelacao();
+    }, TEMPO_ALVO * 1000);
 
     return () => {
-      clearInterval(monitor);
-      clearTimeout(safetyTimeout);
+      finalizarTimers();
     };
   }, [videoId]);
 
@@ -404,7 +413,7 @@ export default function HomePage() {
         {mostrarOferta && (
           <div className="animate-fade-in-up">
             {/* 1. PURPOSE SECTION */}
-            <section className="bg-white px-4 py-8 text-center scroll-animate transition-all duration-1000">
+            <section className="bg-white px-4 py-8 text-center transition-all duration-1000">
               <CtaButton text="QUERO TRANSFORMAR A VIDA DO MEU FILHO" />
               <div className="max-w-3xl md:max-w-5xl mx-auto mt-10">
                 <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-6">
