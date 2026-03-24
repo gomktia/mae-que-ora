@@ -34,7 +34,7 @@ export default function HomePage() {
               onClick={handleClick}
               className="group w-full bg-[#1a9d55] hover:bg-[#158247] text-white font-[family-name:var(--font-inter)] font-black text-lg sm:text-xl py-5 sm:py-6 px-6 rounded-full shadow-[0_15px_40px_-5px_rgba(26,157,85,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 border border-white/10 cursor-pointer animate-pulse-gentle"
             >
-              Quero uma noava história para o meu filho(a).
+              Quero uma nova história para o meu filho(a).
               <span className="text-2xl leading-none group-hover:translate-x-1 transition-transform">
                 →
               </span>
