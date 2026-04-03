@@ -527,7 +527,9 @@ export default function HomePage() {
             <section className="bg-brown px-4 py-16 scroll-animate transition-all duration-1000 text-sand">
               <div className="max-w-5xl mx-auto">
                 <h2 className="font-[family-name:var(--font-playfair)] text-bronze text-3xl sm:text-4xl md:text-5xl font-black text-center mb-14 leading-tight">
-                  MÃE QUE ORA TRANSFORMA
+                  Mãe que Ora
+                  <br />
+                  Libertação Espiritual Emocional dos seus filhos.
                 </h2>
 
                 {/* Block 1 - Devocional description + images */}
@@ -574,19 +576,8 @@ export default function HomePage() {
                     </h3>
 
                     <div className="space-y-6">
-                      {/* Fase Infância */}
-                      <div className="group/fase bg-white/5 rounded-xl p-5 border border-white/10 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-bronze/40 hover:-translate-y-1 hover:bg-white/10">
-                        <h4 className="font-[family-name:var(--font-playfair)] text-bronze text-xl font-bold mb-3">Fase da Infância:</h4>
-                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand text-sm">
-                          <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que não dorme bem, vive agitado(a) e irritado(a)</li>
-                          <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que vive fases intensas da infância, exigindo cuidado e oração constante</li>
-                          <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que você quer cercar de proteção e direção divina desde cedo</li>
-                        </ul>
-                      </div>
-
                       {/* Fase Adolescência */}
                       <div className="group/fase bg-white/5 rounded-xl p-5 border border-white/10 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-bronze/40 hover:-translate-y-1 hover:bg-white/10">
-                        <h4 className="font-[family-name:var(--font-playfair)] text-bronze text-xl font-bold mb-3">Fase da Adolescência:</h4>
                         <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand text-sm">
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que está passando por fases desafiadoras que te deixam sem chão</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que anda com más companhias ou está se afastando de casa</li>
@@ -596,7 +587,6 @@ export default function HomePage() {
 
                       {/* Fase Adulta */}
                       <div className="group/fase bg-white/5 rounded-xl p-5 border border-white/10 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-bronze/40 hover:-translate-y-1 hover:bg-white/10">
-                        <h4 className="font-[family-name:var(--font-playfair)] text-bronze text-xl font-bold mb-3">Fase Adulta:</h4>
                         <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand text-sm">
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que enfrenta prisões emocionais e espirituais</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que passa por dificuldades financeiras ou conflitos familiares</li>
@@ -677,11 +667,6 @@ export default function HomePage() {
             {/* 2. DELIVERABLES SECTION */}
             <section className="bg-sand/30 px-4 py-16 scroll-animate transition-all duration-1000 delay-200">
               <div className="max-w-4xl md:max-w-6xl mx-auto">
-                <div className="bg-bronze text-white font-bold text-center py-4 rounded-xl mb-10 shadow-lg transform hover:scale-[1.01] transition-transform max-w-2xl mx-auto">
-                  <h3 className="text-xl sm:text-2xl md:text-2xl font-[family-name:var(--font-playfair)] uppercase tracking-widest">
-                    O Que Você Vai Receber Durante os 14 Dias:
-                  </h3>
-                </div>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
                   <DeliverableCard
                     image="/assets/uploads/2026/01/Design-sem-nome.jpg"
