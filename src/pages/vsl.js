@@ -527,9 +527,9 @@ export default function HomePage() {
             <section className="bg-brown px-4 py-16 scroll-animate transition-all duration-1000 text-sand">
               <div className="max-w-5xl mx-auto">
                 <h2 className="font-[family-name:var(--font-playfair)] text-bronze text-3xl sm:text-4xl md:text-5xl font-black text-center mb-14 leading-tight">
-                  Mãe que Ora
+                  Mãe que Ora:
                   <br />
-                  Libertação Espiritual Emocional dos seus filhos.
+                  a Libertação Espiritual e Emocional dos seus filhos.
                 </h2>
 
                 {/* Block 1 - Devocional description + images */}
@@ -576,18 +576,11 @@ export default function HomePage() {
                     </h3>
 
                     <div className="space-y-6">
-                      {/* Fase Adolescência */}
                       <div className="group/fase bg-white/5 rounded-xl p-5 border border-white/10 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-bronze/40 hover:-translate-y-1 hover:bg-white/10">
                         <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand text-sm">
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que está passando por fases desafiadoras que te deixam sem chão</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que anda com más companhias ou está se afastando de casa</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que enfrenta ansiedade, fobias, medos intensos ou tristeza constante</li>
-                        </ul>
-                      </div>
-
-                      {/* Fase Adulta */}
-                      <div className="group/fase bg-white/5 rounded-xl p-5 border border-white/10 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-bronze/40 hover:-translate-y-1 hover:bg-white/10">
-                        <ul className="space-y-2 font-[family-name:var(--font-inter)] text-sand text-sm">
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que enfrenta prisões emocionais e espirituais</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que passa por dificuldades financeiras ou conflitos familiares</li>
                           <li className="flex items-start gap-2"><span className="text-bronze mt-0.5">✦</span> Que precisa de fortalecimento emocional e espiritual</li>
