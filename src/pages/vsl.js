@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Image from 'next/image';
 import AcordeaoFAQ from '../components/AcordeaoFAQ';
+import { KIWIFY_CHECKOUT_URL } from '@/constants/checkout';
 
 const VIDEO_IDS = {
   s10: '6976875aa19ff9c17f8fb644', // Main VSL (Relacionamento)
@@ -25,17 +26,12 @@ const HEADLINES = {
 const DELAY_SECONDS = 30;
 
 function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
-  const scrollToPreco = (e) => {
-    e.preventDefault();
-    const el = document.getElementById('secao-preco');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className={`text-center py-8 px-4 ${className}`}>
       <a
-        href="#secao-preco"
-        onClick={scrollToPreco}
+        href={KIWIFY_CHECKOUT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-block bg-[#1a9d55] hover:bg-[#158247] text-white
                    font-[family-name:var(--font-inter)] font-black text-lg sm:text-xl md:text-2xl
                    py-4 px-8 sm:px-12 md:px-14 rounded-full
@@ -45,28 +41,17 @@ function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
       >
         {text}
       </a>
-      <div className="mt-4 flex flex-col items-center animate-bounce-slow">
-        <span className="font-[family-name:var(--font-inter)] text-brown/90 text-xs font-bold uppercase tracking-widest mb-1">Veja mais abaixo</span>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </div>
     </div>
   );
 }
 
 function GreenCtaButton({ text = "Começar hoje o Devocional" }) {
-  const scrollToPreco = (e) => {
-    e.preventDefault();
-    const el = document.getElementById('secao-preco');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="text-center py-6 sm:py-8 px-4">
       <a
-        href="#secao-preco"
-        onClick={scrollToPreco}
+        href={KIWIFY_CHECKOUT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-block w-full max-w-md sm:max-w-lg bg-[#1a9d55] hover:bg-[#158247] text-white
                    font-[family-name:var(--font-inter)] font-black text-base sm:text-lg md:text-xl
                    py-4 sm:py-5 px-6 sm:px-10 rounded-full
@@ -837,14 +822,14 @@ export default function HomePage() {
                   </p>
                   <div className="flex flex-col items-center justify-center">
                     <p className="font-[family-name:var(--font-inter)] text-brown text-6xl sm:text-7xl font-black mb-2 tracking-tight drop-shadow-sm">
-                      12x R$ 6,93
+                      12x R$ 10,03
                     </p>
                     <p className="font-[family-name:var(--font-inter)] text-brown/70 text-lg font-medium mb-4">
-                      ou <strong className="text-brown">R$ 67,00</strong> à vista
+                      ou <strong className="text-brown">R$ 97,00</strong> à vista
                     </p>
                   </div>
                   <div className="w-16 h-1 bg-bronze/20 mx-auto mb-6 rounded-full"></div>
-                  <a href="https://pay.kiwify.com.br/sUIZLfz" target="_blank" className="group/btn relative flex items-center justify-center w-full bg-[#1a9d55] hover:bg-[#158247] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(26,157,85,0.5)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(26,157,85,0.6)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
+                  <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="group/btn relative flex items-center justify-center w-full bg-[#1a9d55] hover:bg-[#158247] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(26,157,85,0.5)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(26,157,85,0.6)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
                     QUERO QUE MEU FILHO VIVA O EXTRAORDINÁRIO
                   </a>
                 </div>

@@ -12,10 +12,10 @@ export default function PrecoAncorado() {
         Por apenas
       </p>
       <p className="font-[family-name:var(--font-playfair)] text-green-cta text-4xl font-bold mb-1">
-        8x de R$ 9,83
+        12x de R$ 10,03
       </p>
       <p className="font-[family-name:var(--font-inter)] text-navy/60 text-sm mb-6">
-        (Ou <strong className="text-navy">R$ 67,00</strong> à vista)
+        (Ou <strong className="text-navy">R$ 97,00</strong> à vista)
       </p>
 
       <div className="border-t border-ice pt-5 space-y-2">

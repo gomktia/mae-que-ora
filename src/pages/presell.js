@@ -1,14 +1,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { KIWIFY_CHECKOUT_URL } from '@/constants/checkout';
 
 export default function PresellPage() {
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push('/?video=s10&dor=diagnostico');
-  };
-
   return (
     <>
       <Head>
@@ -30,15 +24,17 @@ export default function PresellPage() {
 
         <section className="relative z-10 w-full max-w-[92vw] sm:max-w-[380px] md:max-w-2xl mx-auto">
           <div className="bg-white/80 backdrop-blur-xl p-6 sm:p-8 md:p-12 rounded-[2rem] shadow-xl animate-fade-in-up border border-white/60 ring-1 ring-white/70">
-            <button
-              onClick={handleClick}
+            <a
+              href={KIWIFY_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group w-full bg-[#1a9d55] hover:bg-[#158247] text-white font-[family-name:var(--font-inter)] font-black text-lg sm:text-xl py-5 sm:py-6 px-6 rounded-full shadow-[0_15px_40px_-5px_rgba(26,157,85,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 border border-white/10 cursor-pointer animate-pulse-gentle"
             >
               Quero uma nova história para o meu filho(a).
               <span className="text-2xl leading-none group-hover:translate-x-1 transition-transform">
                 →
               </span>
-            </button>
+            </a>
           </div>
         </section>
 
