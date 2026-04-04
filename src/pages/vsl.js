@@ -551,12 +551,12 @@ export default function HomePage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="group rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-bronze/20 border border-white/10">
                       <div className="relative w-full aspect-[3/4]">
-                        <Image src="/assets/uploads/2026/01/Design-sem-nome.jpg" alt="Mãe orando com filho" layout="fill" objectFit="cover" className="transition-transform duration-700 group-hover:scale-105" />
+                        <Image src="/assets/uploads/2026/01/secao-mae-que-ora-liberacao.png" alt="Mãe e filha abraçadas, com luz suave entre elas, em ambiente claro e acolhedor" layout="fill" objectFit="cover" className="transition-transform duration-700 group-hover:scale-105" />
                       </div>
                     </div>
                     <div className="group rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-bronze/20 border border-white/10">
                       <div className="relative w-full aspect-[3/4]">
-                        <Image src="/assets/uploads/2026/01/Design-sem-nome-2.jpg" alt="Criança em oração" layout="fill" objectFit="cover" className="transition-transform duration-700 group-hover:scale-105" />
+                        <Image src="/assets/uploads/2026/01/secao-mae-que-ora-jejum-oracao.png" alt="Mãe e filha segurando tablet com jejum e oração pelos filhos" layout="fill" objectFit="cover" className="transition-transform duration-700 group-hover:scale-105" />
                       </div>
                     </div>
                   </div>
@@ -660,18 +660,30 @@ export default function HomePage() {
             {/* 2. DELIVERABLES SECTION */}
             <section className="bg-sand/30 px-4 py-16 scroll-animate transition-all duration-1000 delay-200">
               <div className="max-w-4xl md:max-w-6xl mx-auto">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
                   <DeliverableCard
-                    image="/assets/uploads/2026/01/Design-sem-nome.jpg"
+                    image="/assets/uploads/2026/01/card-oracoes-diarias.png"
                     icon="🎧"
                     title="Orações Diárias"
                     description="Em áudio (para você ouvir onde estiver) e em formato digital (para ler e meditar)."
                   />
                   <DeliverableCard
-                    image="/assets/uploads/2026/01/Design-sem-nome-2.jpg"
+                    image="/assets/uploads/2026/01/card-versiculos-diarios.png"
                     icon="📖"
                     title="Versículos Diários"
                     description="Palavra de Deus direcionada para cada dia de oração e reflexão."
+                  />
+                  <DeliverableCard
+                    image="/assets/uploads/2026/01/card-jejum-liberacao-filhos.png"
+                    icon="🙏"
+                    title="Jejum de 7 dias para libertação espiritual dos seus filhos"
+                    description="Um sacrifício de amor que quebra cadeias e ilumina caminhos."
+                  />
+                  <DeliverableCard
+                    image="/assets/uploads/2026/01/card-guia-apoio-emocional-maes.png"
+                    icon="💛"
+                    title="Guia de Apoio Emocional para Mães"
+                    description="Lidando com Culpa, Medo e Ansiedade através da Oração. Liberte-se do peso e encontre a paz no abraço que une."
                   />
                   <DeliverableCard
                     image="/assets/uploads/2026/01/Design-sem-nome-5.jpg"
