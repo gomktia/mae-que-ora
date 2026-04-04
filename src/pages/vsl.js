@@ -400,12 +400,7 @@ export default function HomePage() {
         <div>
             {/* 1. PURPOSE SECTION */}
             <section className="bg-white px-4 py-8 text-center transition-all duration-1000">
-              {mostrarOferta && (
-                <div className="animate-fade-in-up">
-                  <CtaButton text="QUERO TRANSFORMAR A VIDA DO MEU FILHO" />
-                </div>
-              )}
-              <div className="max-w-3xl md:max-w-5xl mx-auto mt-10">
+              <div className="max-w-3xl md:max-w-5xl mx-auto">
                 <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-6">
                   Deus tem um propósito lindo para a vida do seu filho(a)
                 </h2>
@@ -751,11 +746,52 @@ export default function HomePage() {
               </div>
             </section>
 
-            {/* GREEN CTA AFTER BONUSES */}
             {mostrarOferta && (
-              <div className="bg-sand/30 scroll-animate transition-all duration-1000 animate-fade-in-up">
-                <GreenCtaButton text="Garantir Meu Acesso com Todos os Bônus" />
-              </div>
+              <section id="secao-preco" className="bg-gradient-to-b from-white to-sand/50 px-4 py-16 pb-24 scroll-animate transition-all duration-1000 border-t border-bronze/10 animate-fade-in-up">
+                <div className="max-w-2xl mx-auto text-center">
+                  <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl font-black mb-10">
+                    QUANTO VALE A PAZ DA SUA FAMÍLIA?
+                  </h2>
+                  <div className="grid grid-cols-1 gap-4 mb-12 text-left">
+                    <div className="group bg-white border border-bronze/10 p-5 rounded-2xl flex items-center gap-4 transition-all duration-500 ease-out cursor-default shadow-sm hover:border-bronze/40 hover:bg-white hover:-translate-x-1 hover:shadow-md">
+                      <span className="text-bronze text-3xl font-black transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
+                      <p className="text-brown transition-colors duration-300 group-hover:text-brown font-medium">Quantas noites sem paz a preocupação já te custou?</p>
+                    </div>
+                    <div className="group bg-white border border-bronze/10 p-5 rounded-2xl flex items-center gap-4 transition-all duration-500 ease-out cursor-default shadow-sm hover:border-bronze/40 hover:bg-white hover:translate-x-1 hover:shadow-md">
+                      <span className="text-bronze text-3xl font-black transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
+                      <p className="text-brown transition-colors duration-300 group-hover:text-brown font-medium">Quanto você já gastou tentando resolver sozinha?</p>
+                    </div>
+                    <div className="group bg-white border border-bronze/10 p-5 rounded-2xl flex items-center gap-4 transition-all duration-500 ease-out cursor-default shadow-sm hover:border-bronze/40 hover:bg-white hover:-translate-x-1 hover:shadow-md">
+                      <span className="text-bronze text-3xl font-black transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
+                      <p className="text-brown transition-colors duration-300 group-hover:text-brown font-medium">Quanto vale ver seu filho(a) livre, feliz e vivendo o propósito de Deus?</p>
+                    </div>
+                  </div>
+                  <div className="group bg-white/80 backdrop-blur-md p-8 rounded-[3rem] border border-bronze/20 shadow-[0_20px_50px_-12px_rgba(163,120,56,0.15)] relative overflow-hidden transition-all duration-700 ease-out animate-glow-pulse hover:border-bronze/50 hover:shadow-[0_20px_60px_-12px_rgba(163,120,56,0.25)]">
+                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-bronze to-yellow-500"></div>
+                    <p className="font-[family-name:var(--font-inter)] text-brown/90 text-lg mb-2 uppercase tracking-widest font-bold mt-4">
+                      De <span className="line-through text-red-400">R$ 197,00</span> por apenas
+                    </p>
+                    <div className="flex flex-col items-center justify-center">
+                      <p className="font-[family-name:var(--font-inter)] text-brown text-6xl sm:text-7xl font-black mb-2 tracking-tight drop-shadow-sm">
+                        12x R$ 10,03
+                      </p>
+                      <p className="font-[family-name:var(--font-inter)] text-brown/70 text-lg font-medium mb-4">
+                        ou <strong className="text-brown">R$ 97,00</strong> à vista
+                      </p>
+                    </div>
+                    <div className="w-16 h-1 bg-bronze/20 mx-auto mb-6 rounded-full"></div>
+                    <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="group/btn relative flex items-center justify-center w-full bg-[#1a9d55] hover:bg-[#158247] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(26,157,85,0.5)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(26,157,85,0.6)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
+                      QUERO QUE MEU FILHO VIVA O EXTRAORDINÁRIO
+                    </a>
+                  </div>
+                  <div className="mt-8 animate-float">
+                    <GuaranteeSeal />
+                  </div>
+                  <p className="mt-8 text-brown/80 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed italic font-medium">
+                    "Seja o exemplo que seu filho(a) vai seguir. Dê esse passo de fé agora."
+                  </p>
+                </div>
+              </section>
             )}
 
             {/* FAQ SECTION */}
@@ -805,54 +841,6 @@ export default function HomePage() {
             )}
           </div>
         </section>
-
-        {mostrarOferta && (
-          <section id="secao-preco" className="bg-gradient-to-b from-white to-sand/50 px-4 py-16 pb-24 scroll-animate transition-all duration-1000 border-t border-bronze/10 animate-fade-in-up">
-              <div className="max-w-2xl mx-auto text-center">
-                <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl font-black mb-10">
-                  QUANTO VALE A PAZ DA SUA FAMÍLIA?
-                </h2>
-                <div className="grid grid-cols-1 gap-4 mb-12 text-left">
-                  <div className="group bg-white border border-bronze/10 p-5 rounded-2xl flex items-center gap-4 transition-all duration-500 ease-out cursor-default shadow-sm hover:border-bronze/40 hover:bg-white hover:-translate-x-1 hover:shadow-md">
-                    <span className="text-bronze text-3xl font-black transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
-                    <p className="text-brown transition-colors duration-300 group-hover:text-brown font-medium">Quantas noites sem paz a preocupação já te custou?</p>
-                  </div>
-                  <div className="group bg-white border border-bronze/10 p-5 rounded-2xl flex items-center gap-4 transition-all duration-500 ease-out cursor-default shadow-sm hover:border-bronze/40 hover:bg-white hover:translate-x-1 hover:shadow-md">
-                    <span className="text-bronze text-3xl font-black transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
-                    <p className="text-brown transition-colors duration-300 group-hover:text-brown font-medium">Quanto você já gastou tentando resolver sozinha?</p>
-                  </div>
-                  <div className="group bg-white border border-bronze/10 p-5 rounded-2xl flex items-center gap-4 transition-all duration-500 ease-out cursor-default shadow-sm hover:border-bronze/40 hover:bg-white hover:-translate-x-1 hover:shadow-md">
-                    <span className="text-bronze text-3xl font-black transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">?</span>
-                    <p className="text-brown transition-colors duration-300 group-hover:text-brown font-medium">Quanto vale ver seu filho(a) livre, feliz e vivendo o propósito de Deus?</p>
-                  </div>
-                </div>
-                <div className="group bg-white/80 backdrop-blur-md p-8 rounded-[3rem] border border-bronze/20 shadow-[0_20px_50px_-12px_rgba(163,120,56,0.15)] relative overflow-hidden transition-all duration-700 ease-out animate-glow-pulse hover:border-bronze/50 hover:shadow-[0_20px_60px_-12px_rgba(163,120,56,0.25)]">
-                  <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-bronze to-yellow-500"></div>
-                  <p className="font-[family-name:var(--font-inter)] text-brown/90 text-lg mb-2 uppercase tracking-widest font-bold mt-4">
-                    De <span className="line-through text-red-400">R$ 197,00</span> por apenas
-                  </p>
-                  <div className="flex flex-col items-center justify-center">
-                    <p className="font-[family-name:var(--font-inter)] text-brown text-6xl sm:text-7xl font-black mb-2 tracking-tight drop-shadow-sm">
-                      12x R$ 10,03
-                    </p>
-                    <p className="font-[family-name:var(--font-inter)] text-brown/70 text-lg font-medium mb-4">
-                      ou <strong className="text-brown">R$ 97,00</strong> à vista
-                    </p>
-                  </div>
-                  <div className="w-16 h-1 bg-bronze/20 mx-auto mb-6 rounded-full"></div>
-                  <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="group/btn relative flex items-center justify-center w-full bg-[#1a9d55] hover:bg-[#158247] text-white font-[family-name:var(--font-inter)] font-black text-[20px] sm:text-[22px] tracking-wide uppercase py-6 rounded-2xl shadow-[0_10px_30px_rgba(26,157,85,0.5)] hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(26,157,85,0.6)] transition-all duration-300 ease-in-out animate-pulse-gentle cursor-pointer">
-                    QUERO QUE MEU FILHO VIVA O EXTRAORDINÁRIO
-                  </a>
-                </div>
-                <div className="mt-8 animate-float">
-                  <GuaranteeSeal />
-                </div>
-                <p className="mt-8 text-brown/80 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed italic font-medium">
-                  "Seja o exemplo que seu filho(a) vai seguir. Dê esse passo de fé agora."
-                </p>
-              </div>
-            </section>
-        )}
 
         <footer className="bg-white py-10 px-4 text-center border-t border-bronze/10 mt-auto">
           <p className="font-[family-name:var(--font-inter)] text-brown/80 text-sm font-medium">
