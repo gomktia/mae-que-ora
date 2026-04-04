@@ -20,7 +20,9 @@ const HEADLINES = {
   diagnostico: 'Seu diagnóstico está pronto. O que descobrimos vai te surpreender...',
 };
 
-// Segundos antes de exibir a oferta / botões abaixo do player (nossa página).
+// Segundos de vídeo (ou relógio de parede) antes de exibir os botões de compra / checkout
+// e a seção inteira de preço (#secao-preco: valores, garantia, CTA final).
+// O restante da página já fica visível desde o carregamento.
 // O script remoto do VTurb (player.js na CDN) também traz pitchTime (ex.: 180s) —
 // isso controla elementos DENTRO do player; altere no painel ConverteAI/VTurb se precisar.
 const DELAY_SECONDS = 30;
@@ -394,12 +396,15 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* OFFER SECTION */}
-        {mostrarOferta && (
-          <div className="animate-fade-in-up">
+        {/* Oferta: página visível desde o início; botões de compra após DELAY_SECONDS de vídeo (ou relógio) */}
+        <div>
             {/* 1. PURPOSE SECTION */}
             <section className="bg-white px-4 py-8 text-center transition-all duration-1000">
-              <CtaButton text="QUERO TRANSFORMAR A VIDA DO MEU FILHO" />
+              {mostrarOferta && (
+                <div className="animate-fade-in-up">
+                  <CtaButton text="QUERO TRANSFORMAR A VIDA DO MEU FILHO" />
+                </div>
+              )}
               <div className="max-w-3xl md:max-w-5xl mx-auto mt-10">
                 <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-6">
                   Deus tem um propósito lindo para a vida do seu filho(a)
@@ -579,9 +584,11 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-12 flex justify-center">
-                  <CtaButton text="QUERO COMEÇAR A ORAR PELO MEU FILHO" />
-                </div>
+                {mostrarOferta && (
+                  <div className="mt-12 flex justify-center animate-fade-in-up">
+                    <CtaButton text="QUERO COMEÇAR A ORAR PELO MEU FILHO" />
+                  </div>
+                )}
               </div>
             </section>
 
@@ -638,9 +645,11 @@ export default function HomePage() {
             </section>
 
             {/* GREEN CTA AFTER CONTROLE ESPIRITUAL */}
-            <div className="bg-white scroll-animate transition-all duration-1000">
-              <GreenCtaButton text="Começar Hoje o Devocional" />
-            </div>
+            {mostrarOferta && (
+              <div className="bg-white scroll-animate transition-all duration-1000 animate-fade-in-up">
+                <GreenCtaButton text="Começar Hoje o Devocional" />
+              </div>
+            )}
 
             {/* 2. DELIVERABLES SECTION */}
             <section className="bg-sand/30 px-4 py-16 scroll-animate transition-all duration-1000 delay-200">
@@ -687,9 +696,11 @@ export default function HomePage() {
             </section>
 
             {/* GREEN CTA AFTER DELIVERABLES */}
-            <div className="bg-sand/30 scroll-animate transition-all duration-1000">
-              <GreenCtaButton text="Quero Orar Pelo Meu Filho Agora" />
-            </div>
+            {mostrarOferta && (
+              <div className="bg-sand/30 scroll-animate transition-all duration-1000 animate-fade-in-up">
+                <GreenCtaButton text="Quero Orar Pelo Meu Filho Agora" />
+              </div>
+            )}
 
             {/* 3. BONUSES SECTION */}
             <section className="relative px-4 py-16 scroll-animate transition-all duration-1000 delay-200">
@@ -741,9 +752,11 @@ export default function HomePage() {
             </section>
 
             {/* GREEN CTA AFTER BONUSES */}
-            <div className="bg-sand/30 scroll-animate transition-all duration-1000">
-              <GreenCtaButton text="Garantir Meu Acesso com Todos os Bônus" />
-            </div>
+            {mostrarOferta && (
+              <div className="bg-sand/30 scroll-animate transition-all duration-1000 animate-fade-in-up">
+                <GreenCtaButton text="Garantir Meu Acesso com Todos os Bônus" />
+              </div>
+            )}
 
             {/* FAQ SECTION */}
             <section className="bg-white px-4 py-16 scroll-animate transition-all duration-1000">
@@ -757,8 +770,7 @@ export default function HomePage() {
                 <AcordeaoFAQ />
               </div>
             </section>
-          </div>
-        )}
+        </div>
 
         {/* 4. TESTIMONIALS (IMPROVED MASONRY GRID) */}
         <section className="bg-sand/20 px-4 py-20 scroll-animate transition-all duration-1000">
@@ -787,7 +799,7 @@ export default function HomePage() {
             </p>
 
             {mostrarOferta && (
-              <div className="mt-12 flex justify-center">
+              <div className="mt-12 flex justify-center animate-fade-in-up">
                 <CtaButton text="EU TAMBÉM QUERO ESSA TRANSFORMAÇÃO" />
               </div>
             )}
@@ -795,8 +807,7 @@ export default function HomePage() {
         </section>
 
         {mostrarOferta && (
-          <div className="animate-fade-in-up">
-            <section id="secao-preco" className="bg-gradient-to-b from-white to-sand/50 px-4 py-16 pb-24 scroll-animate transition-all duration-1000 border-t border-bronze/10">
+          <section id="secao-preco" className="bg-gradient-to-b from-white to-sand/50 px-4 py-16 pb-24 scroll-animate transition-all duration-1000 border-t border-bronze/10 animate-fade-in-up">
               <div className="max-w-2xl mx-auto text-center">
                 <h2 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl font-black mb-10">
                   QUANTO VALE A PAZ DA SUA FAMÍLIA?
@@ -841,7 +852,6 @@ export default function HomePage() {
                 </p>
               </div>
             </section>
-          </div>
         )}
 
         <footer className="bg-white py-10 px-4 text-center border-t border-bronze/10 mt-auto">
