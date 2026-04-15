@@ -20,12 +20,11 @@ const HEADLINES = {
   diagnostico: 'Seu diagnóstico está pronto. O que descobrimos vai te surpreender...',
 };
 
-// Segundos de vídeo (ou relógio de parede) antes de exibir os botões de compra / checkout
-// e a seção inteira de preço (#secao-preco: valores, garantia, CTA final).
-// O restante da página já fica visível desde o carregamento.
+// Segundos de vídeo (ou relógio de parede) antes de exibir a página de vendas completa.
+// Antes disso, a primeira visita vê apenas o vídeo e os depoimentos.
 // O script remoto do VTurb (player.js na CDN) também traz pitchTime (ex.: 180s) —
 // isso controla elementos DENTRO do player; altere no painel ConverteAI/VTurb se precisar.
-const DELAY_SECONDS = 30;
+const DELAY_SECONDS = 90;
 
 function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
   return (
@@ -396,8 +395,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Oferta: página visível desde o início; botões de compra após DELAY_SECONDS de vídeo (ou relógio) */}
-        <div>
+        {/* Oferta completa liberada após DELAY_SECONDS de vídeo (ou relógio) */}
+        {mostrarOferta && (
+          <div className="animate-fade-in-up">
             {/* 1. PURPOSE SECTION */}
             <section className="bg-white px-4 py-8 text-center transition-all duration-1000">
               <div className="max-w-3xl md:max-w-5xl mx-auto">
@@ -807,6 +807,7 @@ export default function HomePage() {
               </div>
             </section>
         </div>
+        )}
 
         {/* 4. TESTIMONIALS (IMPROVED MASONRY GRID) */}
         <section className="bg-sand/20 px-4 py-20 scroll-animate transition-all duration-1000">
