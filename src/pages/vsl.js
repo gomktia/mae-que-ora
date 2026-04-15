@@ -20,11 +20,11 @@ const HEADLINES = {
   diagnostico: 'Seu diagnóstico está pronto. O que descobrimos vai te surpreender...',
 };
 
-// Segundos de vídeo (ou relógio de parede) antes de exibir a página de vendas completa.
-// Antes disso, a primeira visita vê apenas o vídeo e os depoimentos.
+// Segundos de vídeo (ou relógio de parede) antes de exibir a oferta/checkout.
+// O conteúdo da página fica visível, e os elementos de compra são liberados após o delay.
 // O script remoto do VTurb (player.js na CDN) também traz pitchTime (ex.: 180s) —
 // isso controla elementos DENTRO do player; altere no painel ConverteAI/VTurb se precisar.
-const DELAY_SECONDS = 90;
+const DELAY_SECONDS = 30;
 
 function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
   return (
@@ -369,6 +369,14 @@ export default function HomePage() {
               strategy="afterInteractive"
             />
 
+            <div className="mb-5 px-4 py-3 rounded-2xl bg-bronze/90 text-white text-center shadow-xl border border-white/20 animate-pulse-gentle">
+              <p className="font-[family-name:var(--font-playfair)] text-xl sm:text-2xl md:text-3xl font-black leading-tight tracking-tight">
+                Este vídeo pode mudar o destino do seu filho.
+                <br />
+                <span className="text-yellow-200">DESCUBRA AGORA</span> antes que ele <span className="text-yellow-200">SAIA DO AR</span>.
+              </p>
+            </div>
+
             <div className="w-full max-w-[320px] sm:max-w-[400px] mx-auto bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-bronze/20 mb-8 aspect-[9/14] sm:aspect-[9/16]">
               <vturb-smartplayer
                 key={`player-${videoId}`}
@@ -395,9 +403,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Oferta completa liberada após DELAY_SECONDS de vídeo (ou relógio) */}
-        {mostrarOferta && (
-          <div className="animate-fade-in-up">
+        {/* Oferta: conteúdo visível; compra liberada após DELAY_SECONDS */}
+        <div>
             {/* 1. PURPOSE SECTION */}
             <section className="bg-white px-4 py-8 text-center transition-all duration-1000">
               <div className="max-w-3xl md:max-w-5xl mx-auto">
@@ -807,7 +814,6 @@ export default function HomePage() {
               </div>
             </section>
         </div>
-        )}
 
         {/* 4. TESTIMONIALS (IMPROVED MASONRY GRID) */}
         <section className="bg-sand/20 px-4 py-20 scroll-animate transition-all duration-1000">
