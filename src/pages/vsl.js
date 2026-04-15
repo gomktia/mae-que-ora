@@ -600,7 +600,7 @@ export default function HomePage() {
                 <div className="md:w-1/2">
                   <div className="rounded-3xl overflow-hidden shadow-2xl border border-bronze/20 transform hover:scale-[1.02] transition-transform duration-500 mb-8 md:mb-0">
                     <Image
-                      src="/assets/uploads/mockup-app.jpg"
+                      src="/assets/uploads/2026/01/controle-espiritual-palma-da-mao.png"
                       alt="Aplicativo Mãe Que Ora"
                       width={600}
                       height={600}
