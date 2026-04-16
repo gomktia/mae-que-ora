@@ -375,7 +375,7 @@ export default function HomePage() {
                 <br />
                 começam agora neste vídeo.
                 <br />
-                ASSISTA ANTES QUE SAIA DO AR.
+                <span className="text-yellow-200">ASSISTA ANTES QUE SAIA DO AR.</span>
               </p>
             </div>
 
