@@ -423,8 +423,42 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Oferta: conteúdo visível; compra liberada após DELAY_SECONDS */}
-        <div>
+        {/* Comentários/Provas sociais: visível desde o início */}
+        <section className="bg-sand/20 px-4 py-20 scroll-animate transition-all duration-1000">
+          <div className="max-w-7xl mx-auto">
+            <h3 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl font-black text-center mb-6">
+              TRANSFORMAÇÕES REAIS DE MÃES COMO VOCÊ
+            </h3>
+            <p className="font-[family-name:var(--font-inter)] text-bronze font-black uppercase tracking-widest text-center mb-16 text-sm">
+              CLIQUE NAS FOTOS PARA AMPLIAR
+            </p>
+
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+                <TestimonialCard
+                  key={n}
+                  src={`/depoimentos/0${n}.jpeg`}
+                  index={n - 1}
+                  onClick={openLightbox}
+                />
+              ))}
+            </div>
+
+            <p className="text-center text-brown/90 text-sm mt-12 font-medium italic">
+              * Resultados reais compartilhados em nossa comunidade exclusiva.
+            </p>
+
+            {mostrarOferta && (
+              <div className="mt-12 flex justify-center animate-fade-in-up">
+                <CtaButton text="EU TAMBÉM QUERO ESSA TRANSFORMAÇÃO" />
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Página de vendas: liberada após DELAY_SECONDS */}
+        {mostrarOferta && (
+          <div className="animate-fade-in-up">
             {/* 1. PURPOSE SECTION */}
             <section className="bg-white px-4 py-8 text-center transition-all duration-1000">
               <div className="max-w-3xl md:max-w-5xl mx-auto">
@@ -833,41 +867,8 @@ export default function HomePage() {
                 <AcordeaoFAQ />
               </div>
             </section>
-        </div>
-
-        {/* 4. TESTIMONIALS (IMPROVED MASONRY GRID) */}
-        <section className="bg-sand/20 px-4 py-20 scroll-animate transition-all duration-1000">
-          <div className="max-w-7xl mx-auto">
-            <h3 className="font-[family-name:var(--font-playfair)] text-brown text-3xl sm:text-4xl font-black text-center mb-6">
-              TRANSFORMAÇÕES REAIS DE MÃES COMO VOCÊ
-            </h3>
-            <p className="font-[family-name:var(--font-inter)] text-bronze font-black uppercase tracking-widest text-center mb-16 text-sm">
-              CLIQUE NAS FOTOS PARA AMPLIAR
-            </p>
-
-            {/* Masonry Layout */}
-            <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                <TestimonialCard
-                  key={n}
-                  src={`/depoimentos/0${n}.jpeg`}
-                  index={n - 1}
-                  onClick={openLightbox}
-                />
-              ))}
-            </div>
-
-            <p className="text-center text-brown/90 text-sm mt-12 font-medium italic">
-              * Resultados reais compartilhados em nossa comunidade exclusiva.
-            </p>
-
-            {mostrarOferta && (
-              <div className="mt-12 flex justify-center animate-fade-in-up">
-                <CtaButton text="EU TAMBÉM QUERO ESSA TRANSFORMAÇÃO" />
-              </div>
-            )}
           </div>
-        </section>
+        )}
 
         <footer className="bg-white py-10 px-4 text-center border-t border-bronze/10 mt-auto">
           <p className="font-[family-name:var(--font-inter)] text-brown/80 text-sm font-medium">
