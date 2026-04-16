@@ -24,7 +24,7 @@ const HEADLINES = {
 // O conteúdo da página fica visível, e os elementos de compra são liberados após o delay.
 // O script remoto do VTurb (player.js na CDN) também traz pitchTime (ex.: 180s) —
 // isso controla elementos DENTRO do player; altere no painel ConverteAI/VTurb se precisar.
-const DELAY_SECONDS = 30;
+const DELAY_SECONDS = 60;
 
 function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
   return (
@@ -371,9 +371,11 @@ export default function HomePage() {
 
             <div className="mb-5 px-4 py-3 rounded-2xl bg-bronze/90 text-white text-center shadow-xl border border-white/20 animate-pulse-gentle">
               <p className="font-[family-name:var(--font-playfair)] text-xl sm:text-2xl md:text-3xl font-black leading-tight tracking-tight">
-                Este vídeo pode mudar o destino do seu filho.
+                OS 14 DIAS DE ORAÇÃO PELA LIBERTAÇÃO DO SEU FILHO (A)
                 <br />
-                <span className="text-yellow-200">DESCUBRA AGORA</span> antes que ele <span className="text-yellow-200">SAIA DO AR</span>.
+                começam agora neste vídeo.
+                <br />
+                ASSISTA ANTES QUE SAIA DO AR.
               </p>
             </div>
 
@@ -385,6 +387,24 @@ export default function HomePage() {
                 referrerPolicy="origin"
               ></vturb-smartplayer>
             </div>
+
+            {mostrarOferta && (
+              <div className="w-full max-w-[420px] mx-auto mb-6 animate-fade-in-up">
+                <a
+                  href={KIWIFY_CHECKOUT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full bg-[#1a9d55] hover:bg-[#158247] text-white text-center
+                             font-[family-name:var(--font-inter)] font-black text-base sm:text-lg
+                             py-4 px-6 rounded-full uppercase tracking-tight
+                             shadow-[0_10px_30px_rgba(26,157,85,0.5)]
+                             hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(26,157,85,0.6)]
+                             transition-all duration-300 animate-pulse-gentle"
+                >
+                  Quero garantir a libertação do meu filho(a) agora
+                </a>
+              </div>
+            )}
 
             <div className="flex items-center justify-center gap-2 text-brown/90 text-sm font-[family-name:var(--font-inter)] animate-pulse font-bold bg-white/50 px-4 py-2 rounded-full backdrop-blur-sm mb-8">
               🔊 Por favor, certifique-se de que seu som está ligado.
