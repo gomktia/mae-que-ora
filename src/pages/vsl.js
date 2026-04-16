@@ -423,32 +423,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* NEW SECTION A */}
-        <section className="relative overflow-hidden scroll-animate transition-all duration-1000 py-16 bg-sand">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/assets/uploads/2026/01/mae-orando.jpg"
-              alt="Mãe orando"
-              layout="fill"
-              objectFit="cover"
-              className="opacity-60"
-            />
-            <div className="absolute inset-0 bg-black/60" />
-          </div>
-          <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-            <h2 className="font-[family-name:var(--font-playfair)] text-white text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-8 drop-shadow-md">
-              O Que Você Está Prestes a Descobrir Pode Mudar Tudo — Se Você Se Posicionar
-            </h2>
-            <div className="space-y-6 text-brown font-[family-name:var(--font-inter)] text-lg md:text-xl leading-relaxed bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/50">
-              <p>Existe um poder espiritual que Deus confiou somente às mães.</p>
-              <p>Um poder que nenhum psicólogo, nenhum remédio, nenhum conselho humano pode substituir.</p>
-              <p className="font-black text-bronze text-2xl">Esse poder está na oração que só uma mãe consegue fazer.</p>
-              <p>Deus entregou à você a autoridade e a responsabilidade espiritual pela vida do seu filho(a).</p>
-              <p>Nos próximos 14 dias, você receberá um direcionamento diário de oração profunda para interceder e despertar o propósito de Deus na vida do seu filho(a).</p>
-            </div>
-          </div>
-        </section>
-
         {/* Comentários/Provas sociais: visível desde o início */}
         <section className="bg-sand/20 px-4 py-20 scroll-animate transition-all duration-1000">
           <div className="max-w-7xl mx-auto">
@@ -485,6 +459,32 @@ export default function HomePage() {
         {/* Página de vendas: liberada após DELAY_SECONDS */}
         {mostrarOferta && (
           <div className="animate-fade-in-up">
+            {/* NEW SECTION A */}
+            <section className="relative overflow-hidden scroll-animate transition-all duration-1000 py-16 bg-sand">
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/assets/uploads/2026/01/mae-orando.jpg"
+                  alt="Mãe orando"
+                  layout="fill"
+                  objectFit="cover"
+                  className="opacity-60"
+                />
+                <div className="absolute inset-0 bg-black/60" />
+              </div>
+              <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+                <h2 className="font-[family-name:var(--font-playfair)] text-white text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-8 drop-shadow-md">
+                  O Que Você Está Prestes a Descobrir Pode Mudar Tudo — Se Você Se Posicionar
+                </h2>
+                <div className="space-y-6 text-brown font-[family-name:var(--font-inter)] text-lg md:text-xl leading-relaxed bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/50">
+                  <p>Existe um poder espiritual que Deus confiou somente às mães.</p>
+                  <p>Um poder que nenhum psicólogo, nenhum remédio, nenhum conselho humano pode substituir.</p>
+                  <p className="font-black text-bronze text-2xl">Esse poder está na oração que só uma mãe consegue fazer.</p>
+                  <p>Deus entregou à você a autoridade e a responsabilidade espiritual pela vida do seu filho(a).</p>
+                  <p>Nos próximos 14 dias, você receberá um direcionamento diário de oração profunda para interceder e despertar o propósito de Deus na vida do seu filho(a).</p>
+                </div>
+              </div>
+            </section>
+
             {/* 1. PURPOSE SECTION */}
             <section className="bg-white px-4 py-8 text-center transition-all duration-1000">
               <div className="max-w-3xl md:max-w-5xl mx-auto">
