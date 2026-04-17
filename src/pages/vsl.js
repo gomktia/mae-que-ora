@@ -20,11 +20,16 @@ const HEADLINES = {
   diagnostico: 'Seu diagnóstico está pronto. O que descobrimos vai te surpreender...',
 };
 
-// Segundos de vídeo (ou relógio de parede) antes de exibir a oferta/checkout.
-// O conteúdo da página fica visível, e os elementos de compra são liberados após o delay.
-// O script remoto do VTurb (player.js na CDN) também traz pitchTime (ex.: 180s) —
-// isso controla elementos DENTRO do player; altere no painel ConverteAI/VTurb se precisar.
-const DELAY_SECONDS = 90;
+// Delays por tempo assistido no player (getPlayedTime) e relógio de parede (fallback).
+// Botão verde logo abaixo do vídeo: só após DELAY_CTA_VIDEO_SEGUNDOS.
+// Demais CTAs e longa página de vendas: após DELAY_PAGINA_VENDAS_SEGUNDOS.
+// O script VTurb também pode ter pitchTime interno — painel ConverteAI/VTurb.
+const DELAY_PAGINA_VENDAS_SEGUNDOS = 60;
+const DELAY_CTA_VIDEO_SEGUNDOS = 90;
+
+const LS_PAGINA_REVELADA = 'vsl_pagina_revelada';
+const LS_CTA_VIDEO_REVELADA = 'vsl_cta_video_revelada';
+const LS_LEGACY_OFERTA = 'vsl_offer_revealed';
 
 function CtaButton({ text = "QUERO ACESSAR O DEVOCIONAL", className = "" }) {
   return (
@@ -249,6 +254,7 @@ export default function HomePage() {
   const router = useRouter();
   const { dor, video } = router.query;
   const [mostrarOferta, setMostrarOferta] = useState(false);
+  const [mostrarCtaVideo, setMostrarCtaVideo] = useState(false);
   const [childName, setChildName] = useState('seu filho(a)');
   const [lightboxSrc, setLightboxSrc] = useState(null);
 
@@ -269,48 +275,85 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    const alreadyRevealed = localStorage.getItem('vsl_offer_revealed');
-    if (alreadyRevealed === 'true') {
-      setMostrarOferta(true);
+    let paginaRevelada = false;
+    let ctaVideoRevelada = false;
+
+    try {
+      const legacy = localStorage.getItem(LS_LEGACY_OFERTA) === 'true';
+      if (legacy) {
+        paginaRevelada = true;
+        ctaVideoRevelada = true;
+        setMostrarOferta(true);
+        setMostrarCtaVideo(true);
+        return undefined;
+      }
+      if (localStorage.getItem(LS_PAGINA_REVELADA) === 'true') {
+        paginaRevelada = true;
+        setMostrarOferta(true);
+      }
+      if (localStorage.getItem(LS_CTA_VIDEO_REVELADA) === 'true') {
+        ctaVideoRevelada = true;
+        setMostrarCtaVideo(true);
+      }
+    } catch (e) { /* ignore */ }
+
+    if (paginaRevelada && ctaVideoRevelada) {
       return undefined;
     }
 
-    const TEMPO_ALVO = DELAY_SECONDS;
-    let revelado = false;
-
-    function executarRevelacao() {
-      if (revelado) return;
-      revelado = true;
+    function revelarPagina() {
+      if (paginaRevelada) return;
+      paginaRevelada = true;
       setMostrarOferta(true);
-      localStorage.setItem('vsl_offer_revealed', 'true');
+      try {
+        localStorage.setItem(LS_PAGINA_REVELADA, 'true');
+      } catch (e) { /* ignore */ }
     }
 
-    function finalizarTimers() {
-      clearInterval(monitor);
-      clearTimeout(wallClockReveal);
+    function revelarCtaVideo() {
+      if (ctaVideoRevelada) return;
+      ctaVideoRevelada = true;
+      setMostrarCtaVideo(true);
+      try {
+        localStorage.setItem(LS_CTA_VIDEO_REVELADA, 'true');
+      } catch (e) { /* ignore */ }
     }
 
-    // 1) Quando o player reportar tempo assistido >= DELAY_SECONDS
+    function pararMonitorSeCompleto() {
+      if (paginaRevelada && ctaVideoRevelada) {
+        clearInterval(monitor);
+      }
+    }
+
     const monitor = setInterval(() => {
       const player = document.querySelector('vturb-smartplayer');
       if (player && typeof player.getPlayedTime === 'function') {
         player.getPlayedTime((seconds) => {
-          if (seconds >= TEMPO_ALVO) {
-            finalizarTimers();
-            executarRevelacao();
+          if (seconds >= DELAY_PAGINA_VENDAS_SEGUNDOS) {
+            revelarPagina();
           }
+          if (seconds >= DELAY_CTA_VIDEO_SEGUNDOS) {
+            revelarCtaVideo();
+          }
+          pararMonitorSeCompleto();
         });
       }
     }, 500);
 
-    // 2) Relógio de parede: garante o delay mesmo se getPlayedTime falhar ou ficar em 0
-    const wallClockReveal = setTimeout(() => {
-      finalizarTimers();
-      executarRevelacao();
-    }, TEMPO_ALVO * 1000);
+    const wallPagina = setTimeout(() => {
+      revelarPagina();
+      pararMonitorSeCompleto();
+    }, DELAY_PAGINA_VENDAS_SEGUNDOS * 1000);
+
+    const wallCtaVideo = setTimeout(() => {
+      revelarCtaVideo();
+      pararMonitorSeCompleto();
+    }, DELAY_CTA_VIDEO_SEGUNDOS * 1000);
 
     return () => {
-      finalizarTimers();
+      clearInterval(monitor);
+      clearTimeout(wallPagina);
+      clearTimeout(wallCtaVideo);
     };
   }, [videoId]);
 
@@ -388,7 +431,7 @@ export default function HomePage() {
               ></vturb-smartplayer>
             </div>
 
-            {mostrarOferta && (
+            {mostrarCtaVideo && (
               <div className="w-full max-w-[420px] mx-auto mb-6 animate-fade-in-up">
                 <a
                   href={KIWIFY_CHECKOUT_URL}
@@ -423,7 +466,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Visível desde o início (junto ao vídeo e depoimentos); CTA e longa página após DELAY_SECONDS */}
+        {/* Visível desde o início (junto ao vídeo e depoimentos); botão sob o vídeo após 90s; restante da oferta após 60s */}
         <section className="relative overflow-hidden scroll-animate transition-all duration-1000 py-16 bg-sand">
           <div className="absolute inset-0 z-0">
             <Image
@@ -482,7 +525,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Página de vendas: liberada após DELAY_SECONDS */}
+        {/* Página de vendas (exceto CTA sob o vídeo): liberada após 60s */}
         {mostrarOferta && (
           <div className="animate-fade-in-up">
             {/* 1. PURPOSE SECTION */}
