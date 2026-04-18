@@ -24,8 +24,8 @@ const HEADLINES = {
 // Botão verde logo abaixo do vídeo: só após DELAY_CTA_VIDEO_SEGUNDOS.
 // Demais CTAs e longa página de vendas: após DELAY_PAGINA_VENDAS_SEGUNDOS.
 // O script VTurb também pode ter pitchTime interno — painel ConverteAI/VTurb.
-const DELAY_PAGINA_VENDAS_SEGUNDOS = 60;
-const DELAY_CTA_VIDEO_SEGUNDOS = 90;
+const DELAY_PAGINA_VENDAS_SEGUNDOS = 30;
+const DELAY_CTA_VIDEO_SEGUNDOS = 30;
 
 const LS_PAGINA_REVELADA = 'vsl_pagina_revelada';
 const LS_CTA_VIDEO_REVELADA = 'vsl_cta_video_revelada';
@@ -413,12 +413,12 @@ export default function HomePage() {
             />
 
             <div className="mb-5 px-4 py-3 rounded-2xl bg-bronze/90 text-white text-center shadow-xl border border-white/20 animate-pulse-gentle">
-              <p className="font-[family-name:var(--font-playfair)] text-xl sm:text-2xl md:text-3xl font-black leading-tight tracking-tight">
+              <p className="font-[family-name:var(--font-inter)] text-base sm:text-lg md:text-xl font-extrabold leading-relaxed tracking-normal max-w-lg mx-auto">
                 OS 14 DIAS DE ORAÇÃO PELA LIBERTAÇÃO DO SEU FILHO (A)
                 <br />
                 começam agora neste vídeo.
                 <br />
-                <span className="text-yellow-200">ASSISTA ANTES QUE SAIA DO AR.</span>
+                <span className="text-yellow-200 block mt-2 tracking-wide">ASSISTA ANTES QUE SAIA DO AR.</span>
               </p>
             </div>
 
@@ -466,7 +466,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Visível desde o início (junto ao vídeo e depoimentos); botão sob o vídeo após 90s; restante da oferta após 60s */}
+        {/* Visível desde o início (junto ao vídeo e depoimentos); botão sob o vídeo e restante da oferta após 30s */}
         <section className="relative overflow-hidden scroll-animate transition-all duration-1000 py-16 bg-sand">
           <div className="absolute inset-0 z-0">
             <Image
@@ -525,7 +525,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Página de vendas (exceto CTA sob o vídeo): liberada após 60s */}
+        {/* Página de vendas (exceto CTA sob o vídeo): liberada após 30s */}
         {mostrarOferta && (
           <div className="animate-fade-in-up">
             {/* 1. PURPOSE SECTION */}
