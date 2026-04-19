@@ -260,7 +260,7 @@ export default function HomePage() {
 
   useAnimateOnScroll();
 
-  const videoId = '6976875aa19ff9c17f8fb644';
+  const videoId = '69e4bc7dae8b68c4da0ad1b1';
   const headlineText = HEADLINES[dor] || HEADLINES.diagnostico;
 
   // Clear vturb player cache so video always starts fresh
